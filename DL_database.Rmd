@@ -1,0 +1,164 @@
+
+---
+title: "Daghestanian loans database"
+author: Ilya Chechuro, Michael Daniel, Samira Verhees
+
+output:
+  html_document:
+    theme: spacelab
+    toc: yes
+    toc_position: top
+    toc_float: yes
+    smooth_scroll: true
+    fig_cap: TRUE
+
+---
+  
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+
+```
+
+This database contains wordlists collected as part of the [Daghestanian loans](https://ilcl.hse.ru/en/projects) project by the [Linguistic Convergence Laboratory](https://ilcl.hse.ru/en/) at NRU HSE. The aim of the 160-item shortlist, which is based on the [World Loanword Database questionnaire](https://wold.clld.org/), is to measure lexical contact on a micro-level. In other words, to quantify lexical convergence among the speech communities of minority languages on a village-level, and to detect fine-grained areal patterns beyond general observations on the spheres of influence of certain languages.
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+
+# loading packages
+
+library(tidyverse)
+library(DT)
+library(lingtypology)
+
+# loading data - mind the date in the csv filename!
+
+words <- read_tsv("words_05012019.csv")
+
+meta <- read_tsv("meta_05012019.csv")
+
+# select relevant parameters from metadata file
+
+meta <- meta %>%
+  select(`List ID`, Type, Code, Language, Glottocode, Village, District, Lat, Lon)
+
+# merge table with target words and the corresponding metadata
+
+words_meta <- merge(words, meta, by = 'List ID')
+
+# select some variables for the datatable (= database interface)
+
+database <- words_meta %>%
+  select(`Concept nr.`, Concept, Word, Set, Village, Language, District, `List ID`)
+
+```
+
+Contents:
+
+```{r}
+
+content <- words_meta %>%
+  group_by(`List ID`, Language, Word) %>%
+  summarise(Words = n())
+
+
+languages <- length(unique(content$Language))
+target_words <- sum(content$Words)
+
+all <- rbind(target_words, languages)
+
+all
+
+```
+
+
+## The database
+
+For now, the table shows source **Concepts** and target **Words**. Each target word is grouped in a similarity **Set** - a set of words that have the same meaning and look similar. In the future, data will be added on borrowing sources. Metadata includes the name of the **Village** where the word was recorded, the administrative **District** it is part of, the **Language** spoken there, and the **List ID**: these ID's correspond to a particular speaker or in some cases a written source like a dictionary. Data is accessible at: [Github/LingConLab/DagloanDatabase](https://github.com/LingConLab/DagloanDatabase).
+
+<br>
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+
+# Create a searchable datatable with filters on top
+
+datatable(database, class = 'cell-border stripe', filter = 'top', options = list(pageLength = 100))
+
+```
+
+---
+
+Version: `r Sys.Date()`. For questions or comments contact jh.verhees@gmail.com.
+
+---
+
+## Map of the surveyed villages
+
+Hover over and / or click on a dot on the map to know more. The color of the dots corresponds to the *number* of lists collected in a village. Orange = dictionary data.
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+
+# Remove certain NA's for now
+
+meta <- meta[complete.cases(meta$Lat),]
+meta <- meta[complete.cases(meta$Glottocode),]
+
+
+# Separate dictionaries from speakers
+
+dict <- meta %>%
+  filter(meta$Type == 'Dictionary')
+
+speakers <- meta %>%
+  filter(meta$Type == 'Speaker')
+
+
+# Create a dataframe that shows the number of lists per village
+
+lists <- speakers %>%
+  group_by(Village, Language, Glottocode, Lat, Lon) %>%
+  summarise(Lists = n())
+
+
+# Convert the column with counts to a factor
+
+lists$Lists <- as.factor(lists$Lists)
+
+```
+
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE, fig.width = 9, fig.height= 7}
+
+
+# Draw a map that shows each village and the number of lists collected
+
+
+map.feature(lang.gltc(lists$Glottocode),
+            feature = lists$Lists,
+            color = "magma",
+            latitude = lists$Lat,
+            longitude = lists$Lon,
+            zoom.control = TRUE,
+            legend = TRUE,
+            title = "Lists",
+            label = lists$Language,
+            popup = paste(aff.lang(lang.gltc(lists$Glottocode)), # Popup with genetic info on language + name of village
+                          "<br>",
+                          "<br>",
+                          "<b> Village: </b>",
+                          lists$Village),
+            zoom.level = 7.5) %>% # Put another map on top of it, showing dictionary data
+              map.feature(lang.gltc(dict$Glottocode),
+              latitude = dict$Lat,
+              longitude = dict$Lon,
+              feature = dict$Language,
+              label = dict$Language,
+              popup = paste(aff.lang(lang.gltc(dict$Glottocode)),
+                            "<br>",
+                            "<br>",
+                            "<b>Source:</b>",
+                            "[Insert reference to literature here]"),
+              legend = FALSE,
+              color = c("orange"),
+              tile = c("Esri.WorldGrayCanvas"),
+              pipe.data = .)
+```
+

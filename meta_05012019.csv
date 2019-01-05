@@ -1,0 +1,139 @@
+List ID	Type	Code	Language	Glottocode	Village	Multidagestan.com	Lat	Lon	District	Name	Birthyear	Gender	Soundfile	Filename	Trip	Researcher	Reference
+1	Speaker	Alibeglo1	Georgian	nucl1302	Alibeglo		41.378056	46.821944	Qax	Volodya	1936	M		Alibeglo_Georgian_Volodya_1936	2018		
+2	Speaker	Arkhit1	Lezgian	lezg1247	Arkhit	y	41.734607	47.97302	Khiv	Timur	1979	M		Arkhit_Lezgian_Timur_1979	2018		
+3	Speaker	Arkhit2	Lezgian	lezg1247	Arkhit	y	41.734607	47.97302	Khiv	Dinamutdin	1972	M		Lezgian Arkhit Dinamutdin 1972	2018		
+4	Speaker	Arkhit3	Lezgian	lezg1247	Arkhit	y	41.734607	47.97302	Khiv	Sharafutdin	1956	M		Lezgian Arkhit Sharafutdin 1956	2018		
+5	Speaker	Arkhit4	Lezgian	lezg1247	Arkhit	y	41.734607	47.97302	Khiv	Shikhmagomed		M		Lezgian Arkhit Shikhmagomed	2018		
+6	Speaker	Arkhit5	Lezgian	lezg1247	Arkhit	y	41.734607	47.97302	Khiv	Timur	1979	M		Lezgian Arkhit Timur 1979	2018		
+7	Speaker	Arkhit6	Lezgian	lezg1247	Arkhit	y	41.734607	47.97302	Khiv	Mekhti	1963	M		Архыт мехти 1963	2018		
+8	Speaker	Bezhta1	Bezhta	bezh1248	Bezhta	y	42.1339	46.1247	Tsunta	B		M		Bezhta_B	2017		
+10	Dictionary	D_Agul	Agul	aghu1253			41.92418	47.58429						DAgul			
+11	Dictionary	D_Arabic	Arabic	egyp1253										Arabic			
+12	Dictionary	D_Avar	Avar	avar1256			42.43056	46.66639						DAvar			
+13	Dictionary	D_Azerbaijani	Azerbaijani	nort2697										Azer			
+14	Dictionary	D_Bezhta	Bezhta	bezh1248			42.1206	46.03319						DBezhta			
+9	Dictionary	D_Botlikh	Botlikh	botl1242			42.665	46.22						botlikh_botlikh_mixed			
+15	Dictionary	D_Chechen	Chechen	chec1245			43.5	45.5						DChechen			
+16	Dictionary	D_Gagatli	Andi	andi1255			42.800361	46.292645						andi_gagatli_dictionary			
+17	Dictionary	D_Georgian	Georgian	nucl1302										DGeorgian			
+18	Dictionary	D_Hinuq	Hinuq	hinu1240			42.45022	45.80638						DHinuq			
+19	Dictionary	D_Karata	Karata	kara1474			42.65005	46.31511						DKarata			
+20	Dictionary	D_Kumyk	Kumyk	kumy1244										Kumyk			
+21	Dictionary	D_Lezgian	Lezgian	lezg1247			41.51572	47.89507						Lezgian			
+22	Dictionary	D_Russian	Russian	russ1263										Russian			
+23	Dictionary	D_Rutul	Rutul	rutu1240			41.61866	47.32436						Rutul, Dict			
+24	Dictionary	D_Tabasaran	Tabasaran	taba1259			42.01976	47.83791						DTabasaran			
+25	Dictionary	D_Tsez	Tsez	dido1241			42.26458	45.80959						DTsez			
+26	Speaker	Darvag1	Azerbaijani	nort2697	Darvag	y	42.022285	48.065912	Tabasaran	Fakhri		M		Azer Darvag Fakhri	2018		
+27	Speaker	Darvag2	Azerbaijani	nort2697	Darvag	y	42.022285	48.065912	Tabasaran	Abdul	1958	M		Azer Darwag Abdul 1958	2018		
+28	Speaker	Darvag3	Azerbaijani	nort2697	Darvag	y	42.022285	48.065912	Tabasaran	Seidul	1963	M		Azer Darwag Seidul 1963	2018		
+29	Speaker	Darvag4	Azerbaijani	nort2697	Darvag	y	42.022285	48.065912	Tabasaran	Famik	1980	M		Azeri Darwag Famik 1980	2018		
+30	Speaker	Darvag7	Azerbaijani	nort2697	Darvag	y	42.022285	48.065912	Tabasaran	Chingiz, Zeirab	1994, 1997	M, F		Azeri_Darvag_Chingiz_1994_and_Zeinab_1997	2018		
+31	Speaker	Darvag5	Azerbaijani	nort2697	Darvag	y	42.022285	48.065912	Tabasaran	Kerim Khan	1951	M		Azeri Darwag Kerimkhan 1951	2018		
+32	Speaker	Darvag6	Azerbaijani	nort2697	Darvag	y	42.022285	48.065912	Tabasaran	Kerim Khan	1951	M		Дарваг, Керим Хан, 1951 4. NA7	2018		
+33	Speaker	Dyubek1	Tabasaran	taba1259	Dyubek	y	42.0208	47.969528	Tabasaran	Alibek	1957	M		Dyubek_Tabasaran_Alibek_1957	2018		
+34	Speaker	Dyubek2	Tabasaran	taba1259	Dyubek	y	42.0208	47.969528	Tabasaran	Abdul		M		Tabasaran Dyubek Abdul	2018		
+35	Speaker	Dyubek3	Tabasaran	taba1259	Dyubek	y	42.0208	47.969528	Tabasaran	Mutalim		M		Tabasaran Dyubek Mutalim	2018		
+36	Speaker	Dyubek4	Tabasaran	taba1259	Dyubek	y	42.0208	47.969528	Tabasaran	Nazir		M		Tabasaran Dyubek Nazir	2018		
+37	Speaker	Dzhavgat1	Kajtak	kajt1238	Dzhavgat	y	42.0506	47.9375	Kaitag			M, M		Dargwa Dzhavgat Malchiki	2018		
+38	Speaker	Dzhavgat2	Kajtak	kajt1238	Dzhavgat	y	42.0506	47.9375	Kaitag	Gusejn	1955	M		Dzhavgat_Dargwa_Gusejn_Rabadanovich_1955	2018		
+39	Speaker	Dzhavgat3	Kajtak	kajt1238	Dzhavgat	y	42.0506	47.9375	Kaitag	Rustam	1973	M		Dzhavgat_Dargwa_Rustam_1973	2018		
+40	Speaker	Dzhavgat4	Kajtak	kajt1238	Dzhavgat	y	42.0506	47.9375	Kaitag	Shakhvan	1952	M		Dzhavgat_Dargwa_Shakhvan_Asambekovich_1952	2018		
+41	Speaker	Dzhibakhni1	Kajtak	kajt1238	Dzhibakhni	n	42.06051	47.90847	Kaitag	Abdusalam		M		Dargwa Dzhibakhni Abdusalam	2018		
+42	Speaker	Dzhibakhni2	Kajtak	kajt1238	Dzhibakhni	n	42.06051	47.90847	Kaitag	Ali	1958	M		Dzhibakhni_Dargwa_Ali_Magomedgadzhievich_1958	2018		
+43	Speaker	Dzhibakhni3	Kajtak	kajt1238	Dzhibakhni	n	42.06051	47.90847	Kaitag	Gasan	1938	M		Dzhibakhni_Dargwa_Gasan_Ramazanovich_1938	2018		
+44	Speaker	Dzhibakhni4	Kajtak	kajt1238	Dzhibakhni	n	42.06051	47.90847	Kaitag	Magomed	1947	M		Джибахни, Магомед, 1947 2.07	2018		
+45	Speaker	Helmets1	Tsakhur	tsak1249	Gel’mets	y	41.62466	47.17889	Rutul	Abduragim		M		Helmets, Abduragim	2017		
+46	Speaker	Helmets2	Tsakhur	tsak1249	Gel’mets	y	41.62466	47.17889	Rutul	Murad		M		Helmets, Murad	2017		
+47	Speaker	Helmets3	Tsakhur	tsak1249	Gel’mets	y	41.62466	47.17889	Rutul	Tarlan		M		Helmets, Tarlan	2017		
+48	Speaker	Ikhrek1	Rutul	rutu1240	Ikhrek	y	41.693931	47.210005	Rutul	Aishe		F		Ikhrek, Rutul, Aishe, Word	2017		
+49	Speaker	Ikhrek2	Rutul	rutu1240	Ikhrek	y	41.693931	47.210005	Rutul	Jariyat				Ikhrek, Rutul, Jariyat	2017		
+50	Speaker	Ikhrek3	Rutul	rutu1240	Ikhrek	y	41.693931	47.210005	Rutul	Salimat		F		Ikhrek, Rutul, Salimat, 56, Word	2017		
+51	Speaker	Ikhrek4	Rutul	rutu1240	Ikhrek	y	41.693931	47.210005	Rutul	Zijawudin		M		Ikhrek, Rutul, Zijawudin, 77, Word	2017		
+52	Speaker	Ilisu1	?		Ilisu		41.46694	47.05917	Qax	Dzhamil	1989	M		Джамиль, 1989 Илесу 17 07	2018		
+53	Speaker	Karata1	Karata	kara1474	Karata	y	42.5942	46.3419	Akhvakh	Khajbula				Karata_Khajbula	2018		
+54	Speaker	Karata2	Karata	kara1474	Karata	y	42.5942	46.3419	Akhvakh	Unknown				Karata_Ktoto	2018		
+55	Speaker	Karata3	Karata	kara1474	Karata	y	42.5942	46.3419	Akhvakh	Umarkhadzhi		M		Karata_Umarkhadzhi	2018		
+56	Speaker	Karata4	Karata	kara1474	Karata	y	42.5942	46.3419	Akhvakh	Zagra		F		Karata_Zagra	2018		
+57	Speaker	Khapil1	Tabasaran	taba1259	Khapil’	n	41.98722	47.97731	Tabasaran	Kamil, Bendir	1972, 1968	M, M		Khapil_Tabasaran_Kamil_and_Bendir_1972_1968	2018		
+58	Speaker	Khapil2	Tabasaran	taba1259	Khapil’	n	41.98722	47.97731	Tabasaran	Zijawutdin	1948	M		Khapil_Tabasaran_Zijawutdin_Pashaevich_1948	2018		
+59	Speaker	Khapil3	Tabasaran	taba1259	Khapil’	n	41.98722	47.97731	Tabasaran	Nizam	1971	M		Tabasaran Khapil Nizam 1971	2018		
+60	Speaker	Khapil4	Tabasaran	taba1259	Khapil’	n	41.98722	47.97731	Tabasaran	Alikerim		M		Tabasaran Xapil Alikerim	2018		
+61	Speaker	Khapil5	Tabasaran	taba1259	Khapil’	n	41.98722	47.97731	Tabasaran	Rashid	1975	M		Хапиль, Рашид, 1975 3.07	2018		
+62	Speaker	Khiv1	Tabasaran	taba1259	Khiv	y	41.7533	47.9286	Khiv	Abdul	1934	M		Khiv_Tabasaran_Abdul_Kazievich_1934	2018		
+63	Speaker	Khiv2	Tabasaran	taba1259	Khiv	y	41.7533	47.9286	Khiv	Shamil	1985	M		Khiv_Tabasaran_Shamil_1985	2018		
+64	Speaker	Khiv3	Tabasaran	taba1259	Khiv	y	41.7533	47.9286	Khiv	Azim	1982	M		Tabasaran Khiv Azim 1982	2018		
+65	Speaker	Khiv4	Tabasaran	taba1259	Khiv	y	41.7533	47.9286	Khiv	Begverdi		M		Tabasaran Khiv Begverdi	2018		
+66	Speaker	Khlut1	Lezgian	lezg1247	Khlyut	y	41.496274	47.533824	Rutul	Alimurad		M		Khlut, Alimurad	2017		
+67	Speaker	Khlut2	Lezgian	lezg1247	Khlyut	y	41.496274	47.533824	Rutul	Arsen		M		Khlut, Arsen	2017		
+68	Speaker	Khlut3	Lezgian	lezg1247	Khlyut	y	41.496274	47.533824	Rutul	Islam		M		Khlut, Islam	2017		
+69	Speaker	Khlut4	Lezgian	lezg1247	Khlyut	y	41.496274	47.533824	Rutul	Sanidir		M		Khlut, Sanidir	2017		
+70	Speaker	Khlut5	Lezgian	lezg1247	Khlyut	y	41.496274	47.533824	Rutul	Alimurad		M		Lezgian Khlut Alimurad	2017		
+71	Speaker	Khoredzh1	Tabasaran	taba1259	Khoredzh	n	41.74914	47.8667	Khiv	Ramazan	1935	M		Khoredz_Tabasaran_Ramazan_Ismailovich_1935	2018		
+72	Speaker	Khoredzh2	Tabasaran	taba1259	Khoredzh	n	41.74914	47.8667	Khiv	Marks	1970	M		Khoredzh_Tabasaran_Marks_197 NA	2018		
+73	Speaker	Khoredzh3	Tabasaran	taba1259	Khoredzh	n	41.74914	47.8667	Khiv	Alikuli	1956	M		Tabasaran Khoredzh Alikuli 1956	2018		
+74	Speaker	Khoredzh4	Tabasaran	taba1259	Khoredzh	n	41.74914	47.8667	Khiv	Bogdan		M		Tabasaran Khoredzh Bogdan	2018		
+75	Speaker	Khoredzh5	Tabasaran	taba1259	Khoredzh	n	41.74914	47.8667	Khiv	Khabib	1993	M		Tabasaran Khoredzh Khabib 1993	2018		
+76	Speaker	Khoredzh6	Tabasaran	taba1259	Khoredzh	n	41.74914	47.8667	Khiv	Alek	1956	M		Алек, Хоредж, 1956, 07.07	2018		
+77	Speaker	Khutkhul1	Agul	aghu1253	Khutkhul		41.78517	47.61451	Agul	Unknown	1931			1931, Хутхул 09.07	2018		
+78	Speaker	Khutkhul2	Agul	aghu1253	Khutkhul		41.78517	47.61451	Agul	Nuratdin	1975	M		Agul Khuthul Nuratdin 1975	2018		
+79	Speaker	Khutkhul3	Agul	aghu1253	Khutkhul		41.78517	47.61451	Agul	Bari	1945			Agul_Khutkhul_Bari_1945	2018		
+80	Speaker	Khutkhul4	Agul	aghu1253	Khutkhul		41.78517	47.61451	Agul	Zamir	1975	M		Замир, 1975, Хутхул 09.07	2018		
+81	Speaker	Kiche1	Rutul	rutu1240	Kiche	y	41.53146	47.48171	Rutul	Sejfulla				Kiche, Rutul, Sejfulla, Word	2017		
+82	Speaker	Kiche2	Rutul	rutu1240	Kiche	y	41.53146	47.48171	Rutul	Serazhudin		M		Kiche, Rutul, Serazhudin, Word	2017		
+83	Speaker	Kidero1	Tsez	dido1241	Kidero	y	42.1931	45.9583	Tsunta	Ai				Kidero_Ai	2017		
+84	Speaker	Kidero2	Tsez	dido1241	Kidero	y	42.1931	45.9583	Tsunta	Akh				Kidero_Akh	2017		
+85	Speaker	Kidero3	Tsez	dido1241	Kidero	y	42.1931	45.9583	Tsunta	I				Kidero_I	2017		
+86	Speaker	Kina1	Rutul	rutu1240	Kina	y	41.6166	47.2647	Rutul	Magomed-Shapi		M		Kina, Rutul, Magomed-Shapi, 67yo, word	2017		
+87	Speaker	Kina2	Rutul	rutu1240	Kina	y	41.6166	47.2647	Rutul	Mevletdin		M		Kina, Rutul, Mevletdin, 7NA, word	2017		
+88	Speaker	Kina3	Rutul	rutu1240	Kina	y	41.6166	47.2647	Rutul	Nurulla				Kina, Rutul, Nurulla	2017		
+89	Speaker	Kurag1	Lezgian	lezg1247	Kurag		41.836764	47.661351	Agul	Abdurizag	1961	M		Agul_Kurag_Abdurizag_1961	2018		
+90	Speaker	Laka1	Tabasaran	taba1259	Laka	y	41.75705	47.88114	Khiv	Batyr	1967	M		Laka_Tabasaran_Batyr_1967	2018		
+91	Speaker	Laka2	Tabasaran	taba1259	Laka	y	41.75705	47.88114	Khiv	Fazli	1943	M		Laka_Tabasaran_Fazli_Abdurizakovich_1943	2018		
+92	Speaker	Laka3	Tabasaran	taba1259	Laka	y	41.75705	47.88114	Khiv	Furad	1976	M		Laka_Tabasaran_Furad_1976	2018		
+93	Speaker	Laka4	Tabasaran	taba1259	Laka	y	41.75705	47.88114	Khiv	Rufad	1981	M		Tabasaran Laka Rufad 1981	2018		
+94	Speaker	Laka5	Tabasaran	taba1259	Laka	y	41.75705	47.88114	Khiv	Sadik		M		Tabasaran Laka Sadik	2018		
+95	Speaker	Laka6	Tabasaran	taba1259	Laka	y	41.75705	47.88114	Khiv	Talib	1964	M		Tabasaran Laka Talib 1964	2018		
+96	Speaker	Meshabash1	Georgian	nucl1302	Meshabash		41.408889	46.874444	Qax	Isak’o	1948			Meshabash_Georgian_Isak'o_1948	2018		
+97	Speaker	Meshabash2	Georgian	nucl1302	Meshabash		41.408889	46.874444	Qax	Ikal	1948			Икал, 1948, Мешабаш, грузинский 16. NA7	2018		
+98	Speaker	Mikik1	Tsakhur	tsak1249	Mikik	y	41.63753	47.16822	Rutul	Allahverdi		M		Mikik, Tsakhur, Allahverdi	2017		
+99	Speaker	Mikik2	Tsakhur	tsak1249	Mikik	y	41.63753	47.16822	Rutul	Nariman		M		Mikik, Tsakhur, Nariman	2017		
+100	Speaker	Qax1	Azerbaijani	nort2697	Qax		41.41944	46.91806	Qax	Niazim	1959	M		Azeri_Qax_Niazim_1959	2018		
+101	Speaker	Qax2	Azerbaijani	nort2697	Qax		41.41944	46.91806	Qax	Ogulbey	1953	M		Azeri_Qax_Ogulbey_1953	2018		
+102	Speaker	Qax3	Azerbaijani	nort2697	Qax		41.41944	46.91806	Qax	Salim	1986	M		Azeri_Qax_Salim_1986	2018		
+103	Speaker	Qax4	Georgian	nucl1302	Qax		41.41944	46.91806	Qax	Paule	1989			Qax_Georgian_Paule_1989	2018		
+104	Speaker	Qax5	Georgian	nucl1302	Qax		41.41944	46.91806	Qax	Zhora	1952	M		Qax_Georgian_Zhora_1952	2018		
+105	Speaker	Qax6	?		Qax		41.41944	46.91806	Qax	Slava		M		Qax_Slava	2018		
+106	Speaker	Qax7	Azerbaijani	nort2697	Qax		41.41944	46.91806	Qax	Bakhram	1958	M		Бахрам, 1958, азерб Гах Баш, 15. NA7	2018		
+107	Speaker	Qax8	Azerbaijani	nort2697	Qax		41.41944	46.91806	Qax	Avul Bei	1953	M		Гах Баш, азерб, 15. NA7, Авул Бей, 1953	2018		
+108	Speaker	Qax9	Azerbaijani	nort2697	Qax		41.41944	46.91806	Qax	Niazim	1959	M		Ниазим, 1959, Гах Баш, 15. NA7, Азербайджанский	2018		
+109	Speaker	Qum1	Tsakhur	tsak1249	Qum		41.4550912	46.9013871	Qax	Firuz	1975	F		firuz 1975 18 07 Кум	2018		
+110	Speaker	Qum2	Tsakhur	tsak1249	Qum		41.4550912	46.9013871	Qax	Izuli	1964			Изули, 1964, Кум, цахурский 18 07	2018		
+111	Speaker	Rikvani1	Andi	andi1255	Rikvani	y	42.782304	46.319372	Botlikh	Ramazan	1949	M		andi_rikvani_2017_m_1949	2017		
+112	Speaker	Rutul1	Rutul	rutu1240	Rutul	y	41.5342	47.4269	Rutul	Vera		F		Rutul, Rutul, Vera	2017		
+113	Speaker	Tad-Magitl1	Akhvakh	akhv1239	Tad-Magitl’	y	42.550266	46.348953	Akhvakh	Khadzhimurat		M		Tadmagitl_Khadzhimurat	2018		
+114	Speaker	Tad-Magitl2	Akhvakh	akhv1239	Tad-Magitl’	y	42.550266	46.348953	Akhvakh	Nazirbek		M		Tadmagitl_Nazirbek	2018		
+115	Speaker	Tatil1	Tabasaran	taba1259	Tatil’	n	41.99269	47.98826	Tabasaran	Azim		M		Tabasaran Tatil Azim	2018		
+116	Speaker	Tatil2	Tabasaran	taba1259	Tatil’	n	41.99269	47.98826	Tabasaran	Muhammadshafi	1951	M		Tabasaran_Tatil_Muhammadshafi_Magomedagaevich_1951	2018		
+117	Speaker	Tatil3	Tabasaran	taba1259	Tatil’	n	41.99269	47.98826	Tabasaran	Abulferz’	1948	M		Tatil_Tabasaran_Abulferz'_Gabibovich_1948	2018		
+118	Speaker	Tatil4	Tabasaran	taba1259	Tatil’	n	41.99269	47.98826	Tabasaran	Kakhid	1965	M		Татиль, Кахид 1965 1. NA7	2018		
+119	Speaker	Tatil5	Tabasaran	taba1259	Tatil’	n	41.99269	47.98826	Tabasaran	Fakhri	1966	M		Татиль, Фахри, 1966 1. NA7	2018		
+120	Speaker	Tpig1	Agul	aghu1253	Tpig		41.780423	47.589523	Agul	Mirza		M		Agul Tpig Mirza	2018		
+121	Speaker	Tsinit1	Lezgian	lezg1247	Tsinit	n	41.72324	48.00882	Khiv	Edik	1973	M		Lezgian Cinit Edik 1973	2018		
+122	Speaker	Tsinit2	Lezgian	lezg1247	Tsinit	n	41.72324	48.00882	Khiv	Magomed, Rasul	1981	M, M		Lezgian Cinit Magomed Rasul 1981	2018		
+123	Speaker	Tsinit3	Lezgian	lezg1247	Tsinit	n	41.72324	48.00882	Khiv	Mahmud	1945	M		Lezgian Cinit Mahmud 1945	2018		
+124	Speaker	Tsinit4	Lezgian	lezg1247	Tsinit	n	41.72324	48.00882	Khiv	Shakhmerdam		M		Lezgian Tsinit Shakhmerdam	2018		
+125	Speaker	Tsinit5	Lezgian	lezg1247	Tsinit	n	41.72324	48.00882	Khiv	Magomed	1945	M		Tsinit_Lezgian_Magomed_Zagirovich_1945	2018		
+126	Speaker	Tukita1	Karata	kara1474	Tukita	y	43.489353	46.613481	Akhvakh	MagMag				Tukita_MagMag	2018		
+127	Speaker	Yagdyg1	Tabasaran	taba1259	Yagdyg	n	41.980115	47.970578	Tabasaran	Unknown				Tabasaran Yagdyg ?	2018		
+128	Speaker	Yagdyg2	Tabasaran	taba1259	Yagdyg	n	41.980115	47.970578	Tabasaran	Magomed		M		Tabasaran Yagdyg Magomed	2018		
+129	Speaker	Yagdyg3	Tabasaran	taba1259	Yagdyg	n	41.980115	47.970578	Tabasaran	Omar	1983	M		Tabasaran Yagdyg Omar 1983	2018		
+130	Speaker	Yagdyg4	Tabasaran	taba1259	Yagdyg	n	41.980115	47.970578	Tabasaran	Kerim	1967	M		Tabasaran_Yagdyg_Kerim_1967	2018		
+131	Speaker	Yagdyg5	Tabasaran	taba1259	Yagdyg	n	41.980115	47.970578	Tabasaran	Agabek	1958	M		Yagdyg_Tabasaran_Agabek_1958	2018		
+132	Speaker	Yagdyg6	Tabasaran	taba1259	Yagdyg	n	41.980115	47.970578	Tabasaran	Radzhab	1983	M		Ягдыг, Раджаб, 1983 1.07	2018		
+133	Speaker	Yersi1	Azerbaijani	nort2697	Yersi	y	42.018844	48.012897	Tabasaran	Musa		M		Azer Yersi Musa	2018		
+134	Speaker	Yersi2	Azerbaijani	nort2697	Yersi	y	42.018844	48.012897	Tabasaran	Bedretdin	1951	M		Azeri_Yersi_Bedretdin_Balaevich_1951	2018		
+135	Speaker	Yersi3	Azerbaijani	nort2697	Yersi	y	42.018844	48.012897	Tabasaran	Murad	1985	M		Azeri_Yersi_Murad_1985	2018		
+136	Speaker	Yersi4	Azerbaijani	nort2697	Yersi	y	42.018844	48.012897	Tabasaran	Akim	1974	M		Ерси, Аким, 1974 сверить с Самирой 1. NA7	2018		
+137	Speaker	Zilo1	Andi	andi1255	Zilo	y	42.731394	46.319223	Botlikh	Unknown	2002	F		andi_zilo1_2018_f_2002	2017		
+138	Speaker	Zilo2	Andi	andi1255	Zilo	y	42.731394	46.319223	Botlikh	Kazbek et al.		M		andi_zilo2_2017_m_mixed	2017		
