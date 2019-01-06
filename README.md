@@ -1,2 +1,2 @@
-# Dagloan_database
+# Dagloan database
 Database of Daghestanian Loans
