@@ -33,7 +33,7 @@ library(lingtypology)
 
 words <- read_tsv("words_05012019.csv")
 
-meta <- read_tsv("meta_05012019.csv")
+meta <- read_tsv("meta_06012019.csv")
 
 # select relevant parameters from metadata file
 
