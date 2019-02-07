@@ -2,7 +2,6 @@
 ---
 title: "Daghestanian loans database"
 author: Ilya Chechuro, Michael Daniel, Samira Verhees
-
 output:
   html_document:
     theme: spacelab
@@ -11,7 +10,6 @@ output:
     toc_float: yes
     smooth_scroll: true
     fig_cap: TRUE
-
 ---
   
 ```{r setup, include=FALSE}
@@ -31,9 +29,9 @@ library(lingtypology)
 
 # loading data - mind the date in the csv filename!
 
-words <- read_tsv("words_21012019.csv")
+words <- read_tsv("words_07022019.csv")
 
-meta <- read_tsv("meta_20012019.csv")
+meta <- read_tsv("meta_07022019.csv")
 
 # select relevant parameters from metadata file
 
@@ -43,6 +41,8 @@ meta <- meta %>%
 # merge table with target words and the corresponding metadata
 
 words_meta <- merge(words, meta, by = 'List ID')
+
+words_meta$Set <- paste(words_meta$`Concept nr.`, "-", words_meta$Stem)
 
 # select some variables for the datatable (= database interface)
 
@@ -98,7 +98,6 @@ Hover over and / or click on a dot on the map to know more. The color of the dot
 
 # Remove certain NA's for now
 
-meta <- meta[complete.cases(meta$Lat),]
 meta <- meta[complete.cases(meta$Glottocode),]
 
 
@@ -139,6 +138,7 @@ map.feature(lang.gltc(lists$Glottocode),
             zoom.control = TRUE,
             legend = TRUE,
             title = "Lists",
+            width = 7,
             label = lists$Language,
             popup = paste(aff.lang(lang.gltc(lists$Glottocode)), # Popup with genetic info on language + name of village
                           "<br>",
@@ -160,5 +160,27 @@ map.feature(lang.gltc(lists$Glottocode),
               color = c("orange"),
               tile = c("Esri.WorldGrayCanvas"),
               pipe.data = .)
+```
+
+## Sample lexical map
+
+The map below shows the distribution of different stems for the concept 'bucket'. In most cases the Russian word *vedro* is borrowed.
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE, fig.width = 9, fig.height= 7}
+
+bucket <- words_meta[(words_meta$Concept == 'the bucket'),]
+
+bucket <- bucket[complete.cases(bucket$Word),]
+bucket <- bucket[complete.cases(bucket$Glottocode),]
+
+map.feature(lang.gltc(bucket$Glottocode),
+            latitude = bucket$Lat,
+            longitude = bucket$Lon,
+            features = bucket$Set,
+            zoom.control = T,
+            label = bucket$Language,
+            popup = bucket$Word)
+
+
 ```
 
