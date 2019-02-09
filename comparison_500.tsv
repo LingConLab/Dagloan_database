@@ -1,0 +1,37 @@
+Meanint	Meaning_ID	Word	List1	List2	Similarity
+the ant	1	č'ianč'vela	{"č'ianč'vela"}	{"žinč'ola", "žionč'ela", "žinč'ela", "č'ianč'vela"}	DIFFERENT
+the ant	1	moor	{'nammah', 'moor', 'namlah'}	{'moor'}	DIFFERENT
+the ant	1	namlah	{'nammah', 'moor', 'namlah'}	{'nammah', 'namlah'}	DIFFERENT
+the ant	1	qarışğa	{'qarışqa', 'къа1ришгъа1', 'хъаришхъа', 'къаришкъа', 'qarışğa'}	{'qarışqa', 'къа1ришгъа1', 'къаришкъа', 'гаришкъа', 'qarışğa', 'хъаришхъа'}	DIFFERENT
+the ant	1	zimzu	{'зибз', 'зимзак', 'зивз', 'zimzu', 'зимс', 'зимзар', 'зимз'}	{'зибз', 'зимзак', 'зивз', 'симсири', 'zimzu', 'зимс', 'зимзар', 'зимз'}	DIFFERENT
+the ant	1	žinč'ela	{"žinč'ola", "žinč'ela", "žionč'ela"}	{"žinč'ola", "žionč'ela", "žinč'ela", "č'ianč'vela"}	DIFFERENT
+the ant	1	гаришкъа	{'гаришкъа'}	{'qarışqa', 'къа1ришгъа1', 'къаришкъа', 'гаришкъа', 'qarışğa', 'хъаришхъа'}	DIFFERENT
+the ant	1	дзы1хцар	{'дзыдзахъ', 'цыцах', 'дзыдзах', 'дзы1хцар', 'цыхцар', 'дзыдза1хъ', 'цахцар'}	{'дзы1хцар'}	DIFFERENT
+the ant	1	дзыдза1хъ	{'дзыдзахъ', 'цыцах', 'дзыдзах', 'дзы1хцар', 'цыхцар', 'дзыдза1хъ', 'цахцар'}	{'дзыдзахъ', 'дзыдзах', 'дзыдза1хъ'}	DIFFERENT
+the ant	1	к1к1ара	{'к1к1ара'}	{'ККари', 'к1к1ара'}	DIFFERENT
+the ant	1	карешпа	{'ц1имиц1и', 'карешпа'}	{'карешпа'}	DIFFERENT
+the ant	1	ККари	{'ККари'}	{'ККари', 'к1к1ара'}	DIFFERENT
+the ant	1	лъанц1	{'лъанц1и', 'лъарц1ц1е', 'лъанц1', 'лъанц1ц1и'}	{'лъанц1и', 'лъанц1', 'лъарц1ц1е', 'танц1ц1а', 'лъанц1ц1и'}	DIFFERENT
+the ant	1	РЕЦÉНЙО	{'РЕЦÉНЙО', 'рецен'}	{'РЕЦÉНЙО'}	DIFFERENT
+the ant	1	рецен	{'РЕЦÉНЙО', 'рецен'}	{'рецен'}	DIFFERENT
+the ant	1	симсири	{'симсири'}	{'зибз', 'зимзак', 'зивз', 'симсири', 'zimzu', 'зимс', 'зимзар', 'зимз'}	DIFFERENT
+the ant	1	танц1ц1а	{'танц1ц1а'}	{'лъанц1и', 'лъанц1', 'лъарц1ц1е', 'танц1ц1а', 'лъанц1ц1и'}	DIFFERENT
+the ant	1	ц1уц1ра	{'ц1уц1ра', 'цIунцIра', 'цвез'}	{'ц1уц1ра', 'цIунцIра'}	DIFFERENT
+the ant	1	цахцар	{'дзыдзахъ', 'цыцах', 'дзыдзах', 'дзы1хцар', 'цыхцар', 'дзыдза1хъ', 'цахцар'}	{'цыхцар', 'цыцах', 'цахцар'}	DIFFERENT
+the ant	1	цвез	{'ц1уц1ра', 'цIунцIра', 'цвез'}	{'цвез'}	DIFFERENT
+the arch	2	(полу-)чарх	{'(полу-)чарх', 'чарх', 'чарх п'}	{'(полу-)чарх', 'чарх', 'чарх п', '*чарх'}	DIFFERENT
+the arch	2	ад	{'акъва', 'ад'}	{'ад'}	DIFFERENT
+the arch	2	акъва	{'акъва', 'ад'}	{'акъва'}	DIFFERENT
+the arch	2	мо???	{'мо???'}		NOT IN LIST 2
+the axe/ax	3	suldi	{'suldi'}	{'tsuldi - big axe', 'tsuld podtv', 'tsuld', 'suldi', 'tsuli', 'tsuldi'}	DIFFERENT
+the axe/ax	3	tabar	{'tabar', 'tabərzan'}	{'tabar', 'tapori', 'топор', 'tabərzan', 'yaq', 'tapor'}	DIFFERENT
+the axe/ax	3	tapor	{'tapor', 'tapori', 'топор'}	{'tabar', 'tapori', 'топор', 'tabərzan', 'yaq', 'tapor'}	DIFFERENT
+the axe/ax	3	tsuld	{'tsuldi - big axe', 'tsuld podtv', 'tsuld', 'tsuli', 'tsuldi'}	{'tsuldi - big axe', 'tsuld podtv', 'tsuld', 'suldi', 'tsuli', 'tsuldi'}	DIFFERENT
+the axe/ax	3	yaq	{'yaq'}	{'tabar', 'tapori', 'топор', 'tabərzan', 'yaq', 'tapor'}	DIFFERENT
+the axe/ax	3	ажите	{'анжитобо', 'анжито(бо)', 'аНжито', 'ажите'}	{'г1анжит', 'аНжито', 'анжитобо', 'анжито(бо)', 'ажите'}	DIFFERENT
+the axe/ax	3	г1анжит	{'г1анжит'}	{'г1анжит', 'аНжито', 'анжитобо', 'анжито(бо)', 'ажите'}	DIFFERENT
+the axe/ax	3	ек1	{'юк1в', 'ек1', 'якlв', 'як1в', 'якlу', 'якв', 'якIв', 'якьв', 'ек1в', 'як1', 'якьу', 'як1а', 'екIв', 'юкв', 'юк1'}	{'юк1в', 'ек1', 'якlв', 'як1в', 'якlу', 'якв', 'якIв', 'якьв', 'йик1', 'ек1в', 'як1', 'якьу', 'як1а', 'екIв', 'юкв', 'юк1'}	DIFFERENT
+the axe/ax	3	йик1	{'йик1'}	{'юк1в', 'ек1', 'якlв', 'як1в', 'якlу', 'якв', 'якIв', 'якьв', 'йик1', 'ек1в', 'як1', 'якьу', 'як1а', 'екIв', 'юкв', 'юк1'}	DIFFERENT
+the ball	4	dump	{'dump'}	{'toop-bazee', 'top', 'топ', 'toop', 'dump'}	DIFFERENT
+the ball	4	toop	{'топ', 'toop-bazee', 'toop', 'top'}	{'toop-bazee', 'top', 'топ', 'toop', 'dump'}	DIFFERENT
+
