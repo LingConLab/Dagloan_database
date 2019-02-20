@@ -29,7 +29,7 @@ library(lingtypology)
 
 # loading data - mind the date in the csv filename!
 
-words <- read_tsv("words_07022019.csv")
+words <- read_tsv("words_20022019.csv")
 
 meta <- read_tsv("meta_07022019.csv")
 
