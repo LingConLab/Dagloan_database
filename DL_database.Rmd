@@ -96,8 +96,8 @@ The data provided here can be used for statistical analysis.
 # Show the data with the dummy variables 
 
 datatable(dummy_dataset, class = 'cell-border stripe', filter = 'top',
-          extensions = 'Buttons', options = list(
-            pageLength = 100, fillContainer = TRUE,
+          extensions = 'Buttons', fillContainer = TRUE, options = list(
+            pageLength = 100,
             dom = 'Bfrtip',
             buttons = c('copy', 'csv')
   ))
