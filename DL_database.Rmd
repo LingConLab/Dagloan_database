@@ -49,6 +49,8 @@ words_meta$Set <- paste(words_meta$`Concept nr.`, "-", words_meta$Stem)
 database <- words_meta %>%
   select(`Concept nr.`, Concept, Word, Set, Village, Language, District, `List ID`)
 
+dummy_dataset <- read_tsv("words20022019_dummy.csv")
+
 ```
 
 Contents:
@@ -85,10 +87,19 @@ datatable(database, class = 'cell-border stripe', filter = 'top', options = list
 ```
 <br>
 
-## The data in the dummy format:
+## The data in the dummy format
+
+The provided data here can be used for statistical analysis.
 ```{r, echo=FALSE, message=FALSE, warning=FALSE}
-dummy_dataset <- words <- read_tsv("words20022019_dummy.csv")
-datatable(dummy_dataset, class = 'cell-border stripe', filter = 'top', options = list(pageLength = 100))
+
+# Show the data with the dummy variables 
+
+datatable(dummy_dataset, class = 'cell-border stripe', filter = 'top',
+          extensions = 'Buttons', options = list(
+            pageLength = 100, fillContainer = TRUE,
+            dom = 'Bfrtip',
+            buttons = c('copy', 'csv')
+  ))
 ```
 ---
 
