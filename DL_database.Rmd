@@ -84,6 +84,14 @@ datatable(database, class = 'cell-border stripe', filter = 'top', options = list
 
 ```
 
+<<<<<<< HEAD
+Database in the dummy format:
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+dummy_dataset <- words <- read_tsv("words20022019_dummy.csv")
+datatable(dummy_dataset, class = 'cell-border stripe', filter = 'top', options = list(pageLength = 100))
+```
+=======
+>>>>>>> 5cad06dcce88b0de7b39f59970588c9152eb5a1d
 ---
 
 Version: `r Sys.Date()`. For questions or comments contact jh.verhees@gmail.com.
