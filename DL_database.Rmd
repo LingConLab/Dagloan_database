@@ -49,7 +49,11 @@ words_meta$Set <- paste(words_meta$`Concept nr.`, "-", words_meta$Stem)
 database <- words_meta %>%
   select(`Concept nr.`, Concept, Word, Set, Village, Language, District, `List ID`)
 
-dummy_dataset <- read_tsv("words20022019_dummy.csv")
+dummy_dataset <- read.csv("words20022019_dummy.csv", sep = "\t", header = TRUE)
+row.names(dummy_dataset) <- paste(dummy_dataset[,1], dummy_dataset[,2], sep = "_")
+dummy_dataset <- dummy_dataset[ , -which(names(dummy_dataset) %in% c("Darvag7"))]
+dummy_dataset <- dummy_dataset[ , -c(1:2)]
+
 
 ```
 
