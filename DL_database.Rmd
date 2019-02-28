@@ -89,7 +89,8 @@ datatable(database, class = 'cell-border stripe', filter = 'top', options = list
 
 ## The data in the dummy format
 
-The provided data here can be used for statistical analysis.
+The data provided here can be used for statistical analysis.
+<br>
 ```{r, echo=FALSE, message=FALSE, warning=FALSE}
 
 # Show the data with the dummy variables 
