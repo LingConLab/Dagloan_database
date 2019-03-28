@@ -90,7 +90,6 @@ datatable(database, class = 'cell-border stripe',
           filter = 'top', 
           #options = list(pageLength = 100),
           extensions = 'Buttons', 
-          fillContainer = TRUE, 
           options = list(
             pageLength = 100,
             dom = 'Bfrtip',
