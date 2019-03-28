@@ -22,11 +22,11 @@ This database contains wordlists collected as part of the [Daghestanian loans](h
 ```{r, echo=FALSE, message=FALSE, warning=FALSE}
 
 # loading packages
-
+#Sys.setlocale("LC_TIME","ru_RU.UTF-8")
 library(tidyverse)
 library(DT)
 library(lingtypology)
-library(fansi)
+#library(fansi)
 
 
 # loading data - mind the date in the csv filename!
@@ -34,6 +34,7 @@ library(fansi)
 words <- read_tsv("words_28032019.tsv")
 
 meta <- read_tsv("meta_28032019.tsv")
+
 
 # select relevant parameters from metadata file
 
