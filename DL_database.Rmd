@@ -26,12 +26,14 @@ This database contains wordlists collected as part of the [Daghestanian loans](h
 library(tidyverse)
 library(DT)
 library(lingtypology)
+library(fansi)
+
 
 # loading data - mind the date in the csv filename!
 
-words <- read_tsv("words_20022019.csv")
+words <- read_tsv("words_28032019.tsv")
 
-meta <- read_tsv("meta_07022019.csv")
+meta <- read_tsv("meta_28032019.tsv")
 
 # select relevant parameters from metadata file
 
@@ -49,10 +51,8 @@ words_meta$Set <- paste(words_meta$`Concept nr.`, "-", words_meta$Stem)
 database <- words_meta %>%
   select(`Concept nr.`, Concept, Word, Set, Village, Language, District, `List ID`)
 
-dummy_dataset <- read.csv("words20022019_dummy.csv", sep = "\t", header = TRUE)
-row.names(dummy_dataset) <- paste(dummy_dataset[,1], dummy_dataset[,2], sep = "_")
-dummy_dataset <- dummy_dataset[ , -which(names(dummy_dataset) %in% c("Darvag7"))]
-dummy_dataset <- dummy_dataset[ , -c(1:2)]
+#dummy_dataset <- read.csv("words01032019_dummy.tsv", sep = "\t", header = TRUE)
+
 
 
 ```
@@ -86,25 +86,28 @@ For now, the table shows source **Concepts** and target **Words**. Each target w
 
 # Create a searchable datatable with filters on top
 
-datatable(database, class = 'cell-border stripe', filter = 'top', options = list(pageLength = 100))
+datatable(database, class = 'cell-border stripe', 
+          filter = 'top', 
+          #options = list(pageLength = 100),
+          extensions = 'Buttons', 
+          fillContainer = TRUE, 
+          options = list(
+            pageLength = 100,
+            dom = 'Bfrtip',
+            buttons = c('copy', 'csv')))
 
 ```
-<br>
 
-## The data in the dummy format
-
-The data provided here can be used for statistical analysis.
-<br>
 ```{r, echo=FALSE, message=FALSE, warning=FALSE}
 
 # Show the data with the dummy variables 
 
-datatable(dummy_dataset, class = 'cell-border stripe', filter = 'top',
-          extensions = 'Buttons', fillContainer = TRUE, options = list(
-            pageLength = 100,
-            dom = 'Bfrtip',
-            buttons = c('copy', 'csv')
-  ))
+#datatable(dummy_dataset, class = 'cell-border stripe', filter = 'top',
+#          extensions = 'Buttons', fillContainer = TRUE, options = list(
+#            pageLength = 100,
+#            dom = 'Bfrtip',
+#            buttons = c('copy', 'csv')
+#  ))
 ```
 ---
 
