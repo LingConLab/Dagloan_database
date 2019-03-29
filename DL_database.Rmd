@@ -1,6 +1,7 @@
 
 ---
-title: "Daghestanian loans database"
+title: "Daghestanian loans database [![DOI](https://zenodo.org/badge/164257298.svg)](https://zenodo.org/badge/latestdoi/164257298)
+"
 author: Ilya Chechuro, Michael Daniel, Samira Verhees
 output:
   html_document:
@@ -17,8 +18,7 @@ knitr::opts_chunk$set(echo = FALSE)
 
 ```
 
-This database contains wordlists collected as part of the [Daghestanian loans](https://ilcl.hse.ru/en/projects) project by the [Linguistic Convergence Laboratory](https://ilcl.hse.ru/en/) at NRU HSE ( [![DOI](https://zenodo.org/badge/164257298.svg)](https://zenodo.org/badge/latestdoi/164257298)
-). The aim of the 160-item shortlist, which is based on the [World Loanword Database questionnaire](https://wold.clld.org/), is to measure lexical contact on a micro-level. In other words, to quantify lexical convergence among the speech communities of minority languages on a village-level, and to detect fine-grained areal patterns beyond general observations on the spheres of influence of certain languages.
+This database contains wordlists collected as part of the [Daghestanian loans](https://ilcl.hse.ru/en/projects) project by the [Linguistic Convergence Laboratory](https://ilcl.hse.ru/en/) at NRU HSE. The aim of the 160-item shortlist, which is based on the [World Loanword Database questionnaire](https://wold.clld.org/), is to measure lexical contact on a micro-level. In other words, to quantify lexical convergence among the speech communities of minority languages on a village-level, and to detect fine-grained areal patterns beyond general observations on the spheres of influence of certain languages.
 
 ```{r, echo=FALSE, message=FALSE, warning=FALSE}
 
