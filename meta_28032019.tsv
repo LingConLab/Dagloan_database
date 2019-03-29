@@ -6,29 +6,28 @@ List ID	Type	Code	Language	Glottocode	Village	Multidagestan.com	Lat	Lon	District
 5	Speaker	Arkhit4	Lezgian	lezg1247	Arkhit	y	41.734607	47.97302	Khiv	Shikhmagomed		M		Lezgian Arkhit Shikhmagomed	2018		
 6	Speaker	Arkhit5	Lezgian	lezg1247	Arkhit	y	41.734607	47.97302	Khiv	Timur	1979	M		Lezgian Arkhit Timur 1979	2018		
 7	Speaker	Arkhit6	Lezgian	lezg1247	Arkhit	y	41.734607	47.97302	Khiv	Mekhti	1963	M		Архыт мехти 1963	2018		
-8	Speaker	Bezhta1	Bezhta	bezh1248	Bezhta	y	42.1339	46.1247	Tsunta	B		M		Bezhta_B	2017		
-10	Dictionary	D_Agul	Agul	aghu1253			41.92418	47.58429						DAgul			
-11	Dictionary	D_Arabic	Arabic	egyp1253			31	31						Arabic			
-12	Dictionary	D_Avar	Avar	avar1256			42.43056	46.66639						DAvar			
-13	Dictionary	D_Azerbaijani	Azerbaijani	nort2697			40.97767	46.4737						Azer			
-14	Dictionary	D_Bezhta	Bezhta	bezh1248			42.1206	46.03319						DBezhta			
-9	Dictionary	D_Botlikh	Botlikh	botl1242			42.665	46.22						botlikh_botlikh_mixed			
-15	Dictionary	D_Chechen	Chechen	chec1245			43.5	45.5						DChechen			
-16	Dictionary	D_Gagatli	Andi	andi1255			42.800361	46.292645						andi_gagatli_dictionary			
-17	Dictionary	D_Georgian	Georgian	nucl1302			41.81574	44.31883						DGeorgian			
-18	Dictionary	D_Hinuq	Hinuq	hinu1240			42.1764	45.98646						DHinuq			
-19	Dictionary	D_Karata	Karata	kara1474			42.65005	46.31511						DKarata			
-20	Dictionary	D_Kumyk	Kumyk	kumy1244			43	47						Kumyk			
-21	Dictionary	D_Lezgian	Lezgian	lezg1247			41.51572	47.89507						Lezgian			
-22	Dictionary	D_Russian	Russian	russ1263			59	50						Russian			
-23	Dictionary	D_Rutul	Rutul	rutu1240			41.61866	47.32436						Rutul, Dict			
-24	Dictionary	D_Tabasaran	Tabasaran	taba1259			42.01976	47.83791						DTabasaran			
-25	Dictionary	D_Tsez	Tsez	dido1241			42.26458	45.80959						DTsez			
+8	Speaker	Bezhta1	Bezhta	bezh1248	Bezhta	y	42.1339	46.1247	Tsunta	Batyr		M		Bezhta_B	2017		
+10	Dictionary	D_Agul	Agul	aghu1253	Dictionary		41.92418	47.58429	Dictionary	Dictionary				DAgul			
+11	Dictionary	D_Arabic	Arabic	egyp1253	Dictionary		31	31	Dictionary	Dictionary				Arabic			
+12	Dictionary	D_Avar	Avar	avar1256	Dictionary		42.43056	46.66639	Dictionary	Dictionary				DAvar			
+13	Dictionary	D_Azerbaijani	Azerbaijani	nort2697	Dictionary		40.97767	46.4737	Dictionary	Dictionary				Azer			
+14	Dictionary	D_Bezhta1	Bezhta	bezh1248	Dictionary		42.1206	46.03319	Dictionary	Dictionary				DBezhta			
+9	Dictionary	D_Botlikh	Botlikh	botl1242	Dictionary		42.665	46.22	Dictionary	Dictionary				botlikh_botlikh_mixed			
+15	Dictionary	D_Chechen	Chechen	chec1245	Dictionary		43.5	45.5	Dictionary	Dictionary				DChechen			
+16	Dictionary	D_Gagatli	Andi	andi1255	Dictionary		42.800361	46.292645	Dictionary	Dictionary				andi_gagatli_dictionary			
+17	Dictionary	D_Georgian	Georgian	nucl1302	Dictionary		41.81574	44.31883	Dictionary	Dictionary				DGeorgian			
+18	Dictionary	D_Hinuq	Hinuq	hinu1240	Dictionary		42.1764	45.98646	Dictionary	Dictionary				DHinuq			
+19	Dictionary	D_Karata	Karata	kara1474	Dictionary		42.65005	46.31511	Dictionary	Dictionary				DKarata			
+20	Dictionary	D_Kumyk	Kumyk	kumy1244	Dictionary		43	47	Dictionary	Dictionary				Kumyk			
+21	Dictionary	D_Lezgian	Lezgian	lezg1247	Dictionary		41.51572	47.89507	Dictionary	Dictionary				Lezgian			
+22	Dictionary	D_Russian	Russian	russ1263	Dictionary		59	50	Dictionary	Dictionary				Russian			
+23	Dictionary	D_Rutul	Rutul	rutu1240	Dictionary		41.61866	47.32436	Dictionary	Dictionary				Rutul, Dict			
+24	Dictionary	D_Tabasaran	Tabasaran	taba1259	Dictionary		42.01976	47.83791	Dictionary	Dictionary				DTabasaran			
+25	Dictionary	D_Tsez	Tsez	dido1241	Dictionary		42.26458	45.80959	Dictionary	Dictionary				DTsez			
 26	Speaker	Darvag1	Azerbaijani	nort2697	Darvag	y	42.022285	48.065912	Tabasaran	Fakhri		M		Azer Darvag Fakhri	2018		
 27	Speaker	Darvag2	Azerbaijani	nort2697	Darvag	y	42.022285	48.065912	Tabasaran	Abdul	1958	M		Azer Darwag Abdul 1958	2018		
 28	Speaker	Darvag3	Azerbaijani	nort2697	Darvag	y	42.022285	48.065912	Tabasaran	Seidul	1963	M		Azer Darwag Seidul 1963	2018		
 29	Speaker	Darvag4	Azerbaijani	nort2697	Darvag	y	42.022285	48.065912	Tabasaran	Famik	1980	M		Azeri Darwag Famik 1980	2018		
-30	Speaker	Darvag7	Azerbaijani	nort2697	Darvag	y	42.022285	48.065912	Tabasaran	Chingiz, Zeirab	1994, 1997	M, F		Azeri_Darvag_Chingiz_1994_and_Zeinab_1997	2018		
 31	Speaker	Darvag5	Azerbaijani	nort2697	Darvag	y	42.022285	48.065912	Tabasaran	Kerim Khan	1951	M		Azeri Darwag Kerimkhan 1951	2018		
 32	Speaker	Darvag6	Azerbaijani	nort2697	Darvag	y	42.022285	48.065912	Tabasaran	Kerim Khan	1951	M		Дарваг, Керим Хан, 1951 4. NA7	2018		
 33	Speaker	Dyubek1	Tabasaran	taba1259	Dyubek	y	42.0208	47.969528	Tabasaran	Alibek	1957	M		Dyubek_Tabasaran_Alibek_1957	2018		
@@ -50,7 +49,7 @@ List ID	Type	Code	Language	Glottocode	Village	Multidagestan.com	Lat	Lon	District
 49	Speaker	Ikhrek2	Rutul	rutu1240	Ikhrek	y	41.693931	47.210005	Rutul	Jariyat				Ikhrek, Rutul, Jariyat	2017		
 50	Speaker	Ikhrek3	Rutul	rutu1240	Ikhrek	y	41.693931	47.210005	Rutul	Salimat		F		Ikhrek, Rutul, Salimat, 56, Word	2017		
 51	Speaker	Ikhrek4	Rutul	rutu1240	Ikhrek	y	41.693931	47.210005	Rutul	Zijawudin		M		Ikhrek, Rutul, Zijawudin, 77, Word	2017		
-52	Speaker	Ilisu1	NA		Ilisu		41.46694	47.05917	Qax	Dzhamil	1989	M		Джамиль, 1989 Илесу 17 07	2018		
+52	Speaker	Ilisu1	Azerbaijani	nort2697	Ilisu		41.46694	47.05917	Qax	Dzhamil	1989	M		Джамиль, 1989 Илесу 17 07	2018		
 53	Speaker	Karata1	Karata	kara1474	Karata	y	42.5942	46.3419	Akhvakh	Khajbula				Karata_Khajbula	2018		
 54	Speaker	Karata2	Karata	kara1474	Karata	y	42.5942	46.3419	Akhvakh	Unknown				Karata_Ktoto	2018		
 55	Speaker	Karata3	Karata	kara1474	Karata	y	42.5942	46.3419	Akhvakh	Umarkhadzhi		M		Karata_Umarkhadzhi	2018		
@@ -103,7 +102,7 @@ List ID	Type	Code	Language	Glottocode	Village	Multidagestan.com	Lat	Lon	District
 102	Speaker	Qax3	Azerbaijani	nort2697	Qax		41.41944	46.91806	Qax	Salim	1986	M		Azeri_Qax_Salim_1986	2018		
 103	Speaker	Qax4	Georgian	nucl1302	Qax		41.41944	46.91806	Qax	Paule	1989			Qax_Georgian_Paule_1989	2018		
 104	Speaker	Qax5	Georgian	nucl1302	Qax		41.41944	46.91806	Qax	Zhora	1952	M		Qax_Georgian_Zhora_1952	2018		
-105	Speaker	Qax6	NA		Qax		41.41944	46.91806	Qax	Slava		M		Qax_Slava	2018		
+105	Speaker	Qax6	Georgian	nucl1302	Qax		41.41944	46.91806	Qax	Slava		M		Qax_Slava	2018		
 106	Speaker	Qax7	Azerbaijani	nort2697	Qax		41.41944	46.91806	Qax	Bakhram	1958	M		Бахрам, 1958, азерб Гах Баш, 15. NA7	2018		
 107	Speaker	Qax8	Azerbaijani	nort2697	Qax		41.41944	46.91806	Qax	Avul Bei	1953	M		Гах Баш, азерб, 15. NA7, Авул Бей, 1953	2018		
 108	Speaker	Qax9	Azerbaijani	nort2697	Qax		41.41944	46.91806	Qax	Niazim	1959	M		Ниазим, 1959, Гах Баш, 15. NA7, Азербайджанский	2018		
@@ -137,19 +136,11 @@ List ID	Type	Code	Language	Glottocode	Village	Multidagestan.com	Lat	Lon	District
 136	Speaker	Yersi4	Azerbaijani	nort2697	Yersi	y	42.018844	48.012897	Tabasaran	Akim	1974	M		Ерси, Аким, 1974 сверить с Самирой 1. NA7	2018		
 137	Speaker	Zilo1	Andi	andi1255	Zilo	y	42.731394	46.319223	Botlikh	Unknown	2002	F		andi_zilo1_2018_f_2002	2017		
 138	Speaker	Zilo2	Andi	andi1255	Zilo	y	42.731394	46.319223	Botlikh	Kazbek et al.		M		andi_zilo2_2017_m_mixed	2017		
-139	Dictionary	D_Persian	Persian	west2369			28.65928	55.15861									
-140	Dictionary	D_Archi	Archi	arch1244			42.0664	46.8678									"Marina Chumakina. 2009. Archi vocabulary.
-In: Haspelmath, Martin & Tadmor, Uri (eds.)
-World Loanword Database.
-Leipzig: Max Planck Institute for Evolutionary Anthropology, 1254entries.
-(Available online at http://wold.clld.org/vocabulary/16, Accessed on 2019-01-16.)"
-141	Dictionary	D_Bezhta	Bezhta	bezh1248			42.1206	46.03319									"Bernard Comrie, Madzhid Khalilov. 2009. Bezhta vocabulary.
-In: Haspelmath, Martin & Tadmor, Uri (eds.)
-World Loanword Database.
-Leipzig: Max Planck Institute for Evolutionary Anthropology, 1473entries.
-(Available online at http://wold.clld.org/vocabulary/15, Accessed on 2019-01-16.)"
+139	Dictionary	D_Persian	Persian	west2369	Dictionary		28.65928	55.15861	Dictionary	Dictionary							
+140	Dictionary	D_Archi	Archi	arch1244	Dictionary		42.0664	46.8678	Dictionary	Dictionary							Marina Chumakina. 2009. Archi vocabulary. In: Haspelmath, Martin & Tadmor, Uri (eds.) World Loanword Database. Leipzig: Max Planck Institute for Evolutionary Anthropology, 1254entries. (Available online at http://wold.clld.org/vocabulary/16, Accessed on 2019-01-16.)
+141	Dictionary	D_Bezhta2	Bezhta	bezh1248	Dictionary		42.1206	46.03319	Dictionary	Dictionary							Bernard Comrie, Madzhid Khalilov. 2009. Bezhta vocabulary. In: Haspelmath, Martin & Tadmor, Uri (eds.) World Loanword Database. Leipzig: Max Planck Institute for Evolutionary Anthropology, 1473entries. (Available online at http://wold.clld.org/vocabulary/15, Accessed on 2019-01-16.)
 142	Speaker	Tlibisho1	Bagvalal	bagv1239	Tlibisho		42.3330	46.1804	Akhvakh	Gusejn		M			2018	MD	
 143	Speaker	Tlibisho2	Bagvalal	bagv1240	Tlibisho		42.3330	46.1804	Akhvakh	Muminat		F			2018	MD	
 144	Speaker	Tlibisho3	Bagvalal	bagv1241	Tlibisho		42.3330	46.1804	Akhvakh	Muslim		M			2018	MD	
 145	Speaker	Tlibisho4	Bagvalal	bagv1242	Tlibisho		42.3330	46.1804	Akhvakh	Nazhavat		F			2018	MD	
-146	Dictionary	D_Bagvalal	Bagvalal	bagv1242			42.3330	46.1804				F			2018	IC	
+146	Dictionary	D_Bagvalal	Bagvalal	bagv1242	Dictionary		42.3330	46.1804	Dictionary	Dictionary		F			2018	IC	
