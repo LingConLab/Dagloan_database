@@ -44,7 +44,7 @@ for line in table[1:]:
 
 for line in table[1:]:
 	a = line.split("\t")
-	if "D" in metadata[a[2]]:
+	if "D" in metadata[a[2]] and a[4] != "NA":
 		good_transcriptions[str(a[0])+" "+str(a[4])] += a[3] + " (" + names[a[2]][2:] + " Dictionary); "
 
 for element in good_transcriptions:
@@ -73,7 +73,10 @@ for line in table[1:]:
 	a = line.split("\t")
 	for element in a:
 		result += str(element)+"\t"
-	result = result + good_transcriptions[str(a[0])+" "+str(a[4])].strip("; ")+"\n"
+	if a[4] != "NA":
+		result = result + good_transcriptions[str(a[0])+" "+str(a[4])].strip("; ")+"\n"
+	else:
+		result += "NA\n"	
 
 header = ""
 for element in table[0].split("\t"):
@@ -103,7 +106,6 @@ result = header + result
 
 result = subst("NA ", "", result)
 result = subst(" NA", "", result)
-result = subst("\t\t", "\tNA\t", result)
 result = subst("\t\t", "\tNA\t", result)
 result = subst("\t\n", "\n", result)
 result = subst(" \n", "\n", result)
