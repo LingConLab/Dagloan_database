@@ -2,6 +2,7 @@ import sys, re, operator
 table = []
 metatable = []
 metadata = {}
+names = {}
 metafile = open('meta_01042019.tsv', 'r')
 
 def subst(pattern, subst, string):
@@ -15,7 +16,9 @@ for line in metafile:
 for line in metatable[1:]:
 	a = line.split("\t")
 	metadata[a[0]] = a[1]
-		
+for line in metatable[1:]:
+	a = line.split("\t")
+	names[a[0]] = a[2]		
 for line in sys.stdin.readlines():
 	table.append(line.strip("\r\n")) 
 meaninglist = {}
@@ -38,10 +41,15 @@ for line in table[1:]:
 good_transcriptions = {}
 for line in table[1:]:
 	a = line.split("\t")
-	if a[2] != "NA" and metadata[a[2]] == "Dictionary":
-		good_transcriptions[str(a[0])+" "+str(a[4])] = a[3] + " (Dictionary); " + max(transcription_frequency[str(a[0])+" "+str(a[4])].items(), key=operator.itemgetter(1))[0] + " (Frequency)"
+	if a[2] != "NA" and metadata[a[2]] == "Dictionary" and str(a[0])+" "+str(a[4]) not in good_transcriptions:
+		good_transcriptions[str(a[0])+" "+str(a[4])] = a[3] + " (" + names[a[2]][2:] + " Dictionary); "
+	elif a[2] != "NA" and metadata[a[2]] == "Dictionary":
+		good_transcriptions[str(a[0])+" "+str(a[4])] += a[3] + " (" + names[a[2]][2:] + " Dictionary); "
 	else:
-		good_transcriptions[str(a[0])+" "+str(a[4])] = max(transcription_frequency[str(a[0])+" "+str(a[4])].items(), key=operator.itemgetter(1))[0] + " (Frequency)"
+		good_transcriptions[str(a[0])+" "+str(a[4])] = max(transcription_frequency[str(a[0])+" "+str(a[4])].items(), key=operator.itemgetter(1))[0] + " (Frequency); "
+	if  max(transcription_frequency[str(a[0])+" "+str(a[4])].items(), key=operator.itemgetter(1))[0] + " (Frequency)" not in good_transcriptions[str(a[0])+" "+str(a[4])]:
+		good_transcriptions[str(a[0])+" "+str(a[4])] += max(transcription_frequency[str(a[0])+" "+str(a[4])].items(), key=operator.itemgetter(1))[0] + " (Frequency); "
+
 
 #assigning dict IDs
 #for line in table[1:]:
@@ -66,7 +74,7 @@ for line in table[1:]:
 	a = line.split("\t")
 	for element in a:
 		result += str(element)+"\t"
-	result = result + good_transcriptions[str(a[0])+" "+str(a[4])]+"\n"
+	result = result + good_transcriptions[str(a[0])+" "+str(a[4])].strip("; ")+"\n"
 
 header = ""
 for element in table[0].split("\t"):
