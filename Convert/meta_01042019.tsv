@@ -42,9 +42,9 @@ List ID	Type	Code	Language	Glottocode	Village	Multidagestan.com	Lat	Lon	District
 42	Speaker	Dzhibakhni2	Kajtak	kajt1238	Dzhibakhni	n	42.06051	47.90847	Kaitag	Ali	1958	M		Dzhibakhni_Dargwa_Ali_Magomedgadzhievich_1958	2018		
 43	Speaker	Dzhibakhni3	Kajtak	kajt1238	Dzhibakhni	n	42.06051	47.90847	Kaitag	Gasan	1938	M		Dzhibakhni_Dargwa_Gasan_Ramazanovich_1938	2018		
 44	Speaker	Dzhibakhni4	Kajtak	kajt1238	Dzhibakhni	n	42.06051	47.90847	Kaitag	Magomed	1947	M		Джибахни, Магомед, 1947 2.07	2018		
-45	Speaker	Helmets1	Tsakhur	tsak1249	Gel’mets	y	41.62466	47.17889	Rutul	Abduragim		M		Helmets, Abduragim	2017		
-46	Speaker	Helmets2	Tsakhur	tsak1249	Gel’mets	y	41.62466	47.17889	Rutul	Murad		M		Helmets, Murad	2017		
-47	Speaker	Helmets3	Tsakhur	tsak1249	Gel’mets	y	41.62466	47.17889	Rutul	Tarlan		M		Helmets, Tarlan	2017		
+45	Speaker	Helmets1	Tsakhur	tsak1249	Gelmets	y	41.62466	47.17889	Rutul	Abduragim		M		Helmets, Abduragim	2017		
+46	Speaker	Helmets2	Tsakhur	tsak1249	Gelmets	y	41.62466	47.17889	Rutul	Murad		M		Helmets, Murad	2017		
+47	Speaker	Helmets3	Tsakhur	tsak1249	Gelmets	y	41.62466	47.17889	Rutul	Tarlan		M		Helmets, Tarlan	2017		
 48	Speaker	Ikhrek1	Rutul	rutu1240	Ikhrek	y	41.693931	47.210005	Rutul	Aishe		F		Ikhrek, Rutul, Aishe, Word	2017		
 49	Speaker	Ikhrek2	Rutul	rutu1240	Ikhrek	y	41.693931	47.210005	Rutul	Jariyat				Ikhrek, Rutul, Jariyat	2017		
 50	Speaker	Ikhrek3	Rutul	rutu1240	Ikhrek	y	41.693931	47.210005	Rutul	Salimat		F		Ikhrek, Rutul, Salimat, 56, Word	2017		
@@ -110,8 +110,8 @@ List ID	Type	Code	Language	Glottocode	Village	Multidagestan.com	Lat	Lon	District
 110	Speaker	Qum2	Tsakhur	tsak1249	Qum		41.4550912	46.9013871	Qax	Izuli	1964			Изули, 1964, Кум, цахурский 18 07	2018		
 111	Speaker	Rikvani1	Andi	andi1255	Rikvani	y	42.782304	46.319372	Botlikh	Ramazan	1949	M		andi_rikvani_2017_m_1949	2017		
 112	Speaker	Rutul1	Rutul	rutu1240	Rutul	y	41.5342	47.4269	Rutul	Vera		F		Rutul, Rutul, Vera	2017		
-113	Speaker	Tad-Magitl1	Akhvakh	akhv1239	Tad-Magitl’	y	42.550266	46.348953	Akhvakh	Khadzhimurat		M		Tadmagitl_Khadzhimurat	2018		
-114	Speaker	Tad-Magitl2	Akhvakh	akhv1239	Tad-Magitl’	y	42.550266	46.348953	Akhvakh	Nazirbek		M		Tadmagitl_Nazirbek	2018		
+113	Speaker	Tad-Magitl1	Akhvakh	akhv1239	Tad-Magitl	y	42.550266	46.348953	Akhvakh	Khadzhimurat		M		Tadmagitl_Khadzhimurat	2018		
+114	Speaker	Tad-Magitl2	Akhvakh	akhv1239	Tad-Magitl	y	42.550266	46.348953	Akhvakh	Nazirbek		M		Tadmagitl_Nazirbek	2018		
 115	Speaker	Tatil1	Tabasaran	taba1259	Tatil’	n	41.99269	47.98826	Tabasaran	Azim		M		Tabasaran Tatil Azim	2018		
 116	Speaker	Tatil2	Tabasaran	taba1259	Tatil’	n	41.99269	47.98826	Tabasaran	Muhammadshafi	1951	M		Tabasaran_Tatil_Muhammadshafi_Magomedagaevich_1951	2018		
 117	Speaker	Tatil3	Tabasaran	taba1259	Tatil’	n	41.99269	47.98826	Tabasaran	Abulferz’	1948	M		Tatil_Tabasaran_Abulferz'_Gabibovich_1948	2018		
