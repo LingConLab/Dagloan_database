@@ -32,7 +32,7 @@ library(lingtypology)
 
 # loading data - mind the date in the csv filename!
 
-words <- read_tsv("words_01042019.tsv")
+words <- read_tsv("words_standardized_01042019.tsv")
 
 meta <- read_tsv("meta_01042019.tsv")
 
@@ -51,7 +51,7 @@ words_meta$Set <- paste(words_meta$`Concept nr.`, "-", words_meta$Stem)
 # select some variables for the datatable (= database interface)
 
 database <- words_meta %>%
-  select(`Concept nr.`, Concept, Word, Set, Village, Language, District, `List ID`)
+  select(`Concept nr.`, Concept, Word, Standardized_Transcription, Set, Village, Language, District, `List ID`)
 
 #dummy_dataset <- read.csv("words01032019_dummy.tsv", sep = "\t", header = TRUE)
 
@@ -356,46 +356,45 @@ library(gridExtra)
 lemon::grid_arrange_shared_legend(p1, p2, p3, p4, nrow = 1)
 ```
 
-## Clusterization
 
 ```{r, echo=FALSE, message=FALSE, warning=FALSE, fig.width = 9, fig.height= 7}
 #These functions count the necessary distances
-div_count <- function(string1, string2){
-  x <- unlist(string1, use.names = F)
-  y <- unlist(string2, use.names = F)
-  d <- data.frame(x, y)
+#div_count <- function(string1, string2){
+#  x <- unlist(string1, use.names = F)
+#  y <- unlist(string2, use.names = F)
+#  d <- data.frame(x, y)
   #print(d)
-  num <- sum(complete.cases(d))
-  return(num)
-}
+#  num <- sum(complete.cases(d))
+#  return(num)
+#}
 
 # dissimilarity matrix -------------------------------------------------
-dist_count <- function(data) {
-  data2 <- data.frame()
-  for (i in row.names(data)) {
-    for (j in row.names(data)) {
+#dist_count <- function(data) {
+#  data2 <- data.frame()
+#  for (i in row.names(data)) {
+#    for (j in row.names(data)) {
       #print(data[i,])
       #print(data[j,])
-      data2[i,j] = round(sum((data[i,]!=data[j,]), na.rm=TRUE)/div_count(data[i,],data[j,]), digits=2)
-      #print (round(sum((data[i,]!=data[j,]), na.rm=TRUE)/div_count(data[i,],data[j,]), digits=2))
-    }
-  }
-  return(data2)
-}
+#      data2[i,j] = round(sum((data[i,]!=data[j,]), na.rm=TRUE)/div_count(data[i,],data[j,]), #digits=2)
+      #print (round(sum((data[i,]!=data[j,]), na.rm=TRUE)/div_count(data[i,],data[j,]), #digits=2))
+#    }
+#  }
+#  return(data2)
+#}
 ```
 
 ```{r, echo=FALSE, message=FALSE, warning=FALSE, fig.width = 9, fig.height= 7}
-library(dendextend)
-library(pvclust)
+#library(dendextend)
+#library(pvclust)
 
-full_dist <- dist_count(t(d))
-hc <- pvclust::pvclust(as.matrix(full_dist, method.hclust="average", nboot=1000))
-dend3 <- as.dendrogram(hc)
-dend3 <- set(dend3, "labels_colors", as.numeric(as.factor(Districts$District)), order_value = TRUE)
-dend3 <- set(dend3, "labels_cex", .7)
-par(par(mfcol=c(1,2)))
-plot(dend3)
-plot(hc)
-pvrect(hc)
+#full_dist <- dist_count(t(d))
+#hc <- pvclust::pvclust(as.matrix(full_dist, method.hclust="average", nboot=1000))
+#dend3 <- as.dendrogram(hc)
+#dend3 <- set(dend3, "labels_colors", as.numeric(as.factor(Districts$District)), order_value = TRUE)
+#dend3 <- set(dend3, "labels_cex", .7)
+#par(par(mfcol=c(1,2)))
+#plot(dend3)
+#plot(hc)
+#pvrect(hc)
 
 ```
