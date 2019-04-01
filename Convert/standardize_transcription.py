@@ -25,7 +25,6 @@ meaninglist = {}
 #speaker_list = table[0].split("\t")[1:]
 
 #For Speaker as a column:
-
 transcription_frequency = {}
 for line in table[1:]:
 	a = line.split("\t")
@@ -41,15 +40,15 @@ for line in table[1:]:
 good_transcriptions = {}
 for line in table[1:]:
 	a = line.split("\t")
-	if a[2] != "NA" and metadata[a[2]] == "Dictionary" and str(a[0])+" "+str(a[4]) not in good_transcriptions:
-		good_transcriptions[str(a[0])+" "+str(a[4])] = a[3] + " (" + names[a[2]][2:] + " Dictionary); "
-	elif a[2] != "NA" and metadata[a[2]] == "Dictionary":
-		good_transcriptions[str(a[0])+" "+str(a[4])] += a[3] + " (" + names[a[2]][2:] + " Dictionary); "
-	else:
-		good_transcriptions[str(a[0])+" "+str(a[4])] = max(transcription_frequency[str(a[0])+" "+str(a[4])].items(), key=operator.itemgetter(1))[0] + " (Frequency); "
-	if  max(transcription_frequency[str(a[0])+" "+str(a[4])].items(), key=operator.itemgetter(1))[0] + " (Frequency)" not in good_transcriptions[str(a[0])+" "+str(a[4])]:
-		good_transcriptions[str(a[0])+" "+str(a[4])] += max(transcription_frequency[str(a[0])+" "+str(a[4])].items(), key=operator.itemgetter(1))[0] + " (Frequency); "
+	good_transcriptions[str(a[0])+" "+str(a[4])] = ""
 
+for line in table[1:]:
+	a = line.split("\t")
+	if "D" in metadata[a[2]]:
+		good_transcriptions[str(a[0])+" "+str(a[4])] += a[3] + " (" + names[a[2]][2:] + " Dictionary); "
+
+for element in good_transcriptions:
+	good_transcriptions[element] += max(transcription_frequency[element].items(), key=operator.itemgetter(1))[0] + " (Frequency); "
 
 #assigning dict IDs
 #for line in table[1:]:
@@ -79,7 +78,7 @@ for line in table[1:]:
 header = ""
 for element in table[0].split("\t"):
 	header += element + "\t"
-header += "Standardized_Transcription\n"
+header += "Standardized Transcription\n"
 result = header + result	
 
 #For Speaker as a row:
