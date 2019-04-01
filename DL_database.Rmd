@@ -32,9 +32,9 @@ library(lingtypology)
 
 # loading data - mind the date in the csv filename!
 
-words <- read_tsv("words_28032019.tsv")
+words <- read_tsv("words_01042019.tsv")
 
-meta <- read_tsv("meta_28032019.tsv")
+meta <- read_tsv("meta_01042019.tsv")
 
 
 # select relevant parameters from metadata file

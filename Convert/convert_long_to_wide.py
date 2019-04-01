@@ -2,7 +2,7 @@ import sys, re
 table = []
 metatable = []
 metadata = {}
-metafile = open('meta_28032019.tsv', 'r')
+metafile = open('meta_01042019.tsv', 'r')
 
 def subst(pattern, subst, string):
 	while(pattern in string):
