@@ -51,7 +51,7 @@ words_meta$Set <- paste(words_meta$`Concept nr.`, "-", words_meta$Stem)
 # select some variables for the datatable (= database interface)
 
 database <- words_meta %>%
-  select(`Concept nr.`, Concept, Word, Standardized_Transcription, Set, Village, Language, District, `List ID`)
+  select(`Concept nr.`, Concept, Word, `Standardized Transcription`, Set, Village, Language, District, `List ID`)
 
 #dummy_dataset <- read.csv("words01032019_dummy.tsv", sep = "\t", header = TRUE)
 
