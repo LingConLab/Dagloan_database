@@ -29,8 +29,8 @@ the ant	1	103	žionč'ela	1
 the ant	1	105	žionč'ela	1						
 the ant	1	27	гаришкъа	5						
 the ant	1	28	гаришкъа	5						
-the ant		142	гьарц1а	14						
-the ant		144	гьарц1а	14						
+the ant	1	142	гьарц1а	14						
+the ant	1	144	гьарц1а	14						
 the ant	1	51	дзы1хцар	8						
 the ant	1	23	дзыдза1хъ	8						
 the ant	1	81	дзыдзах	8						
@@ -39,7 +39,7 @@ the ant	1	87	дзыдзах	8
 the ant	1	88	дзыдзах	8						
 the ant	1	82	дзыдзахъ	8						
 the ant	1	112	дзыдзахъ	8						
-the ant		146	жуНж	24						
+the ant	1	146	жуНж	24						
 the ant	1	10	зибз	6						
 the ant	1	89	зибз	6						
 the ant	1	120	зибз	6						
@@ -100,7 +100,7 @@ the ant	1	45	симсири	6
 the ant	1	46	симсири	6						
 the ant	1	47	симсири	6						
 the ant	1	9	танц1ц1а	14						
-the ant		145	х1ац1а	14						
+the ant	1	145	х1ац1а	14						
 the ant	1	29	хъаришхъа	5						
 the ant	1	29	хъаришхъа	5						
 the ant	1	31	хъаришхъа	5						
@@ -2245,7 +2245,7 @@ the body	14	142	къаркъала (ав)	14
 the body	14	20	къаркъара	14						
 the body	14	18	къваркъала	14						
 the body	14	18	къулагIи	6						
-the body	14	146	лáга							
+the body	14	146	лáга	6						
 the body	14	18	лага	6						
 the body	14	19	лага	6						
 the body	14	84	лага	6						
@@ -13262,7 +13262,7 @@ the mule	83	93	гъятир	1
 the mule	83	95	гъятир	1						
 the mule	83	129	гъятир	1						
 the mule	83	142	гьами	19						
-the mule		145	гьами	19						
+the mule	83	145	гьами	19						
 the mule	83	18	гьурцIум	4						
 the mule	83	65	гьятил	1						
 the mule	83	28	гюве	7						
@@ -17088,7 +17088,7 @@ the pumpkin or squash	107	71	бурани	1
 the pumpkin or squash	107	72	бурани	1						
 the pumpkin or squash	107	77	буряк	10						
 the pumpkin or squash	107	15	г1апакх	5						
-the pumpkin or squash		146	гамýз	15						
+the pumpkin or squash	107	146	гамýз	15						
 the pumpkin or squash	107	61	гъабагъ	5						
 the pumpkin or squash	107	115	гъабагъ	5						
 the pumpkin or squash	107	127	гъабагъ	5						
@@ -25598,7 +25598,7 @@ the worm	159	19	наац1е	29
 the worm	159	99	подтв	NA			мусор			
 the worm	159	9	х1апара	30						
 the worm	159	19	х1апара	30						
-the worm		147	х1ашбурух							
+the worm	159	147	х1ашбурух	16						
 the worm	159	12	хIапара	30						
 the worm	159	18	хIапара	30						
 the worm	159	18	хIапара-хIутI	30						
