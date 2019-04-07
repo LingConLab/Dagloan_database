@@ -364,7 +364,7 @@ loan_counts <- rbind(all_turkic_counts, avar_counts, georgian_counts, chechen_co
 
 Area <- factor(loan_counts$District, levels  = c("Rutul","Tsunta","Botlikh","Akhvakh"))
 p1 <- ggplot(data = loan_counts, aes(x = Area, y = Loans)) + 
-    geom_jitter(aes(color = Village), position = position_jitter(width = 0.1, height = 0.1)) +
+    geom_jitter(aes(color = Village), position = position_jitter(width = 0.3, height = 0.1)) +
     stat_summary(fun.y = "median", geom = "point", pch = 3, group = 1, size = 5)+
     labs(title = "Foreign Influence", x = "District", y = "Number of Loanwords")+
     theme_bw()+
