@@ -328,14 +328,6 @@ all_turkic_counts$Village <- droplevels(all_turkic_counts$Village)
 all_turkic_counts$District <- factor(all_turkic_counts$District, levels(all_turkic$District) <- c("Akhvakh", "Botlikh", "Rutul", "Tsunta"))
 #all_turkic_counts <- all_turkic_counts[-c(1:6),]
 all_turkic_counts$Loans <- as.numeric(all_turkic_counts$Loans)
-Area <- factor(all_turkic_counts$District, levels  = c("Rutul","Tsunta","Botlikh","Akhvakh"))
-p1 <- ggplot(data = all_turkic_counts, aes(x = District, y = Loans)) + 
-    geom_jitter(aes(color = Village), position = position_jitter(width = 0.1, height = 0.1)) +
-    # levels = c("Dyubek","Tatil","Khapil","Yagdyg","Khiv","Laka","Khoredzh","Kiche","Rutul","Kina","Ikhrek", "Helmets", "Mikik")
-    stat_summary(fun.y = "median", geom = "point", pch = 3, group = 1, size = 5)+
-    labs(title = "Turkic Influence", x = "District", y = "Number of Turkic Loanwords")+
-    theme_bw()#+
-   #theme(legend.position = "none")
 
 avar_counts <- aggregate(avar$Present, by=list(avar$Speaker), FUN=sum, na.rm=TRUE, na.action=NULL)
 #head(avar_counts)
@@ -345,14 +337,6 @@ avar_counts$Village <- droplevels(avar_counts$Village)
 avar_counts$District <- factor(avar_counts$District, levels(avar$District) <- c("Akhvakh", "Botlikh", "Rutul", "Tsunta"))
 #avar_counts <- avar_counts[-c(1:6),]
 avar_counts$Loans <- as.numeric(avar_counts$Loans)
-Area <- factor(avar_counts$District, levels  = c("Rutul","Tsunta","Botlikh","Akhvakh"))
-p2 <- ggplot(data = avar_counts, aes(x = District, y = Loans)) + 
-    geom_jitter(aes(color = Village), position = position_jitter(width = 0.1, height = 0.1)) +
-    # levels = c("Dyubek","Tatil","Khapil","Yagdyg","Khiv","Laka","Khoredzh","Kiche","Rutul","Kina","Ikhrek", "Helmets", "Mikik")
-    stat_summary(fun.y = "median", geom = "point", pch = 3, group = 1, size = 5)+
-    labs(title = "Avar Influence", x = "District", y = "Number of Avar Loanwords")+
-    theme_bw()#+
-   #theme(legend.position = "none")
 
 georgian_counts <- aggregate(georgian$Present, by=list(georgian$Speaker), FUN=sum, na.rm=TRUE, na.action=NULL)
 #head(georgian_counts)
@@ -362,14 +346,6 @@ georgian_counts$Village <- droplevels(georgian_counts$Village)
 georgian_counts$District <- factor(georgian_counts$District, levels(georgian$District) <- c("Akhvakh", "Botlikh", "Rutul", "Tsunta"))
 #georgian_counts <- georgian_counts[-c(1:6),]
 georgian_counts$Loans <- as.numeric(georgian_counts$Loans)
-Area <- factor(georgian_counts$District, levels  = c("Rutul","Tsunta","Botlikh","Akhvakh"))
-p3 <- ggplot(data = georgian_counts, aes(x = District, y = Loans)) + 
-    geom_jitter(aes(color = Village), position = position_jitter(width = 0.1, height = 0.1)) +
-    # levels = c("Dyubek","Tatil","Khapil","Yagdyg","Khiv","Laka","Khoredzh","Kiche","Rutul","Kina","Ikhrek", "Helmets", "Mikik")
-    stat_summary(fun.y = "median", geom = "point", pch = 3, group = 1, size = 5)+
-    labs(title = "Georgian Influence", x = "District", y = "Number of Georgian Loanwords")+
-    theme_bw()#+
-   #theme(legend.position = "none")
 
 chechen_counts <- aggregate(chechen$Present, by=list(chechen$Speaker), FUN=sum, na.rm=TRUE, na.action=NULL)
 #head(chechen_counts)
@@ -379,21 +355,15 @@ chechen_counts$Village <- droplevels(chechen_counts$Village)
 chechen_counts$District <- factor(chechen_counts$District, levels(chechen$District) <- c("Akhvakh", "Botlikh", "Rutul", "Tsunta"))
 #chechen_counts <- chechen_counts[-c(1:6),]
 chechen_counts$Loans <- as.numeric(chechen_counts$Loans)
-Area <- factor(chechen_counts$District, levels  = c("Rutul","Tsunta","Botlikh","Akhvakh"))
-p4 <- ggplot(data = chechen_counts, aes(x = Area, y = Loans)) + 
-    geom_jitter(aes(color = Village), position = position_jitter(width = 0.1, height = 0.1)) +
-    # levels = c("Dyubek","Tatil","Khapil","Yagdyg","Khiv","Laka","Khoredzh","Kiche","Rutul","Kina","Ikhrek", "Helmets", "Mikik")
-    stat_summary(fun.y = "median", geom = "point", pch = 3, group = 1, size = 5)+
-    labs(title = "Chechen Influence", x = "District", y = "Number of Chechen Loanwords")+
-    theme_bw()#+
-   #theme(legend.position = "none")
+
 all_turkic_counts$Source <- rep("Turkic",nrow(all_turkic_counts))
 avar_counts$Source <- rep("Avar",nrow(avar_counts))
 georgian_counts$Source <- rep("Georgian",nrow(georgian_counts))
 chechen_counts$Source <- rep("Chechen",nrow(chechen_counts))
 loan_counts <- rbind(all_turkic_counts, avar_counts, georgian_counts, chechen_counts)
+
 Area <- factor(loan_counts$District, levels  = c("Rutul","Tsunta","Botlikh","Akhvakh"))
-p5 <- ggplot(data = loan_counts, aes(x = Area, y = Loans)) + 
+p1 <- ggplot(data = loan_counts, aes(x = Area, y = Loans)) + 
     geom_jitter(aes(color = Village), position = position_jitter(width = 0.1, height = 0.1)) +
     stat_summary(fun.y = "median", geom = "point", pch = 3, group = 1, size = 5)+
     labs(title = "Foreign Influence", x = "District", y = "Number of Loanwords")+
@@ -404,7 +374,7 @@ p5 <- ggplot(data = loan_counts, aes(x = Area, y = Loans)) +
 #par(mfcol=c(1,4))
 #library(gridExtra)
 library(plotly)
-ggplotly(p5) %>%
+ggplotly(p1) %>%
   layout(legend = list(
     size = 30
     )
