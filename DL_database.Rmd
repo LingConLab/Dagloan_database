@@ -49,7 +49,7 @@ meta <- read_tsv("meta_01042019.tsv")
 
 # select relevant parameters from metadata file
 
-meta <- meta %>%  select(`List ID`, Type, Birthyear, Gender, Code, Language, Glottocode, Village, District, Lat, Lon)
+meta <- meta %>%  select(`List ID`, Type, Birthyear, Gender, Code, Language, Family, Group, Glottocode, Village, District, Lat, Lon)
 
 # merge table with target words and the corresponding metadata
 
