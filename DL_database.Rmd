@@ -440,7 +440,7 @@ ggplotly(p1) %>%
 
 ##Mediation of Turkic loanwords
 
-```{r}
+```{r, echo=FALSE, message=FALSE, warning=FALSE, fig.width = 9, fig.height= 7}
 all_turkic_in_Lezgi <-  as.data.frame(t(d[which(d$Turk_total>0 & d$D_Russian != 1 & d$D_Arabic != 1 & d$D_Persian != 1 & d$D_Lezgian == 1),]))
 all_turkic_not_in_Lezgi <-  as.data.frame(t(d[which(d$Turk_total>0 & d$D_Russian != 1 & d$D_Arabic != 1 & d$D_Persian != 1 & d$D_Lezgian != 1),]))
 
@@ -483,7 +483,7 @@ p2 <- ggplot(data = all_turkic_lezgi_mediation_counts, aes(x = InLezgi, y = Loan
 ggplotly(p2)
 ```
 
-```{r}
+```{r, echo=FALSE, message=FALSE, warning=FALSE, fig.width = 9, fig.height= 7}
 all_turkic_in_avar <-  as.data.frame(t(d[which(d$Turk_total>0 & d$D_Russian != 1 & d$D_Arabic != 1 & d$D_Persian != 1 & d$D_Avar == 1),]))
 all_turkic_not_in_avar <-  as.data.frame(t(d[which(d$Turk_total>0 & d$D_Russian != 1 & d$D_Arabic != 1 & d$D_Persian != 1 & d$D_Avar != 1),]))
 
