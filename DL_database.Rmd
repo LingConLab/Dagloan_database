@@ -1,21 +1,31 @@
-
 ---
 title: "Daghestanian loans database"
 author: Ilya Chechuro, Michael Daniel, Samira Verhees
+date: "`r Sys.Date()`"
 output:
-  html_document:
-    theme: spacelab
-    toc: yes
-    toc_position: top
-    toc_float: yes
-    smooth_scroll: true
-    fig_cap: TRUE
+  rmdformats::readthedown:
+    highlight: kate
+    css: style.css
 ---
-  
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = FALSE)
 
+
+```{r knitr_init, echo=FALSE, cache=FALSE}
+library(knitr)
+library(rmdformats)
+
+## Global options
+options(max.print="75")
+opts_chunk$set(echo=FALSE,
+	             cache=TRUE,
+               prompt=FALSE,
+               tidy=TRUE,
+               comment=NA,
+               message=FALSE,
+               warning=FALSE)
+opts_knit$set(width=75)
 ```
+
+*Authors: Ilya Chechuro, Michael Daniel, and Samira Verhees.*
 
 This database contains wordlists collected as part of the [Daghestanian loans](https://ilcl.hse.ru/en/projects) project by the [Linguistic Convergence Laboratory](https://ilcl.hse.ru/en/) at NRU HSE. The aim of the 160-item shortlist, which is based on the [World Loanword Database questionnaire](https://wold.clld.org/), is to measure lexical contact on a micro-level. In other words, to quantify lexical convergence among the speech communities of minority languages on a village-level, and to detect fine-grained areal patterns beyond general observations on the spheres of influence of certain languages.
 
@@ -39,8 +49,7 @@ meta <- read_tsv("meta_01042019.tsv")
 
 # select relevant parameters from metadata file
 
-meta <- meta %>%
-  select(`List ID`, Type, Code, Language, Glottocode, Village, District, Lat, Lon)
+meta <- meta %>%  select(`List ID`, Type, Birthyear, Gender, Code, Language, Glottocode, Village, District, Lat, Lon)
 
 # merge table with target words and the corresponding metadata
 
@@ -50,8 +59,9 @@ words_meta$Set <- paste(words_meta$`Concept nr.`, "-", words_meta$Stem)
 
 # select some variables for the datatable (= database interface)
 
-database <- words_meta %>%
-  select(`Concept nr.`, Concept, Word, `Standardized Transcription`, Set, Village, Language, District, `List ID`)
+database <- words_meta %>% select(`Concept nr.`, Concept, Word, `Standardized Transcription`, Set, Village, Language, District, `List ID`, Birthyear, Gender)
+
+
 
 #dummy_dataset <- read.csv("words01032019_dummy.tsv", sep = "\t", header = TRUE)
 
@@ -76,8 +86,7 @@ all <- rbind(target_words, languages)
 all
 
 ```
-
-##How to cite the project
+##How to cite this project
 If you use data from the database in your research, please cite as follows:
 
 Chechuro I., Daniel M., Dobrushina N., and Verhees S. 2019. Daghestanian loans database. Linguistic Convergence Laboratory, HSE. (Available online at https://lingconlab.github.io/Dagloan_database/DL_database.html, [![DOI](https://zenodo.org/badge/164257298.svg)](https://zenodo.org/badge/latestdoi/164257298), accessed on `r format(Sys.time(), '%B %d, %Y')`.)
@@ -92,16 +101,21 @@ The dataset in the dummy format is available [here](https://github.com/LingConLa
 ```{r, echo=FALSE, message=FALSE, warning=FALSE}
 
 # Create a searchable datatable with filters on top
+database$`Concept nr.` <- as.character(database$`Concept nr.`)
+database$`List ID` <- as.character(database$`List ID`)
+database$Gender <- as.character(database$Gender)
+database$Birthyear <- as.integer(database$Birthyear)
 
-datatable(database, class = 'cell-border stripe', 
+database %>% datatable(class = 'cell-border stripe', 
           filter = 'top', 
           #options = list(pageLength = 100),
           extensions = 'Buttons', 
           options = list(
-            pageLength = 100,
-            dom = 'Bfrtip',
+            autoWidth = TRUE,
+            columnDefs = list(list(width = '50px', targets = c(1, 5))),
+            pageLength = 10,
+            dom = 'lBfrtip',
             buttons = c('copy', 'csv')))
-
 ```
 
 ```{r, echo=FALSE, message=FALSE, warning=FALSE}
@@ -195,22 +209,23 @@ map.feature(lang.gltc(lists$Glottocode),
 
 ## Sample lexical map
 
-The map below shows the distribution of different stems for the concept 'bucket'. In most cases the Russian word *vedro* is borrowed.
+The map below shows the distribution of different stems for the concept 'pepper'.
 
 ```{r, echo=FALSE, message=FALSE, warning=FALSE, fig.width = 9, fig.height= 7}
 
-bucket <- words_meta[(words_meta$Concept == 'the bucket'),]
+pepper <- words_meta[(words_meta$Concept == 'the pepper'),]
 
-bucket <- bucket[complete.cases(bucket$Word),]
-bucket <- bucket[complete.cases(bucket$Glottocode),]
+pepper <- pepper[complete.cases(pepper$Word),]
+pepper <- pepper[complete.cases(pepper$Glottocode),]
 
-map.feature(lang.gltc(bucket$Glottocode),
-            latitude = bucket$Lat,
-            longitude = bucket$Lon,
-            features = bucket$Set,
+map.feature(lang.gltc(pepper$Glottocode),
+            latitude = pepper$Lat,
+            longitude = pepper$Lon,
+            features = pepper$Set,
             zoom.control = T,
-            label = bucket$Language,
-            popup = bucket$Word)
+            zoom.level = 7.5,
+            label = pepper$Language,
+            popup = pepper$Word)
 
 
 ```
@@ -363,6 +378,12 @@ p4 <- ggplot(data = chechen_counts, aes(x = factor(District, levels  = c("Rutul"
 
 par(mfcol=c(1,4))
 library(gridExtra)
+#library(plotly)
+#p1 <- ggplotly(p1)
+#p2 <- ggplotly(p2)
+#p3 <- ggplotly(p3)
+#p4 <- ggplotly(p4)
+
 #grid.arrange(p1, p2, p3, p4, nrow = 1)
 lemon::grid_arrange_shared_legend(p1, p2, p3, p4, nrow = 1)
 ```
