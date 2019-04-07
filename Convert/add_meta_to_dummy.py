@@ -14,7 +14,7 @@ for line in metafile:
 	metatable.append(line.strip("\r\n")) 
 for line in metatable[1:]:
 	a = line.split("\t")
-	metadata[a[2]] = str(a[3]) + "\t" + str(a[5]) + "\t" + str(a[9]) # Language, Village, District
+	metadata[a[2]] = str(a[3]) + "\t" + str(a[7]) + "\t" + str(a[11]) # Language, Village, District
 
 for line in sys.stdin.readlines():
 	table.append(line.strip("\r\n")) 
@@ -23,7 +23,7 @@ meaninglist = {}
 
 header = table[0].split("\t")
 speakerlist = {}
-for i in range(1,len(header)-1):
+for i in range(1,len(header)):
 	speakerlist[header[i]] = {}
 	for line in table[1:]: 
 		speakerlist[header[i]][line.split("\t")[0]] = line.split("\t")[i]
