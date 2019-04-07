@@ -398,14 +398,17 @@ p5 <- ggplot(data = loan_counts, aes(x = Area, y = Loans)) +
     stat_summary(fun.y = "median", geom = "point", pch = 3, group = 1, size = 5)+
     labs(title = "Foreign Influence", x = "District", y = "Number of Loanwords")+
     theme_bw()+
-    facet_wrap(. ~ factor(Source, levels = c("Turkic", "Avar", "Georgian", "Chechen")), nrow = 1)
-   #theme(legend.position = "none")
+    facet_wrap(. ~ factor(Source, levels = c("Turkic", "Avar", "Georgian", "Chechen")), nrow = 1)+
+    theme(legend.position = "bottom")
 #p5
 #par(mfcol=c(1,4))
 #library(gridExtra)
 library(plotly)
-ggplotly(p5) 
-
+ggplotly(p5) %>%
+  layout(legend = list(
+    size = 30
+    )
+  )
 
 #subplot(p1,p2,p3,p4)
 
