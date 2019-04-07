@@ -101,10 +101,18 @@ The dataset in the dummy format is available [here](https://github.com/LingConLa
 ```{r, echo=FALSE, message=FALSE, warning=FALSE}
 
 # Create a searchable datatable with filters on top
-database$`Concept nr.` <- as.character(database$`Concept nr.`)
-database$`List ID` <- as.character(database$`List ID`)
-database$Gender <- as.character(database$Gender)
+database$`Concept nr.` <- as.factor(database$`Concept nr.`)
+database$`List ID` <- as.factor(database$`List ID`)
+database$Gender <- as.factor(database$Gender)
 database$Birthyear <- as.integer(database$Birthyear)
+database$Family <- as.factor(database$Family)
+database$Group <- as.factor(database$Group)
+database$Language <- as.factor(database$Language)
+database$Village <- as.factor(database$Village)
+database$Concept <- as.factor(database$Concept)
+database$Set <- as.factor(database$Set)
+database$District <- as.factor(database$District)
+
 
 database %>% datatable(class = 'cell-border stripe', 
           filter = 'top', 
