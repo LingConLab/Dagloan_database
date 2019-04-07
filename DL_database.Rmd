@@ -59,7 +59,7 @@ words_meta$Set <- paste(words_meta$`Concept nr.`, "-", words_meta$Stem)
 
 # select some variables for the datatable (= database interface)
 
-database <- words_meta %>% select(`Concept nr.`, Concept, Word, `Standardized Transcription`, Set, Village, Language, District, `List ID`, Birthyear, Gender)
+database <- words_meta %>% select(`Concept nr.`, Concept, Word, `Standardized Transcription`, Set, Village, Language, Family, Group, District, `List ID`, Birthyear, Gender)
 
 
 
