@@ -490,7 +490,7 @@ all_turkic_lezgi_mediation_counts$District <- factor(all_turkic_lezgi_mediation_
 all_turkic_lezgi_mediation_counts$Loans <- as.numeric(all_turkic_lezgi_mediation_counts$Loans)
 
 all_turkic_lezgi_mediation_counts <- all_turkic_lezgi_mediation_counts[all_turkic_lezgi_mediation_counts$District %in% c("Akhvakh", "Botlikh", "Rutul", "Tsunta"),]
-all_turkic_lezgi_mediation_counts <- all_turkic_lezgi_mediation_counts[-which(all_turkic_lezgi_mediation_counts$Village == "Khlyut"),]
+#all_turkic_lezgi_mediation_counts <- all_turkic_lezgi_mediation_counts[-which(all_turkic_lezgi_mediation_counts$Village == "Khlyut"),]
 all_turkic_lezgi_mediation_counts$District <- factor(all_turkic_lezgi_mediation_counts$District, levels(all_turkic_lezgi_mediation_counts$District) <- c("Akhvakh", "Botlikh", "Rutul", "Tsunta"))
 all_turkic_lezgi_mediation_counts$Village <- factor(all_turkic_lezgi_mediation_counts$Village)
 
@@ -577,7 +577,7 @@ all_turkic_lezgi_mediation_counts$District <- factor(all_turkic_lezgi_mediation_
 all_turkic_lezgi_mediation_counts$Loans <- as.numeric(all_turkic_lezgi_mediation_counts$Loans)
 
 all_turkic_lezgi_mediation_counts <- all_turkic_lezgi_mediation_counts[all_turkic_lezgi_mediation_counts$District %in% c("Akhvakh", "Botlikh", "Rutul", "Tsunta"),]
-all_turkic_lezgi_mediation_counts <- all_turkic_lezgi_mediation_counts[-which(all_turkic_lezgi_mediation_counts$Village == "Khlyut"),]
+#all_turkic_lezgi_mediation_counts <- all_turkic_lezgi_mediation_counts[-which(all_turkic_lezgi_mediation_counts$Village == "Khlyut"),]
 all_turkic_lezgi_mediation_counts$District <- factor(all_turkic_lezgi_mediation_counts$District, levels(all_turkic_lezgi_mediation_counts$District) <- c("Akhvakh", "Botlikh", "Rutul", "Tsunta"))
 all_turkic_lezgi_mediation_counts$Village <- factor(all_turkic_lezgi_mediation_counts$Village)
 
