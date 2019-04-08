@@ -282,7 +282,7 @@ all_turkic$District <- factor(all_turkic$District, levels(all_turkic$District) <
 all_turkic <- gather(all_turkic,Lexeme,Present, the_ant_5:the_year_2,factor_key=TRUE)
 #head(all_turkic)
 
-avar_cognates <- read_tsv("Avar_Cognate_Test(Samira).tsv")
+avar_cognates <- read_tsv("Avar_Cognate_Test(Samira+Kusur).tsv")
 avar_cognates <- avar_cognates[which(avar_cognates$Cognate_Samira == "y"),]
 avar <-  as.data.frame(t(d[which(d$D_Avar>0 & d$D_Russian != 1 & d$D_Arabic != 1 & d$D_Persian != 1 & d$Turk_total == 0),]))
 avar$Speaker <- rownames(avar)
@@ -310,6 +310,25 @@ avar <- avar[-which(avar$Lexeme %in% avar_cognates$Lexeme.x),]
 #avar_cognate_test <- avar_cognate_test %>%
 #  select(`Speaker`, Language.x, Village.x, District.x, Lexeme.x, `List ID`, Concept, `Concept nr.`, Word, Stem, Set)
 #write_tsv(avar_cognate_test, "Avar_Cognate_Test.tsv")
+
+kusur_cognate_test <- as.data.frame(t(d[which(d$Kusur1 == 1 & d$D_Avar == 1 & d$D_Arabic != 1 & d$D_Persian != 1 & d$Turk_total == 0),]))
+kusur_cognate_test$Speaker <- rownames(kusur_cognate_test)
+kusur_cognate_test <- left_join(Districts, kusur_cognate_test, by= c("Speaker"))
+kusur_cognate_test <- gather(kusur_cognate_test,Lexeme,Present, the_ant_20:the_worm_16,factor_key=TRUE)
+kusur_cognate_test <- kusur_cognate_test[kusur_cognate_test$Village %in% c("Kusur") | kusur_cognate_test$Speaker %in% c("D_Avar"),]
+kusur_cognate_test <- kusur_cognate_test[which(kusur_cognate_test$Present == 1),]
+words_meta$Lexeme <- paste(gsub(" ", "_", words_meta$Concept, fixed = TRUE), words_meta$Stem, sep = "_")
+words_meta$SpkrLexeme <- paste(words_meta$Code, words_meta$Lexeme, sep = "_")
+kusur_cognate_test$SpkrLexeme <- paste(kusur_cognate_test$Speaker, kusur_cognate_test$Lexeme, sep = "_")
+kusur_cognate_test <- kusur_cognate_test[which(kusur_cognate_test$Present == 1),]
+kusur_cognate_test <- merge(kusur_cognate_test, words_meta, by= c("SpkrLexeme"))
+kusur_cognate_test <- distinct (kusur_cognate_test)
+kusur_cognate_test <- kusur_cognate_test %>%
+  select(`Speaker`, Language.x, Village.x, District.x, Lexeme.x, `List ID`, Concept, `Concept nr.`, Word, Stem, Set)
+write_tsv(kusur_cognate_test, "kusur_cognate_Test.tsv")
+
+
+
 
 georgian <-  as.data.frame(t(d[which(d$D_Georgian>0 & d$D_Russian != 1 & d$D_Arabic != 1 & d$D_Persian != 1 & d$Turk_total == 0),]))
 georgian$Speaker <- rownames(georgian)
