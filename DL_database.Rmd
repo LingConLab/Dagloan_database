@@ -282,6 +282,8 @@ all_turkic$District <- factor(all_turkic$District, levels(all_turkic$District) <
 all_turkic <- gather(all_turkic,Lexeme,Present, the_ant_5:the_year_2,factor_key=TRUE)
 #head(all_turkic)
 
+avar_cognates <- read_tsv("Avar_Cognate_Test(Samira).tsv")
+avar_cognates <- avar_cognates[which(avar_cognates$Cognate_Samira == "y"),]
 avar <-  as.data.frame(t(d[which(d$D_Avar>0 & d$D_Russian != 1 & d$D_Arabic != 1 & d$D_Persian != 1 & d$Turk_total == 0),]))
 avar$Speaker <- rownames(avar)
 avar <- left_join(Districts, avar, by= c("Speaker"))
@@ -291,22 +293,23 @@ avar$District <- factor(avar$District, levels(avar$District) <- c("Akhvakh", "Bo
 #avar$District <- as.factor(avar$District)
 avar <- gather(avar,Lexeme,Present, the_ant_20:the_year_11,factor_key=TRUE)
 #head(avar)
+avar <- avar[-which(avar$Lexeme %in% avar_cognates$Lexeme.x),]
 
-avar_cognate_test <- as.data.frame(t(d[which(d$AvarAndic_total>1 & d$D_Russian != 1 & d$D_Arabic != 1 & d$D_Persian != 1 & d$Turk_total == 0),]))
-avar_cognate_test$Speaker <- rownames(avar_cognate_test)
-avar_cognate_test <- left_join(Districts, avar_cognate_test, by= c("Speaker"))
-avar_cognate_test <- gather(avar_cognate_test,Lexeme,Present, the_ant_20:the_year_12,factor_key=TRUE)
-avar_cognate_test <- avar_cognate_test[avar_cognate_test$District %in% c("Akhvakh", "Botlikh", "Tsunta") | avar_cognate_test$Speaker %in% c("D_Avar"),]
-avar_cognate_test <- avar_cognate_test[which(avar_cognate_test$Present == 1),]
-words_meta$Lexeme <- paste(gsub(" ", "_", words_meta$Concept, fixed = TRUE), words_meta$Stem, sep = "_")
-words_meta$SpkrLexeme <- paste(words_meta$Code, words_meta$Lexeme, sep = "_")
-avar_cognate_test$SpkrLexeme <- paste(avar_cognate_test$Speaker, avar_cognate_test$Lexeme, sep = "_")
-avar_cognate_test <- avar_cognate_test[which(avar_cognate_test$Present == 1),]
-avar_cognate_test <- merge(avar_cognate_test, words_meta, by= c("SpkrLexeme"))
-avar_cognate_test <- distinct (avar_cognate_test)
-avar_cognate_test <- avar_cognate_test %>%
-  select(`Speaker`, Language.x, Village.x, District.x, Lexeme.x, `List ID`, Concept, `Concept nr.`, Word, Stem, Set)
-write_tsv(avar_cognate_test, "Avar_Cognate_Test.tsv")
+#avar_cognate_test <- as.data.frame(t(d[which(d$AvarAndic_total>1 & d$D_Russian != 1 & d$D_Arabic != 1 & d$D_Persian != 1 & d$Turk_total == 0),]))
+#avar_cognate_test$Speaker <- rownames(avar_cognate_test)
+#avar_cognate_test <- left_join(Districts, avar_cognate_test, by= c("Speaker"))
+#avar_cognate_test <- gather(avar_cognate_test,Lexeme,Present, the_ant_20:the_year_12,factor_key=TRUE)
+#avar_cognate_test <- avar_cognate_test[avar_cognate_test$District %in% c("Akhvakh", "Botlikh", "Tsunta") | avar_cognate_test$Speaker %in% c("D_Avar"),]
+#avar_cognate_test <- avar_cognate_test[which(avar_cognate_test$Present == 1),]
+#words_meta$Lexeme <- paste(gsub(" ", "_", words_meta$Concept, fixed = TRUE), words_meta$Stem, sep = "_")
+#words_meta$SpkrLexeme <- paste(words_meta$Code, words_meta$Lexeme, sep = "_")
+#avar_cognate_test$SpkrLexeme <- paste(avar_cognate_test$Speaker, avar_cognate_test$Lexeme, sep = "_")
+#avar_cognate_test <- avar_cognate_test[which(avar_cognate_test$Present == 1),]
+#avar_cognate_test <- merge(avar_cognate_test, words_meta, by= c("SpkrLexeme"))
+#avar_cognate_test <- distinct (avar_cognate_test)
+#avar_cognate_test <- avar_cognate_test %>%
+#  select(`Speaker`, Language.x, Village.x, District.x, Lexeme.x, `List ID`, Concept, `Concept nr.`, Word, Stem, Set)
+#write_tsv(avar_cognate_test, "Avar_Cognate_Test.tsv")
 
 georgian <-  as.data.frame(t(d[which(d$D_Georgian>0 & d$D_Russian != 1 & d$D_Arabic != 1 & d$D_Persian != 1 & d$Turk_total == 0),]))
 georgian$Speaker <- rownames(georgian)
