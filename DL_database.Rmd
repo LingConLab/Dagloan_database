@@ -396,7 +396,7 @@ Area <- factor(loan_counts$District, levels  = c("Rutul","Tsunta","Botlikh","Akh
 p1 <- ggplot(data = loan_counts, aes(x = Area, y = Loans)) + 
     geom_jitter(aes(color = Village), position = position_jitter(width = 0.3, height = 0.1)) +
     stat_summary(fun.y = "median", geom = "point", pch = 3, group = 1, size = 5)+
-    labs(title = "Foreign Influence", x = "District", y = "Number of Loanwords")+
+    labs(title = "Fig. 1. Foreign Influence", x = "District", y = "Number of Loanwords")+
     theme_bw()+
     facet_wrap(. ~ factor(Source, levels = c("Turkic", "Avar", "Georgian", "Chechen")), nrow = 1, scales = "free")+
     theme(legend.position = "bottom")
@@ -531,7 +531,7 @@ Area <- factor(all_turkic_lezgi_mediation_counts$District, levels  = c("Rutul","
 p2 <- ggplot(data = all_turkic_lezgi_mediation_counts, aes(x = InLezgi, y = Loans)) + 
     geom_jitter(aes(color = Village), position = position_jitter(width = 0.3, height = 0.1)) +
     stat_summary(fun.y = "median", geom = "point", pch = 3, group = 1, size = 5)+
-    labs(title = "Lezgian Mediation of Turkic Influence", x = "In Lezgian", y = "Number of Loanwords")+
+    labs(title = "Fig. 2. Lezgian Mediation of Turkic Influence", x = "In Lezgian", y = "Number of Loanwords")+
     theme_bw()+
     facet_wrap(. ~ factor(District), nrow = 1, scales = "free")+
     theme(legend.position = "bottom")
@@ -572,7 +572,7 @@ Area <- factor(all_turkic_avar_mediation_counts$District, levels  = c("Rutul","T
 p3 <- ggplot(data = all_turkic_avar_mediation_counts, aes(x = InAvar, y = Loans)) + 
     geom_jitter(aes(color = Village), position = position_jitter(width = 0.3, height = 0.1)) +
     stat_summary(fun.y = "median", geom = "point", pch = 3, group = 1, size = 5)+
-    labs(title = "Avar Mediation of Turkic Influence", x = "In Avar", y = "Number of Loanwords")+
+    labs(title = "Fig. 3. Avar Mediation of Turkic Influence", x = "In Avar", y = "Number of Loanwords")+
     theme_bw()+
     facet_wrap(. ~ factor(District), nrow = 1, scales = "free")+
     theme(legend.position = "bottom")
@@ -620,7 +620,7 @@ Area <- factor(all_turkic_lezgi_mediation_counts$District, levels  = c("Rutul","
 p2 <- ggplot(data = all_turkic_lezgi_mediation_counts, aes(x = InLezgi, y = Loans)) + 
     geom_jitter(aes(color = Village), position = position_jitter(width = 0.3, height = 0.1)) +
     stat_summary(fun.y = "median", geom = "point", pch = 3, group = 1, size = 5)+
-    labs(title = "Lezgian Mediation of Turkic Influence", x = "In Lezgian", y = "Number of Loanwords")+
+    labs(title = "Fig. 2. Lezgian Mediation of Turkic Influence", x = "In Lezgian", y = "Number of Loanwords")+
     theme_bw()+
     facet_wrap(. ~ factor(District), nrow = 1, scales = "free")+
     theme(legend.position = "bottom")
@@ -665,7 +665,7 @@ Area <- factor(all_turkic_avar_mediation_counts$District, levels  = c("Rutul","T
 p3 <- ggplot(data = all_turkic_avar_mediation_counts, aes(x = InAvar, y = Loans)) + 
     geom_jitter(aes(color = Village), position = position_jitter(width = 0.3, height = 0.1)) +
     stat_summary(fun.y = "median", geom = "point", pch = 3, group = 1, size = 5)+
-    labs(title = "Avar Mediation of Turkic Influence", x = "In Avar", y = "Number of Loanwords")+
+    labs(title = "Fig. 3. Avar Mediation of Turkic Influence", x = "In Avar", y = "Number of Loanwords")+
     theme_bw()+
     facet_wrap(. ~ factor(District), nrow = 1, scales = "free")+
     theme(legend.position = "bottom")
