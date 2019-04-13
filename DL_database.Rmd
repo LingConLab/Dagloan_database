@@ -23,6 +23,7 @@ opts_chunk$set(echo=FALSE,
                message=FALSE,
                warning=FALSE)
 opts_knit$set(width=75)
+knitr::opts_knit$set(global.device = TRUE)
 ```
 
 *Authors: Ilya Chechuro, Michael Daniel, and Samira Verhees.*
@@ -396,10 +397,10 @@ Area <- factor(loan_counts$District, levels  = c("Rutul","Tsunta","Botlikh","Akh
 p1 <- ggplot(data = loan_counts, aes(x = Area, y = Loans)) + 
     geom_jitter(aes(color = Village), position = position_jitter(width = 0.3, height = 0.1)) +
     stat_summary(fun.y = "median", geom = "point", pch = 3, group = 1, size = 5)+
-    labs(title = "Fig. 1. Foreign Influence", x = "District", y = "Number of Loanwords")+
+    labs(title = "Fig. 1. Influence from major languages", x = "", y = "Number of Loanwords")+
     theme_bw()+
     facet_wrap(. ~ factor(Source, levels = c("Turkic", "Avar", "Georgian", "Chechen")), nrow = 1, scales = "free")+
-    theme(legend.position = "bottom")
+    theme(legend.position = "bottom", axis.text.x = element_text(angle = -30))
 #p5
 #par(mfcol=c(1,4))
 #library(gridExtra)
@@ -421,76 +422,74 @@ ggplotly(p1) %>%
 
 ```{r, echo=FALSE, message=FALSE, warning=FALSE, fig.width = 9, fig.height= 7}
 #These functions count the necessary distances
-#div_count <- function(string1, string2){
-#  x <- unlist(string1, use.names = F)
-#  y <- unlist(string2, use.names = F)
-#  d <- data.frame(x, y)
-#  #print(d)
-#  num <- sum(complete.cases(d))
-#  return(num)
-#}
+div_count <- function(string1, string2){
+  x <- unlist(string1, use.names = F)
+  y <- unlist(string2, use.names = F)
+  d <- data.frame(x, y)
+  #print(d)
+  num <- sum(complete.cases(d))
+  return(num)
+}
 
 # dissimilarity matrix -------------------------------------------------
-#dist_count <- function(data) {
-#  data2 <- data.frame()
-#  for (i in row.names(data)) {
-#    for (j in row.names(data)) {
+dist_count <- function(data) {
+  data2 <- data.frame()
+  for (i in row.names(data)) {
+    for (j in row.names(data)) {
       #print(data[i,])
       #print(data[j,])
-#      data2[i,j] = round(sum((data[i,]!=data[j,]), na.rm=TRUE)/div_count(data[i,],data[j,]), digits=2)
-#      #print (round(sum((data[i,]!=data[j,]), na.rm=TRUE)/div_count(data[i,],data[j,]), digits=2))
-#    }
-#  }
-#  return(data2)
-#}
+      data2[i,j] = round(sum((data[i,]!=data[j,]), na.rm=TRUE)/div_count(data[i,],data[j,]), digits=2)
+      #print (round(sum((data[i,]!=data[j,]), na.rm=TRUE)/div_count(data[i,],data[j,]), digits=2))
+    }
+  }
+  return(data2)
+}
 ```
+##Cluster Dendrogram of Foreign Influence
+```{r, echo=FALSE, message=FALSE, warning=FALSE, fig.width = 9, fig.height= 7}
+library(dendextend)
+library(pvclust)
 
-```{r, echo=FALSE,  eval = FALSE, message=FALSE, warning=FALSE, fig.width = 9, fig.height= 7}
-#library(dendextend)
-#library(pvclust)
+d_no_dict <- d
+d_no_dict$Turkic_total <- NULL
+d_no_dict$AvarAndic_total <- NULL
+d_no_dict <- as.data.frame(t(d_no_dict))
+d_no_dict$Speaker <- row.names(d_no_dict)
+d_no_dict <- left_join(Districts, d_no_dict, by= c("Speaker"))
+d_no_dict <- d_no_dict[-which(d_no_dict$Village == "Dictionary"),]
+row.names(d_no_dict) <- d_no_dict$Speaker
+d_no_dict <- d_no_dict[,-c(1:4)]
+d_no_dict <- as.matrix(d_no_dict)
 
-#d_no_dict <- d
-#d_no_dict$Turkic_total <- NULL
-#d_no_dict$AvarAndic_total <- NULL
-#d_no_dict <- as.data.frame(t(d_no_dict))
-#d_no_dict$Speaker <- row.names(d_no_dict)
-#d_no_dict <- left_join(Districts, d_no_dict, by= c("Speaker"))
-#d_no_dict <- d_no_dict[-which(d_no_dict$Village == "Dictionary"),]
-#row.names(d_no_dict) <- d_no_dict$Speaker
-#d_no_dict <- d_no_dict[,-c(1:4)]
-#d_no_dict <- as.matrix(d_no_dict)
+full_dist <- dist_count(d_no_dict)
+result <- pvclust::pvclust(as.matrix(full_dist), method.hclust="average", nboot=1000, quiet=TRUE)
+d_no_dict_colors <-  full_dist
+d_no_dict_colors$Speaker <- row.names(d_no_dict_colors)
+d_no_dict_colors <- left_join(Districts, d_no_dict_colors, by= c("Speaker"))
+d_no_dict_colors <- d_no_dict_colors[-which(d_no_dict_colors$Village == "Dictionary"),]
+d_no_dict_colors$Turkic_total <- NULL
+d_no_dict_colors$AvarAndic_total <- NULL
+d_no_dict_colors %>% arrange(Speaker)
+row.names(d_no_dict_colors) <- c(1:length(d_no_dict_colors$Speaker))
+lbl <- cbind(result$hclust$label, result$hclust$order)
+colnames(lbl) <- c("Speaker", "Number")
+lbl <- as.data.frame(lbl)
+dstrct <- c()
+for (number in lbl$Number){
+  dstrct <- c(dstrct, d_no_dict_colors$District[as.integer(number)])
+}
 
-#full_dist <- dist_count(d_no_dict)
-#result <- pvclust::pvclust(as.matrix(full_dist, method.hclust="average", nboot=1000))
-#d_no_dict_colors <-  full_dist
-#d_no_dict_colors$Speaker <- row.names(d_no_dict_colors)
-#d_no_dict_colors <- left_join(Districts, d_no_dict_colors, by= c("Speaker"))
-#d_no_dict_colors <- d_no_dict_colors[-which(d_no_dict_colors$Village == "Dictionary"),]
-#d_no_dict_colors$Turkic_total <- NULL
-#d_no_dict_colors$AvarAndic_total <- NULL
-#d_no_dict_colors %>% arrange(Speaker)
-#row.names(d_no_dict_colors) <- c(1:length(d_no_dict_colors$Speaker))
-#lbl <- cbind(result$hclust$label, result$hclust$order)
-#colnames(lbl) <- c("Speaker", "Number")
-#lbl <- as.data.frame(lbl)
-#dstrct <- c()
-#for (number in lbl$Number){
-#  dstrct <- c(dstrct, d_no_dict_colors$District[as.integer(number)])
-#}
+lbl$District <- dstrct
 
-#lbl$District <- dstrct
-
-
-#dend <- as.dendrogram(result)
-#dend <- set(dend, "labels_colors", as.integer(as.factor(lbl$District))) 
-#dend <- set(dend, "labels_cex", .7)
-#dend %>%
-#   pvclust_show_signif_gradient(result) %>%
-#   pvclust_show_signif(result) %>%
-#   plot(main = "Cluster Dendrogram of Foreign Influence")
-#result %>% text(cex = 0.5)
-#result %>% pvrect(alpha=0.95)
-
+dend <- as.dendrogram(result)
+dend <- set(dend, "labels_colors", as.integer(as.factor(lbl$District))) 
+dend <- set(dend, "labels_cex", .7)
+dend %>%
+   pvclust_show_signif_gradient(result) %>%
+   pvclust_show_signif(result) %>%
+   plot(main = "Cluster Dendrogram of Foreign Influence")
+result %>% text (cex = 0.5) 
+result %>% pvrect(alpha=0.95)
 ```
 
 ##Mediation of Turkic influence (Speakers)
@@ -528,13 +527,16 @@ all_turkic_lezgi_mediation_counts$District <- factor(all_turkic_lezgi_mediation_
 all_turkic_lezgi_mediation_counts$Village <- factor(all_turkic_lezgi_mediation_counts$Village)
 
 Area <- factor(all_turkic_lezgi_mediation_counts$District, levels  = c("Rutul","Tsunta","Botlikh","Akhvakh"))
-p2 <- ggplot(data = all_turkic_lezgi_mediation_counts, aes(x = InLezgi, y = Loans)) + 
+all_turkic_lezgi_mediation_counts <- group_by(all_turkic_lezgi_mediation_counts, Village) %>% mutate(Percent = Loans/sum(Loans)*100)
+p2 <- ggplot(data = all_turkic_lezgi_mediation_counts, aes(x = InLezgi, y = Percent)) + 
     geom_jitter(aes(color = Village), position = position_jitter(width = 0.3, height = 0.1)) +
     stat_summary(fun.y = "median", geom = "point", pch = 3, group = 1, size = 5)+
-    labs(title = "Fig. 2. Lezgian Mediation of Turkic Influence", x = "In Lezgian", y = "Number of Loanwords")+
+    labs(title = "Fig. 3. Lezgian Mediation of Turkic Influence", x = "", y = "% of Loanwords")+
     theme_bw()+
-    facet_wrap(. ~ factor(District), nrow = 1, scales = "free")+
-    theme(legend.position = "bottom")
+    facet_wrap(. ~ factor(District, levels = c("Rutul", "Tsunta", "Botlikh", "Akhvakh")), nrow = 1)+
+    theme(legend.position = "bottom")+
+    scale_x_discrete(labels=c("Not in Lezgian", "In Lezgian"))+
+    theme(legend.position = "bottom", axis.text.x = element_text(angle = -30))
 ggplotly(p2)
 ```
 
@@ -569,13 +571,16 @@ all_turkic_avar_mediation_counts <- all_turkic_avar_mediation_counts[all_turkic_
 all_turkic_avar_mediation_counts$District <- factor(all_turkic_avar_mediation_counts$District, levels(all_turkic_avar_mediation_counts$District) <- c("Akhvakh", "Botlikh", "Rutul", "Tsunta"))
 
 Area <- factor(all_turkic_avar_mediation_counts$District, levels  = c("Rutul","Tsunta","Botlikh","Akhvakh"))
-p3 <- ggplot(data = all_turkic_avar_mediation_counts, aes(x = InAvar, y = Loans)) + 
+all_turkic_avar_mediation_counts <- group_by(all_turkic_avar_mediation_counts, Village) %>% mutate(Percent = Loans/sum(Loans)*100)
+p3 <- ggplot(data = all_turkic_avar_mediation_counts, aes(x = InAvar, y = Percent)) + 
     geom_jitter(aes(color = Village), position = position_jitter(width = 0.3, height = 0.1)) +
     stat_summary(fun.y = "median", geom = "point", pch = 3, group = 1, size = 5)+
-    labs(title = "Fig. 3. Avar Mediation of Turkic Influence", x = "In Avar", y = "Number of Loanwords")+
+    labs(title = "Fig. 4. Avar Mediation of Turkic Influence", x = "", y = "% of Loanwords")+
     theme_bw()+
-    facet_wrap(. ~ factor(District), nrow = 1, scales = "free")+
-    theme(legend.position = "bottom")
+    facet_wrap(. ~ factor(District, levels = c("Rutul", "Tsunta", "Botlikh", "Akhvakh")), nrow = 1)+
+    theme(legend.position = "bottom")+
+    scale_x_discrete(labels=c("Not in Avar", "In Avar"))+
+    theme(legend.position = "bottom", axis.text.x = element_text(angle = -30))
 ggplotly(p3)
 ```
 
@@ -617,13 +622,17 @@ all_turkic_lezgi_mediation_counts$Village <- factor(all_turkic_lezgi_mediation_c
 all_turkic_lezgi_mediation_counts <- all_turkic_lezgi_mediation_counts[,-4]
 all_turkic_lezgi_mediation_counts <- distinct(all_turkic_lezgi_mediation_counts)
 Area <- factor(all_turkic_lezgi_mediation_counts$District, levels  = c("Rutul","Tsunta","Botlikh","Akhvakh"))
-p2 <- ggplot(data = all_turkic_lezgi_mediation_counts, aes(x = InLezgi, y = Loans)) + 
+all_turkic_lezgi_mediation_counts <- group_by(all_turkic_lezgi_mediation_counts, Village) %>% mutate(Percent = Loans/sum(Loans)*100)
+
+p2 <- ggplot(data = all_turkic_lezgi_mediation_counts, aes(x = InLezgi, y = Percent)) + 
     geom_jitter(aes(color = Village), position = position_jitter(width = 0.3, height = 0.1)) +
     stat_summary(fun.y = "median", geom = "point", pch = 3, group = 1, size = 5)+
-    labs(title = "Fig. 2. Lezgian Mediation of Turkic Influence", x = "In Lezgian", y = "Number of Loanwords")+
+    labs(title = "Fig. 3. Lezgian Mediation of Turkic Influence", x = "", y = "% of Loanwords")+
     theme_bw()+
-    facet_wrap(. ~ factor(District), nrow = 1, scales = "free")+
-    theme(legend.position = "bottom")
+    facet_wrap(. ~ factor(District, levels = c("Rutul", "Tsunta", "Botlikh", "Akhvakh")), nrow = 1)+
+    theme(legend.position = "bottom")+
+    scale_x_discrete(labels=c("Not in Lezgian", "In Lezgian"))+
+    theme(legend.position = "bottom", axis.text.x = element_text(angle = -30))
 ggplotly(p2)
 ```
 
@@ -662,13 +671,18 @@ all_turkic_avar_mediation_counts$District <- factor(all_turkic_avar_mediation_co
 all_turkic_avar_mediation_counts <- all_turkic_avar_mediation_counts[,-4]
 all_turkic_avar_mediation_counts <- distinct(all_turkic_avar_mediation_counts)
 Area <- factor(all_turkic_avar_mediation_counts$District, levels  = c("Rutul","Tsunta","Botlikh","Akhvakh"))
-p3 <- ggplot(data = all_turkic_avar_mediation_counts, aes(x = InAvar, y = Loans)) + 
+all_turkic_avar_mediation_counts <- group_by(all_turkic_avar_mediation_counts, Village) %>% mutate(Percent = Loans/sum(Loans)*100)
+
+
+p3 <- ggplot(data = all_turkic_avar_mediation_counts, aes(x = InAvar, y = Percent)) + 
     geom_jitter(aes(color = Village), position = position_jitter(width = 0.3, height = 0.1)) +
     stat_summary(fun.y = "median", geom = "point", pch = 3, group = 1, size = 5)+
-    labs(title = "Fig. 3. Avar Mediation of Turkic Influence", x = "In Avar", y = "Number of Loanwords")+
+    labs(title = "Fig. 4. Avar Mediation of Turkic Influence", x = "", y = "% of Loanwords")+
     theme_bw()+
-    facet_wrap(. ~ factor(District), nrow = 1, scales = "free")+
-    theme(legend.position = "bottom")
+    facet_wrap(. ~ factor(District, levels = c("Rutul", "Tsunta", "Botlikh", "Akhvakh")), nrow = 1)+
+    theme(legend.position = "bottom")+
+    scale_x_discrete(labels=c("Not in Avar", "In Avar"))+
+    theme(legend.position = "bottom", axis.text.x = element_text(angle = -30))
 ggplotly(p3)
 ```
 

@@ -13,3 +13,5 @@ forcats
 DT
 lingtypology
 plotly
+dendextend
+pvclust
