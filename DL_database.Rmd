@@ -326,7 +326,7 @@ kusur_cognate_test <- merge(kusur_cognate_test, words_meta, by= c("SpkrLexeme"))
 kusur_cognate_test <- distinct (kusur_cognate_test)
 kusur_cognate_test <- kusur_cognate_test %>%
   select(`Speaker`, Language.x, Village.x, District.x, Lexeme.x, `List ID`, Concept, `Concept nr.`, Word, Stem, Set)
-write_tsv(kusur_cognate_test, "kusur_cognate_Test.tsv")
+#write_tsv(kusur_cognate_test, "kusur_cognate_Test.tsv")
 
 
 
@@ -445,44 +445,54 @@ dist_count <- function(data) {
   return(data2)
 }
 ```
+
 ##Cluster Dendrogram of Foreign Influence
+This tree is built as follows. 0 distance is given only to two matching non-empty cells, otherwise the distance is 1. The NA's are not counted.
+
 ```{r, echo=FALSE, message=FALSE, warning=FALSE, fig.width = 9, fig.height= 7}
 library(dendextend)
 library(pvclust)
+dist_no_dict <- read_tsv("convert/all_loans_dist.tsv")
+row.names(dist_no_dict) <- dist_no_dict$Speaker
+dist_no_dict <- dist_no_dict[,-which(grepl("D_",colnames(dist_no_dict)))]
+row.names(dist_no_dict) <- dist_no_dict$Speaker
+dist_no_dict <- dist_no_dict[-which(grepl("D_",row.names(dist_no_dict))),]
+spkr <- dist_no_dict$Speaker
+dist_no_dict$Speaker <- NULL
+row.names(dist_no_dict) <- spkr
 
-d_no_dict <- d
-d_no_dict$Turkic_total <- NULL
-d_no_dict$AvarAndic_total <- NULL
-d_no_dict <- as.data.frame(t(d_no_dict))
-d_no_dict$Speaker <- row.names(d_no_dict)
-d_no_dict <- left_join(Districts, d_no_dict, by= c("Speaker"))
-d_no_dict <- d_no_dict[-which(d_no_dict$Village == "Dictionary"),]
-row.names(d_no_dict) <- d_no_dict$Speaker
-d_no_dict <- d_no_dict[,-c(1:4)]
-d_no_dict <- as.matrix(d_no_dict)
 
-full_dist <- dist_count(d_no_dict)
-result <- pvclust::pvclust(as.matrix(full_dist), method.hclust="average", nboot=1000, quiet=TRUE)
-d_no_dict_colors <-  full_dist
+#d_no_dict <- d
+#d_no_dict$Turkic_total <- NULL
+#d_no_dict$AvarAndic_total <- NULL
+#d_no_dict <- as.data.frame(t(d_no_dict))
+#d_no_dict$Speaker <- row.names(d_no_dict)
+#d_no_dict <- left_join(Districts, d_no_dict, by= c("Speaker"))
+#d_no_dict <- d_no_dict[-which(d_no_dict$Village == "Dictionary"),]
+#row.names(d_no_dict) <- d_no_dict$Speaker
+#d_no_dict <- d_no_dict[,-c(1:4)]
+#d_no_dict <- as.matrix(d_no_dict)
+
+#full_dist <- dist_count(d_no_dict)
+full_dist <- dist_no_dict
+full_dist <- as.dist(full_dist)
+result <- pvclust::pvclust(as.matrix(full_dist), method.hclust="average", nboot=100, quiet=TRUE)
+d_no_dict_colors <- dist_no_dict
 d_no_dict_colors$Speaker <- row.names(d_no_dict_colors)
 d_no_dict_colors <- left_join(Districts, d_no_dict_colors, by= c("Speaker"))
 d_no_dict_colors <- d_no_dict_colors[-which(d_no_dict_colors$Village == "Dictionary"),]
 d_no_dict_colors$Turkic_total <- NULL
 d_no_dict_colors$AvarAndic_total <- NULL
 d_no_dict_colors %>% arrange(Speaker)
+d_no_dict_colors <- d_no_dict_colors[order(d_no_dict_colors$Speaker),]
 row.names(d_no_dict_colors) <- c(1:length(d_no_dict_colors$Speaker))
-lbl <- cbind(result$hclust$label, result$hclust$order)
-colnames(lbl) <- c("Speaker", "Number")
-lbl <- as.data.frame(lbl)
-dstrct <- c()
-for (number in lbl$Number){
-  dstrct <- c(dstrct, d_no_dict_colors$District[as.integer(number)])
-}
-
-lbl$District <- dstrct
+d_no_dict_colors <- cbind(row.names(dist_no_dict),d_no_dict_colors)
 
 dend <- as.dendrogram(result)
-dend <- set(dend, "labels_colors", as.integer(as.factor(lbl$District))) 
+colors_to_use <- as.integer(as.factor(d_no_dict_colors$District))
+colors_to_use <- colors_to_use[order.dendrogram(dend)]
+
+dend <- set(dend, "labels_colors", colors_to_use)
 dend <- set(dend, "labels_cex", .7)
 dend %>%
    pvclust_show_signif_gradient(result) %>%
@@ -492,8 +502,71 @@ result %>% text (cex = 0.5)
 result %>% pvrect(alpha=0.95)
 ```
 
-##Mediation of Turkic influence (Speakers)
+```{r}
 
+```
+
+
+##Cluster Dendrogram of Foreign Influence (Strict Distances)
+This tree is built as follows. 0 distance is given only to two matching non-empty cells, otherwise the distance is 1. This leads to the huge distances even if speakers are similar. The NA's are counted.
+```{r, echo=FALSE, message=FALSE, warning=FALSE, fig.width = 9, fig.height= 7}
+library(dendextend)
+library(pvclust)
+dist_no_dict <- read_tsv("convert/all_loans_dist_strict.tsv")
+row.names(dist_no_dict) <- dist_no_dict$Speaker
+dist_no_dict <- dist_no_dict[,-which(grepl("D_",colnames(dist_no_dict)))]
+row.names(dist_no_dict) <- dist_no_dict$Speaker
+dist_no_dict <- dist_no_dict[-which(grepl("D_",row.names(dist_no_dict))),]
+spkr <- dist_no_dict$Speaker
+dist_no_dict$Speaker <- NULL
+row.names(dist_no_dict) <- spkr
+
+
+#d_no_dict <- d
+#d_no_dict$Turkic_total <- NULL
+#d_no_dict$AvarAndic_total <- NULL
+#d_no_dict <- as.data.frame(t(d_no_dict))
+#d_no_dict$Speaker <- row.names(d_no_dict)
+#d_no_dict <- left_join(Districts, d_no_dict, by= c("Speaker"))
+#d_no_dict <- d_no_dict[-which(d_no_dict$Village == "Dictionary"),]
+#row.names(d_no_dict) <- d_no_dict$Speaker
+#d_no_dict <- d_no_dict[,-c(1:4)]
+#d_no_dict <- as.matrix(d_no_dict)
+
+#full_dist <- dist_count(d_no_dict)
+full_dist <- dist_no_dict
+full_dist <- as.dist(full_dist)
+result <- pvclust::pvclust(as.matrix(full_dist), method.hclust="average", nboot=100, quiet=TRUE)
+d_no_dict_colors <- dist_no_dict
+d_no_dict_colors$Speaker <- row.names(d_no_dict_colors)
+d_no_dict_colors <- left_join(Districts, d_no_dict_colors, by= c("Speaker"))
+d_no_dict_colors <- d_no_dict_colors[-which(d_no_dict_colors$Village == "Dictionary"),]
+d_no_dict_colors$Turkic_total <- NULL
+d_no_dict_colors$AvarAndic_total <- NULL
+d_no_dict_colors %>% arrange(Speaker)
+d_no_dict_colors <- d_no_dict_colors[order(d_no_dict_colors$Speaker),]
+row.names(d_no_dict_colors) <- c(1:length(d_no_dict_colors$Speaker))
+d_no_dict_colors <- cbind(row.names(dist_no_dict),d_no_dict_colors)
+
+dend <- as.dendrogram(result)
+colors_to_use <- as.integer(as.factor(d_no_dict_colors$District))
+colors_to_use <- colors_to_use[order.dendrogram(dend)]
+
+dend <- set(dend, "labels_colors", colors_to_use)
+dend <- set(dend, "labels_cex", .7)
+dend %>%
+   pvclust_show_signif_gradient(result) %>%
+   pvclust_show_signif(result) %>%
+   plot(main = "Cluster Dendrogram of Foreign Influence")
+result %>% text (cex = 0.5) 
+result %>% pvrect(alpha=0.95)
+```
+
+```{r}
+
+```
+
+##Mediation of Turkic influence (Speakers)
 ```{r, echo=FALSE, message=FALSE, warning=FALSE, fig.width = 9, fig.height= 7}
 all_turkic_in_Lezgi <-  as.data.frame(t(d[which(d$Turk_total>0 & d$D_Russian != 1 & d$D_Arabic != 1 & d$D_Persian != 1 & d$D_Lezgian == 1),]))
 all_turkic_not_in_Lezgi <-  as.data.frame(t(d[which(d$Turk_total>0 & d$D_Russian != 1 & d$D_Arabic != 1 & d$D_Persian != 1 & d$D_Lezgian != 1),]))
@@ -538,9 +611,7 @@ p2 <- ggplot(data = all_turkic_lezgi_mediation_counts, aes(x = InLezgi, y = Perc
     scale_x_discrete(labels=c("Not in Lezgian", "In Lezgian"))+
     theme(legend.position = "bottom", axis.text.x = element_text(angle = -30))
 ggplotly(p2)
-```
 
-```{r, echo=FALSE, message=FALSE, warning=FALSE, fig.width = 9, fig.height= 7}
 all_turkic_in_avar <-  as.data.frame(t(d[which(d$Turk_total>0 & d$D_Russian != 1 & d$D_Arabic != 1 & d$D_Persian != 1 & d$D_Avar == 1),]))
 all_turkic_not_in_avar <-  as.data.frame(t(d[which(d$Turk_total>0 & d$D_Russian != 1 & d$D_Arabic != 1 & d$D_Persian != 1 & d$D_Avar != 1),]))
 
@@ -634,9 +705,7 @@ p2 <- ggplot(data = all_turkic_lezgi_mediation_counts, aes(x = InLezgi, y = Perc
     scale_x_discrete(labels=c("Not in Lezgian", "In Lezgian"))+
     theme(legend.position = "bottom", axis.text.x = element_text(angle = -30))
 ggplotly(p2)
-```
 
-```{r, echo=FALSE, message=FALSE, warning=FALSE, fig.width = 9, fig.height= 7}
 all_turkic_in_avar <-  as.data.frame(t(d[which(d$Turk_total>0 & d$D_Russian != 1 & d$D_Arabic != 1 & d$D_Persian != 1 & d$D_Avar == 1),]))
 all_turkic_not_in_avar <-  as.data.frame(t(d[which(d$Turk_total>0 & d$D_Russian != 1 & d$D_Arabic != 1 & d$D_Persian != 1 & d$D_Avar != 1),]))
 
@@ -685,4 +754,40 @@ p3 <- ggplot(data = all_turkic_avar_mediation_counts, aes(x = InAvar, y = Percen
     theme(legend.position = "bottom", axis.text.x = element_text(angle = -30))
 ggplotly(p3)
 ```
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE, fig.width = 9, fig.height= 7}
+#all_turkic_all_regions <-  as.data.frame(t(d[which(d$Turk_total>0 & d$D_Russian != 1 & d$D_Arabic != 1 & d$D_Persian != 1),]))
+#all_turkic_all_regions$Speaker <- rownames(all_turkic_all_regions)
+#all_turkic_all_regions <- left_join(Districts, all_turkic_all_regions, by= c("Speaker"))
+#all_turkic_all_regions <- gather(all_turkic_all_regions,Lexeme,Present, the_ant_5:the_year_2,factor_key=TRUE)
+#head(all_turkic_all_regions)
+
+#avar_all_regions <-  as.data.frame(t(d[which(d$D_Avar>0 & d$D_Russian != 1 & d$D_Arabic != 1 & d$D_Persian != 1 & d$Turk_total == 0),]))
+#avar_all_regions$Speaker <- rownames(avar_all_regions)
+#avar_all_regions <- left_join(Districts, avar_all_regions, by= c("Speaker"))
+#avar_all_regions <- gather(avar_all_regions,Lexeme,Present, the_ant_20:the_year_11,factor_key=TRUE)
+#avar_all_regions <- avar_all_regions[-which(avar_all_regions$Lexeme %in% avar_cognates$Lexeme.x),]
+
+#georgian_all_regions <-  as.data.frame(t(d[which(d$D_Georgian>0 & d$D_Russian != 1 & d$D_Arabic != 1 & d$D_Persian != 1 & d$Turk_total == 0),]))
+#georgian_all_regions$Speaker <- rownames(georgian_all_regions)
+#georgian_all_regions <- left_join(Districts, georgian_all_regions, by= c("Speaker"))
+#georgian_all_regions <- gather(georgian_all_regions,Lexeme,Present, the_ant_1:the_year_5,factor_key=TRUE)
+
+#chechen_all_regions <-  as.data.frame(t(d[which(d$D_Chechen>0 & d$D_Russian != 1 & d$D_Arabic != 1 & d$D_Persian != 1 & d$Turk_total == 0),]))
+#chechen_all_regions$Speaker <- rownames(chechen_all_regions)
+#chechen_all_regions <- left_join(Districts, chechen_all_regions, by= c("Speaker"))
+#chechen_all_regions <- gather(chechen_all_regions,Lexeme,Present, the_ant_9:the_worm_28,factor_key=TRUE)
+
+#all_loans <- rbind(all_turkic_all_regions, avar_all_regions)
+#all_loans <- rbind(all_loans, georgian_all_regions)
+#all_loans <- rbind(all_loans, chechen_all_regions)
+#all_loans$Code <- sapply(strsplit(as.character(all_loans$Lexeme), "_"), tail, 1)
+#all_loans$Lexeme <- str_sub(all_loans$Lexeme, 1, str_length(all_loans$Lexeme)-2)
+#all_loans$Code <- as.integer(all_loans$Code)*as.integer(all_loans$Present)
+#all_loans$Code[all_loans$Code == 0] <- NA
+#write_tsv(all_loans, "Convert/All_Loans.tsv")
+
+```
+
+
 
