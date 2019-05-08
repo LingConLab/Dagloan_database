@@ -1045,7 +1045,6 @@ all_turkic_AC_mediation_counts <- all_turkic_AC_mediation_counts[,-4]
 all_turkic_AC_mediation_counts <- distinct(all_turkic_AC_mediation_counts)
 Area <- factor(all_turkic_AC_mediation_counts$District, levels  = c("Rutul","Tsunta","Botlikh","Akhvakh"))
 all_turkic_AC_mediation_counts <- group_by(all_turkic_AC_mediation_counts, Village) %>% mutate(Percent = Loans/sum(Loans)*100)
-all_turkic_AC_mediation_counts <- all_turkic_AC_mediation_counts[-which(all_turkic_AC_mediation_counts$Village == "Khlyut"),]
 
 p2 <- ggplot(data = all_turkic_AC_mediation_counts, aes(x = InAC, y = Percent)) + 
     geom_jitter(aes(color = Village), position = position_jitter(width = 0.3, height = 0.1)) +
@@ -1054,7 +1053,7 @@ p2 <- ggplot(data = all_turkic_AC_mediation_counts, aes(x = InAC, y = Percent)) 
     theme_bw()+
     facet_wrap(. ~ factor(District, levels = c("Rutul", "Tsunta", "Botlikh", "Akhvakh")), nrow = 1)+
     theme(legend.position = "bottom")+
-    scale_x_discrete(labels=c("In Both Avar and Chechen", "In Chechen but not in Avar", "In Avar but not in Chechen", "Not in Both"))+
+    scale_x_discrete(labels=c("In Both Avar and Chechen", "In Chechen but not in Avar", "In Avar but not in Chechen", "Not in Avar and not in Chechen"))+
     theme(legend.position = "bottom", axis.text.x = element_text(angle = -30))
 ggplotly(p2)
 
@@ -1064,7 +1063,7 @@ p2 <- ggplot(data = all_turkic_AC_mediation_counts[which(all_turkic_AC_mediation
     labs(title = "Avar and Chechen Mediation of Turkic Influence in the Botlikh District", x = "", y = "% of Loanwords")+
     theme_bw()+
     theme(legend.position = "bottom")+
-    scale_x_discrete(labels=c("In Both Avar and Chechen", "In Chechen but not in Avar", "In Avar but not in Chechen", "Not in Both"))+
+    scale_x_discrete(labels=c("In Both Avar and Chechen", "In Chechen but not in Avar", "In Avar but not in Chechen", "Not in Avar and not in Chechen"))+
     theme(legend.position = "bottom", axis.text.x = element_text(angle = -30))+
     ylim(-5,105)
 ggplotly(p2)
@@ -1146,7 +1145,7 @@ p2 <- ggplot(data = all_turkic_AG_mediation_counts, aes(x = InAG, y = Percent)) 
     theme_bw()+
     facet_wrap(. ~ factor(District, levels = c("Rutul", "Tsunta", "Botlikh", "Akhvakh")), nrow = 1)+
     theme(legend.position = "bottom")+
-    scale_x_discrete(labels=c("In Both Avar and Georgian", "In Georgian but not in Avar", "In Avar but not in Georgian", "Not in Both"))+
+    scale_x_discrete(labels=c("In Both Avar and Georgian", "In Georgian but not in Avar", "In Avar but not in Georgian",  "Not in Avar and not in Georgian"))+
     theme(legend.position = "bottom", axis.text.x = element_text(angle = -30))
 ggplotly(p2)
 
@@ -1162,7 +1161,7 @@ p2 <- ggplot(data = dat, aes(x = InAG, y = Percent)) +
     labs(title = "Avar and Georgian Mediation of Turkic Influence in the Tsunta District", x = "", y = "% of Loanwords")+
     theme_bw()+
     theme(legend.position = "bottom")+
-    scale_x_discrete(labels=c("In Both Georgian and Avar", "In Georgian but not in Avar", "In Avar but not in Georgian", "Not in Georgian and not in Avar"))+
+    scale_x_discrete(labels=c("In Both Georgian and Avar", "In Georgian but not in Avar", "In Avar but not in Georgian", "Not in Avar and not in Georgian"))+
     theme(legend.position = "bottom", axis.text.x = element_text(angle = -30))+
     ylim(-5,105)
 ggplotly(p2)
