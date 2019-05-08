@@ -961,7 +961,7 @@ p2 <- ggplot(data = all_turkic_lezgi_mediation_counts, aes(x = InLezgi, y = Perc
     theme_bw()+
     facet_wrap(. ~ factor(District, levels = c("Rutul", "Tsunta", "Botlikh", "Akhvakh")), nrow = 1)+
     theme(legend.position = "bottom")+
-    scale_x_discrete(labels=c("In Both", "In Khlut but not in Lezgian", "In Lezgian but not in Khlut", "Not in Both"))+
+    scale_x_discrete(labels=c("In Both Khlut and Std. Lezgian", "In Khlut but not in Lezgian", "In Lezgian but not in Khlut", "Not in Khlut and not in Std. Lezgian"))+
     theme(legend.position = "bottom", axis.text.x = element_text(angle = -30))
 ggplotly(p2)
 
