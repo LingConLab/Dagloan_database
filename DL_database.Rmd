@@ -971,7 +971,7 @@ p2 <- ggplot(data = all_turkic_lezgi_mediation_counts[which(all_turkic_lezgi_med
     labs(title = "Lezgian Mediation of Turkic Influence in the Rutul District", x = "", y = "% of Loanwords")+
     theme_bw()+
     theme(legend.position = "bottom")+
-    scale_x_discrete(labels=c("In Both", "In Khlut but not in Std. Lezgian", "In Std. Lezgian but not in Khlut", "Not in Both"))+
+    scale_x_discrete(labels=c("In Both Khlut and Std. Lezgian", "In Khlut but not in Lezgian", "In Lezgian but not in Khlut", "Not in Khlut and not in Std. Lezgian"))+
     theme(legend.position = "bottom", axis.text.x = element_text(angle = -30))+
     ylim(-5,105)
 ggplotly(p2)
