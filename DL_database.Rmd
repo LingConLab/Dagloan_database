@@ -267,6 +267,8 @@ d$Turk_total <- turkic$D_Azerbaijani+turkic$D_Kumyk+turkic$Darvag1+turkic$Darvag
 
 d$AvarAndic_total <- turkic$D_Avar+turkic$D_Gagatli+turkic$Karata1+turkic$Karata2+turkic$Karata3+turkic$Karata4+turkic$Rikvani1+turkic$`Tad-Magitl1`+turkic$`Tad-Magitl2`+turkic$Tukita1+turkic$Zilo1+turkic$Zilo2+turkic$Tlibisho1+turkic$Tlibisho2+turkic$Tlibisho3+turkic$Tlibisho4+turkic$D_Bagvalal+turkic$Kusur1+turkic$Bezhta1+turkic$D_Bezhta1+turkic$D_Botlikh+turkic$D_Hinuq+turkic$D_Karata+turkic$D_Tsez+turkic$Kidero1+turkic$Kidero2+turkic$Kidero3+turkic$D_Bezhta2
 
+d$Khlut_total <- turkic$Khlut1 + turkic$Khlut2 + turkic$Khlut3 + turkic$Khlut4 + turkic$Khlut5
+
 #d <- as.data.frame(t(d))
 #head(d)
 
@@ -887,4 +889,55 @@ upset(all_turkic_lgs,
 
 ```
 
+#Mediation of Turkic Influence via Lezgian and Akhty Lezgian
+```{r, echo=FALSE, message=FALSE, warning=FALSE, fig.width = 9, fig.height= 7}
 
+all_turkic_in_Lezgi <-  as.data.frame(t(d[which(d$Turk_total>0 & d$D_Russian != 1 & d$D_Arabic != 1 & d$D_Persian != 1 & d$D_Lezgian == 1),]))
+all_turkic_not_in_Lezgi <-  as.data.frame(t(d[which(d$Turk_total>0 & d$D_Russian != 1 & d$D_Arabic != 1 & d$D_Persian != 1 & d$D_Lezgian != 1),]))
+
+all_turkic_in_Lezgi$Speaker <- rownames(all_turkic_in_Lezgi)
+all_turkic_in_Lezgi <- left_join(Districts, all_turkic_in_Lezgi, by= c("Speaker"))
+#head(all_turkic)
+all_turkic_not_in_Lezgi$Speaker <- rownames(all_turkic_not_in_Lezgi)
+all_turkic_not_in_Lezgi <- left_join(Districts, all_turkic_not_in_Lezgi, by= c("Speaker"))
+#all_turkic$District <- as.factor(all_turkic$District)
+#all_turkic$District <- factor(all_turkic$District, levels(all_turkic$District) <- c("Akhvakh", "Botlikh", "Rutul", "Tsunta"))
+#all_turkic$District <- as.factor(all_turkic$District)
+all_turkic_in_Lezgi <- gather(all_turkic_in_Lezgi,Lexeme,Present, the_beak_22:the_wolf_2,factor_key=TRUE)
+all_turkic_not_in_Lezgi <- gather(all_turkic_not_in_Lezgi,Lexeme,Present, the_ant_5:the_year_2,factor_key=TRUE)
+all_turkic_in_Lezgi$InLezgi <- rep("1",nrow(all_turkic_in_Lezgi))
+all_turkic_not_in_Lezgi$InLezgi <- rep("0",nrow(all_turkic_not_in_Lezgi))
+all_turkic_lezgi_mediation <- rbind(all_turkic_in_Lezgi, all_turkic_not_in_Lezgi)
+
+all_turkic_lezgi_mediation <- all_turkic_lezgi_mediation[,-1]
+all_turkic_lezgi_mediation <- distinct(all_turkic_lezgi_mediation)
+all_turkic_lezgi_mediation_counts <- aggregate(all_turkic_lezgi_mediation$Present, by=list(all_turkic_lezgi_mediation$Village, all_turkic_lezgi_mediation$InLezgi), FUN=sum, na.rm=TRUE, na.action=NULL)
+#head(all_turkic_lezgi_mediation_counts)
+colnames(all_turkic_lezgi_mediation_counts) <- c("Village","InLezgi","Loans")
+all_turkic_lezgi_mediation_counts <- left_join(all_turkic_lezgi_mediation_counts, Districts, by= c("Village"))
+all_turkic_lezgi_mediation_counts$Village <- droplevels(all_turkic_lezgi_mediation_counts$Village)
+all_turkic_lezgi_mediation_counts$District <- factor(all_turkic_lezgi_mediation_counts$District, levels(all_turkic_lezgi_mediation$District) <- c("Akhvakh", "Botlikh", "Rutul", "Tsunta"))
+#all_turkic_lezgi_mediation_counts <- all_turkic_lezgi_mediation_counts[-c(1:6),]
+all_turkic_lezgi_mediation_counts$Loans <- as.numeric(all_turkic_lezgi_mediation_counts$Loans)
+
+all_turkic_lezgi_mediation_counts <- all_turkic_lezgi_mediation_counts[all_turkic_lezgi_mediation_counts$District %in% c("Akhvakh", "Botlikh", "Rutul", "Tsunta"),]
+#all_turkic_lezgi_mediation_counts <- all_turkic_lezgi_mediation_counts[-which(all_turkic_lezgi_mediation_counts$Village == "Khlyut"),]
+all_turkic_lezgi_mediation_counts$District <- factor(all_turkic_lezgi_mediation_counts$District, levels(all_turkic_lezgi_mediation_counts$District) <- c("Akhvakh", "Botlikh", "Rutul", "Tsunta"))
+all_turkic_lezgi_mediation_counts$Village <- factor(all_turkic_lezgi_mediation_counts$Village)
+
+all_turkic_lezgi_mediation_counts <- all_turkic_lezgi_mediation_counts[,-4]
+all_turkic_lezgi_mediation_counts <- distinct(all_turkic_lezgi_mediation_counts)
+Area <- factor(all_turkic_lezgi_mediation_counts$District, levels  = c("Rutul","Tsunta","Botlikh","Akhvakh"))
+all_turkic_lezgi_mediation_counts <- group_by(all_turkic_lezgi_mediation_counts, Village) %>% mutate(Percent = Loans/sum(Loans)*100)
+
+p2 <- ggplot(data = all_turkic_lezgi_mediation_counts, aes(x = InLezgi, y = Percent)) + 
+    geom_jitter(aes(color = Village), position = position_jitter(width = 0.3, height = 0.1)) +
+    stat_summary(fun.y = "median", geom = "point", pch = 3, group = 1, size = 5)+
+    labs(title = "Fig. 3. Lezgian Mediation of Turkic Influence", x = "", y = "% of Loanwords")+
+    theme_bw()+
+    facet_wrap(. ~ factor(District, levels = c("Rutul", "Tsunta", "Botlikh", "Akhvakh")), nrow = 1)+
+    theme(legend.position = "bottom")+
+    scale_x_discrete(labels=c("Not in Lezgian", "In Lezgian"))+
+    theme(legend.position = "bottom", axis.text.x = element_text(angle = -30))
+ggplotly(p2)
+```
