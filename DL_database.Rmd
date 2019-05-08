@@ -957,7 +957,7 @@ all_turkic_lezgi_mediation_counts <- all_turkic_lezgi_mediation_counts[-which(al
 p2 <- ggplot(data = all_turkic_lezgi_mediation_counts, aes(x = InLezgi, y = Percent)) + 
     geom_jitter(aes(color = Village), position = position_jitter(width = 0.3, height = 0.1)) +
     stat_summary(fun.y = "median", geom = "point", pch = 3, group = 1, size = 5)+
-    labs(title = "Fig. 3. Lezgian Mediation of Turkic Influence", x = "", y = "% of Loanwords")+
+    labs(title = "Lezgian Mediation of Turkic Influence", x = "", y = "% of Loanwords")+
     theme_bw()+
     facet_wrap(. ~ factor(District, levels = c("Rutul", "Tsunta", "Botlikh", "Akhvakh")), nrow = 1)+
     theme(legend.position = "bottom")+
@@ -968,7 +968,7 @@ ggplotly(p2)
 p2 <- ggplot(data = all_turkic_lezgi_mediation_counts[which(all_turkic_lezgi_mediation_counts$District == "Rutul"),], aes(x = InLezgi, y = Percent)) + 
     geom_jitter(aes(color = Village), position = position_jitter(width = 0.3, height = 0.1)) +
     stat_summary(fun.y = "median", geom = "point", pch = 3, group = 1, size = 5)+
-    labs(title = "Fig. 3. Lezgian Mediation of Turkic Influence in the Rutul District", x = "", y = "% of Loanwords")+
+    labs(title = "Lezgian Mediation of Turkic Influence in the Rutul District", x = "", y = "% of Loanwords")+
     theme_bw()+
     theme(legend.position = "bottom")+
     scale_x_discrete(labels=c("In Both", "In Khlut but not in Std. Lezgian", "In Std. Lezgian but not in Khlut", "Not in Both"))+
@@ -1050,7 +1050,7 @@ all_turkic_AC_mediation_counts <- all_turkic_AC_mediation_counts[-which(all_turk
 p2 <- ggplot(data = all_turkic_AC_mediation_counts, aes(x = InAC, y = Percent)) + 
     geom_jitter(aes(color = Village), position = position_jitter(width = 0.3, height = 0.1)) +
     stat_summary(fun.y = "median", geom = "point", pch = 3, group = 1, size = 5)+
-    labs(title = "Fig. 3. Lezgian Mediation of Turkic Influence", x = "", y = "% of Loanwords")+
+    labs(title = "Lezgian Mediation of Turkic Influence", x = "", y = "% of Loanwords")+
     theme_bw()+
     facet_wrap(. ~ factor(District, levels = c("Rutul", "Tsunta", "Botlikh", "Akhvakh")), nrow = 1)+
     theme(legend.position = "bottom")+
@@ -1061,7 +1061,7 @@ ggplotly(p2)
 p2 <- ggplot(data = all_turkic_AC_mediation_counts[which(all_turkic_AC_mediation_counts$District == "Botlikh"),], aes(x = InAC, y = Percent)) + 
     geom_jitter(aes(color = Village), position = position_jitter(width = 0.3, height = 0.1)) +
     stat_summary(fun.y = "median", geom = "point", pch = 3, group = 1, size = 5)+
-    labs(title = "Fig. 3. Avar and Chechen Mediation of Turkic Influence in the Botlikh District", x = "", y = "% of Loanwords")+
+    labs(title = "Avar and Chechen Mediation of Turkic Influence in the Botlikh District", x = "", y = "% of Loanwords")+
     theme_bw()+
     theme(legend.position = "bottom")+
     scale_x_discrete(labels=c("In Both Avar and Chechen", "In Chechen but not in Avar", "In Avar but not in Chechen", "Not in Both"))+
@@ -1142,7 +1142,7 @@ all_turkic_AG_mediation_counts <- all_turkic_AG_mediation_counts[-which(all_turk
 p2 <- ggplot(data = all_turkic_AG_mediation_counts, aes(x = InAG, y = Percent)) + 
     geom_jitter(aes(color = Village), position = position_jitter(width = 0.3, height = 0.1)) +
     stat_summary(fun.y = "median", geom = "point", pch = 3, group = 1, size = 5)+
-    labs(title = "Fig. 3. Lezgian Mediation of Turkic Influence", x = "", y = "% of Loanwords")+
+    labs(title = "Lezgian Mediation of Turkic Influence", x = "", y = "% of Loanwords")+
     theme_bw()+
     facet_wrap(. ~ factor(District, levels = c("Rutul", "Tsunta", "Botlikh", "Akhvakh")), nrow = 1)+
     theme(legend.position = "bottom")+
@@ -1159,7 +1159,7 @@ dat[2,2] <- 1
 p2 <- ggplot(data = dat, aes(x = InAG, y = Percent)) + 
     geom_jitter(aes(color = Village), position = position_jitter(width = 0.3, height = 0.1)) +
     stat_summary(fun.y = "median", geom = "point", pch = 3, group = 1, size = 5)+
-    labs(title = "Fig. 3. Avar and Georgian Mediation of Turkic Influence in the Tsunta District", x = "", y = "% of Loanwords")+
+    labs(title = "Avar and Georgian Mediation of Turkic Influence in the Tsunta District", x = "", y = "% of Loanwords")+
     theme_bw()+
     theme(legend.position = "bottom")+
     scale_x_discrete(labels=c("In Both Georgian and Avar", "In Georgian but not in Avar", "In Avar but not in Georgian", "Not in Georgian and not in Avar"))+
