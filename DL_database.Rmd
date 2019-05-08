@@ -1146,7 +1146,7 @@ p2 <- ggplot(data = all_turkic_AG_mediation_counts, aes(x = InAG, y = Percent)) 
     theme_bw()+
     facet_wrap(. ~ factor(District, levels = c("Rutul", "Tsunta", "Botlikh", "Akhvakh")), nrow = 1)+
     theme(legend.position = "bottom")+
-    scale_x_discrete(labels=c("In Both Avar and georgian", "In georgian but not in Avar", "In Avar but not in georgian", "Not in Both"))+
+    scale_x_discrete(labels=c("In Both Avar and Georgian", "In Georgian but not in Avar", "In Avar but not in Georgian", "Not in Both"))+
     theme(legend.position = "bottom", axis.text.x = element_text(angle = -30))
 ggplotly(p2)
 
@@ -1159,7 +1159,7 @@ dat[2,2] <- 1
 p2 <- ggplot(data = dat, aes(x = InAG, y = Percent)) + 
     geom_jitter(aes(color = Village), position = position_jitter(width = 0.3, height = 0.1)) +
     stat_summary(fun.y = "median", geom = "point", pch = 3, group = 1, size = 5)+
-    labs(title = "Fig. 3. Avar and georgian Mediation of Turkic Influence in the Botlikh District", x = "", y = "% of Loanwords")+
+    labs(title = "Fig. 3. Avar and Georgian Mediation of Turkic Influence in the Tsunta District", x = "", y = "% of Loanwords")+
     theme_bw()+
     theme(legend.position = "bottom")+
     scale_x_discrete(labels=c("In Both Georgian and Avar", "In Georgian but not in Avar", "In Avar but not in Georgian", "Not in Georgian and not in Avar"))+
