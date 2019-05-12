@@ -603,7 +603,7 @@ all_turkic_lezgi_mediation_counts$Village <- factor(all_turkic_lezgi_mediation_c
 
 Area <- factor(all_turkic_lezgi_mediation_counts$District, levels  = c("Rutul","Tsunta","Botlikh","Akhvakh"))
 all_turkic_lezgi_mediation_counts <- group_by(all_turkic_lezgi_mediation_counts, Village) %>% mutate(Percent = Loans/sum(Loans)*100)
-p2 <- ggplot(data = all_turkic_lezgi_mediation_counts, aes(x = InLezgi, y = Percent)) + 
+p2 <- ggplot(data = all_turkic_lezgi_mediation_counts, aes(x = InLezgi, y = Percent, label1 = Loans)) + 
     geom_jitter(aes(color = Village), position = position_jitter(width = 0.3, height = 0.1)) +
     stat_summary(fun.y = "median", geom = "point", pch = 3, group = 1, size = 5)+
     labs(title = "Fig. 3. Lezgian Mediation of Turkic Influence", x = "", y = "% of Loanwords")+
@@ -645,7 +645,7 @@ all_turkic_avar_mediation_counts$District <- factor(all_turkic_avar_mediation_co
 
 Area <- factor(all_turkic_avar_mediation_counts$District, levels  = c("Rutul","Tsunta","Botlikh","Akhvakh"))
 all_turkic_avar_mediation_counts <- group_by(all_turkic_avar_mediation_counts, Village) %>% mutate(Percent = Loans/sum(Loans)*100)
-p3 <- ggplot(data = all_turkic_avar_mediation_counts, aes(x = InAvar, y = Percent)) + 
+p3 <- ggplot(data = all_turkic_avar_mediation_counts, aes(x = InAvar, y = Percent, label1 = Loans)) + 
     geom_jitter(aes(color = Village), position = position_jitter(width = 0.3, height = 0.1)) +
     stat_summary(fun.y = "median", geom = "point", pch = 3, group = 1, size = 5)+
     labs(title = "Fig. 4. Avar Mediation of Turkic Influence", x = "", y = "% of Loanwords")+
@@ -697,7 +697,7 @@ all_turkic_lezgi_mediation_counts <- distinct(all_turkic_lezgi_mediation_counts)
 Area <- factor(all_turkic_lezgi_mediation_counts$District, levels  = c("Rutul","Tsunta","Botlikh","Akhvakh"))
 all_turkic_lezgi_mediation_counts <- group_by(all_turkic_lezgi_mediation_counts, Village) %>% mutate(Percent = Loans/sum(Loans)*100)
 
-p2 <- ggplot(data = all_turkic_lezgi_mediation_counts, aes(x = InLezgi, y = Percent)) + 
+p2 <- ggplot(data = all_turkic_lezgi_mediation_counts, aes(x = InLezgi, y = Percent, label1 = Loans)) + 
     geom_jitter(aes(color = Village), position = position_jitter(width = 0.3, height = 0.1)) +
     stat_summary(fun.y = "median", geom = "point", pch = 3, group = 1, size = 5)+
     labs(title = "Fig. 3. Lezgian Mediation of Turkic Influence", x = "", y = "% of Loanwords")+
@@ -745,7 +745,7 @@ Area <- factor(all_turkic_avar_mediation_counts$District, levels  = c("Rutul","T
 all_turkic_avar_mediation_counts <- group_by(all_turkic_avar_mediation_counts, Village) %>% mutate(Percent = Loans/sum(Loans)*100)
 
 
-p3 <- ggplot(data = all_turkic_avar_mediation_counts, aes(x = InAvar, y = Percent)) + 
+p3 <- ggplot(data = all_turkic_avar_mediation_counts, aes(x = InAvar, y = Percent, label1 = Loans)) + 
     geom_jitter(aes(color = Village), position = position_jitter(width = 0.3, height = 0.1)) +
     stat_summary(fun.y = "median", geom = "point", pch = 3, group = 1, size = 5)+
     labs(title = "Fig. 4. Avar Mediation of Turkic Influence", x = "", y = "% of Loanwords")+
