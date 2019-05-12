@@ -972,13 +972,9 @@ p_mediation_1 <- ggplot(data = all_turkic_lezgi_mediation_counts[which(all_turki
     theme_bw()+
     theme(legend.position = "bottom")+
     scale_x_discrete(labels=c("In Both Khlut and Std. Lezgian", "In Khlut but not in Lezgian", "In Lezgian but not in Khlut", "Not in Khlut and not in Std. Lezgian"))+
-    theme(legend.position = "bottom", axis.text.x = element_text(angle = -30))+
+    theme(legend.position = "bottom", axis.text.x = element_text(angle = -30), plot.title = element_text(size=10), axis.text=element_text(size=6))+
     ylim(-5,105)
 ggplotly(p_mediation_1)
-```
-
-#Avar and Chechen Mediation of Turkic Influence
-```{r, echo=FALSE, message=FALSE, warning=FALSE, fig.width = 9, fig.height= 7}
 
 all_turkic_in_avar_and_in_chechen <-  as.data.frame(t(d[which(d$Turk_total>0 & d$D_Russian != 1 & d$D_Arabic != 1 & d$D_Persian != 1 & d$D_Avar == 1 & d$D_Chechen == 1),]))
 
@@ -1064,13 +1060,9 @@ p_mediation_2 <- ggplot(data = all_turkic_AC_mediation_counts[which(all_turkic_A
     theme_bw()+
     theme(legend.position = "bottom")+
     scale_x_discrete(labels=c("In Both Avar and Chechen", "In Chechen but not in Avar", "In Avar but not in Chechen", "Not in Avar and not in Chechen"))+
-    theme(legend.position = "bottom", axis.text.x = element_text(angle = -30))+
+    theme(legend.position = "bottom", axis.text.x = element_text(angle = -30), plot.title = element_text(size=10), axis.text=element_text(size=6))+
     ylim(-5,105)
 ggplotly(p_mediation_2)
-```
-
-#Avar and Georgian Mediation of Turkic Influence
-```{r, echo=FALSE, message=FALSE, warning=FALSE, fig.width = 9, fig.height= 7}
 
 all_turkic_in_avar_and_in_georgian <-  as.data.frame(t(d[which(d$Turk_total>0 & d$D_Russian != 1 & d$D_Arabic != 1 & d$D_Persian != 1 & d$D_Avar == 1 & d$D_Georgian == 1),]))
 
@@ -1162,13 +1154,10 @@ p_mediation_3 <- ggplot(data = dat, aes(x = InAG, y = Percent)) +
     theme_bw()+
     theme(legend.position = "bottom")+
     scale_x_discrete(labels=c("In Both Georgian and Avar", "In Georgian but not in Avar", "In Avar but not in Georgian", "Not in Avar and not in Georgian"))+
-    theme(legend.position = "bottom", axis.text.x = element_text(angle = -30))+
+    theme(legend.position = "bottom", axis.text.x = element_text(angle = -30), plot.title = element_text(size=10), axis.text=element_text(size=6))+
     ylim(-5,105)
 ggplotly(p_mediation_3)
-```
 
-## Mediation Plots for Article
-```{r, echo=FALSE, message=FALSE, warning=FALSE, fig.width = 9, fig.height= 7}
 library(gridExtra)
 grid.arrange(p_mediation_1, p_mediation_2, p_mediation_3, nrow = 1)
 ```
