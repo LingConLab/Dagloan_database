@@ -273,7 +273,7 @@ d$Khlut_total <- turkic$Khlut1 + turkic$Khlut2 + turkic$Khlut3 + turkic$Khlut4 +
 #head(d)
 
 #Preparing datasets for plotting
-all_turkic <-  as.data.frame(t(d[which(d$Turk_total>0 & d$D_Russian != 1 & d$D_Arabic != 1 & d$D_Persian != 1),]))
+all_turkic <-  as.data.frame(t(d[which(d$Turk_total>0 & d$D_Russian  %in% c(0,NA,"NA") & d$D_Arabic  %in% c(0,NA,"NA") & d$D_Persian  %in% c(0,NA,"NA")),]))
 all_turkic$Speaker <- rownames(all_turkic)
 all_turkic <- left_join(Districts, all_turkic, by= c("Speaker"))
 #head(all_turkic)
@@ -287,7 +287,7 @@ all_turkic <- gather(all_turkic,Lexeme,Present, the_ant_5:the_year_2,factor_key=
 
 avar_cognates <- read_tsv("Avar_Cognate_Test(Samira+Kusur).tsv")
 avar_cognates <- avar_cognates[which(avar_cognates$Cognate_Samira == "y"),]
-avar <-  as.data.frame(t(d[which(d$D_Avar>0 & d$D_Russian != 1 & d$D_Arabic != 1 & d$D_Persian != 1 & d$Turk_total == 0),]))
+avar <-  as.data.frame(t(d[which(d$D_Avar>0 & d$D_Russian  %in% c(0,NA,"NA") & d$D_Arabic  %in% c(0,NA,"NA") & d$D_Persian  %in% c(0,NA,"NA") & d$Turk_total == 0),]))
 avar$Speaker <- rownames(avar)
 avar <- left_join(Districts, avar, by= c("Speaker"))
 #avar$District <- as.factor(avar$District)
@@ -298,7 +298,7 @@ avar <- gather(avar,Lexeme,Present, the_ant_20:the_year_11,factor_key=TRUE)
 #head(avar)
 avar <- avar[-which(avar$Lexeme %in% avar_cognates$Lexeme.x),]
 
-#avar_cognate_test <- as.data.frame(t(d[which(d$AvarAndic_total>1 & d$D_Russian != 1 & d$D_Arabic != 1 & d$D_Persian != 1 & d$Turk_total == 0),]))
+#avar_cognate_test <- as.data.frame(t(d[which(d$AvarAndic_total>1 & d$D_Russian  %in% c(0,NA,"NA") & d$D_Arabic  %in% c(0,NA,"NA") & d$D_Persian  %in% c(0,NA,"NA") & d$Turk_total == 0),]))
 #avar_cognate_test$Speaker <- rownames(avar_cognate_test)
 #avar_cognate_test <- left_join(Districts, avar_cognate_test, by= c("Speaker"))
 #avar_cognate_test <- gather(avar_cognate_test,Lexeme,Present, the_ant_20:the_year_12,factor_key=TRUE)
@@ -314,7 +314,7 @@ avar <- avar[-which(avar$Lexeme %in% avar_cognates$Lexeme.x),]
 #  select(`Speaker`, Language.x, Village.x, District.x, Lexeme.x, `List ID`, Concept, `Concept nr.`, Word, Stem, Set)
 #write_tsv(avar_cognate_test, "Avar_Cognate_Test.tsv")
 
-kusur_cognate_test <- as.data.frame(t(d[which(d$Kusur1 == 1 & d$D_Avar == 1 & d$D_Arabic != 1 & d$D_Persian != 1 & d$Turk_total == 0),]))
+kusur_cognate_test <- as.data.frame(t(d[which(d$Kusur1 == 1 & d$D_Avar == 1 & d$D_Arabic  %in% c(0,NA,"NA") & d$D_Persian  %in% c(0,NA,"NA") & d$Turk_total == 0),]))
 kusur_cognate_test$Speaker <- rownames(kusur_cognate_test)
 kusur_cognate_test <- left_join(Districts, kusur_cognate_test, by= c("Speaker"))
 kusur_cognate_test <- gather(kusur_cognate_test,Lexeme,Present, the_ant_20:the_worm_16,factor_key=TRUE)
@@ -333,7 +333,7 @@ kusur_cognate_test <- kusur_cognate_test %>%
 
 
 
-georgian <-  as.data.frame(t(d[which(d$D_Georgian>0 & d$D_Russian != 1 & d$D_Arabic != 1 & d$D_Persian != 1 & d$Turk_total == 0),]))
+georgian <-  as.data.frame(t(d[which(d$D_Georgian>0 & d$D_Russian  %in% c(0,NA,"NA") & d$D_Arabic  %in% c(0,NA,"NA") & d$D_Persian  %in% c(0,NA,"NA") & d$Turk_total == 0),]))
 georgian$Speaker <- rownames(georgian)
 georgian <- left_join(Districts, georgian, by= c("Speaker"))
 #georgian$District <- as.factor(georgian$District)
@@ -343,7 +343,7 @@ georgian$District <- factor(georgian$District, levels(georgian$District) <- c("A
 georgian <- gather(georgian,Lexeme,Present, the_ant_1:the_year_5,factor_key=TRUE)
 #head(georgian)
 
-chechen <-  as.data.frame(t(d[which(d$D_Chechen>0 & d$D_Russian != 1 & d$D_Arabic != 1 & d$D_Persian != 1 & d$Turk_total == 0),]))
+chechen <-  as.data.frame(t(d[which(d$D_Chechen>0 & d$D_Russian  %in% c(0,NA,"NA") & d$D_Arabic  %in% c(0,NA,"NA") & d$D_Persian  %in% c(0,NA,"NA") & d$Turk_total == 0),]))
 chechen$Speaker <- rownames(chechen)
 chechen <- left_join(Districts, chechen, by= c("Speaker"))
 #chechen$District <- as.factor(chechen$District)
@@ -570,8 +570,8 @@ result %>% pvrect(alpha=0.95)
 
 ##Mediation of Turkic influence (Speakers)
 ```{r, echo=FALSE, message=FALSE, warning=FALSE, fig.width = 9, fig.height= 7}
-all_turkic_in_Lezgi <-  as.data.frame(t(d[which(d$Turk_total>0 & d$D_Russian != 1 & d$D_Arabic != 1 & d$D_Persian != 1 & d$D_Lezgian == 1),]))
-all_turkic_not_in_Lezgi <-  as.data.frame(t(d[which(d$Turk_total>0 & d$D_Russian != 1 & d$D_Arabic != 1 & d$D_Persian != 1 & d$D_Lezgian != 1),]))
+all_turkic_in_Lezgi <-  as.data.frame(t(d[which(d$Turk_total>0 & d$D_Russian  %in% c(0,NA,"NA") & d$D_Arabic  %in% c(0,NA,"NA") & d$D_Persian  %in% c(0,NA,"NA") & d$D_Lezgian == 1),]))
+all_turkic_not_in_Lezgi <-  as.data.frame(t(d[which(d$Turk_total>0 & d$D_Russian  %in% c(0,NA,"NA") & d$D_Arabic  %in% c(0,NA,"NA") & d$D_Persian  %in% c(0,NA,"NA") & d$D_Lezgian  %in% c(0,NA,"NA")),]))
 
 all_turkic_in_Lezgi$Speaker <- rownames(all_turkic_in_Lezgi)
 all_turkic_in_Lezgi <- left_join(Districts, all_turkic_in_Lezgi, by= c("Speaker"))
@@ -614,8 +614,8 @@ p2 <- ggplot(data = all_turkic_lezgi_mediation_counts, aes(x = InLezgi, y = Perc
     theme(legend.position = "bottom", axis.text.x = element_text(angle = -30))
 ggplotly(p2)
 
-all_turkic_in_avar <-  as.data.frame(t(d[which(d$Turk_total>0 & d$D_Russian != 1 & d$D_Arabic != 1 & d$D_Persian != 1 & d$D_Avar == 1),]))
-all_turkic_not_in_avar <-  as.data.frame(t(d[which(d$Turk_total>0 & d$D_Russian != 1 & d$D_Arabic != 1 & d$D_Persian != 1 & d$D_Avar != 1),]))
+all_turkic_in_avar <-  as.data.frame(t(d[which(d$Turk_total>0 & d$D_Russian  %in% c(0,NA,"NA") & d$D_Arabic  %in% c(0,NA,"NA") & d$D_Persian  %in% c(0,NA,"NA") & d$D_Avar == 1),]))
+all_turkic_not_in_avar <-  as.data.frame(t(d[which(d$Turk_total>0 & d$D_Russian  %in% c(0,NA,"NA") & d$D_Arabic  %in% c(0,NA,"NA") & d$D_Persian  %in% c(0,NA,"NA") & d$D_Avar  %in% c(0,NA,"NA")),]))
 
 all_turkic_in_avar$Speaker <- rownames(all_turkic_in_avar)
 all_turkic_in_avar <- left_join(Districts, all_turkic_in_avar, by= c("Speaker"))
@@ -659,8 +659,8 @@ ggplotly(p3)
 
 ##Mediation of Turkic influence (Villages)
 ```{r, echo=FALSE, message=FALSE, warning=FALSE, fig.width = 9, fig.height= 7}
-all_turkic_in_Lezgi <-  as.data.frame(t(d[which(d$Turk_total>0 & d$D_Russian != 1 & d$D_Arabic != 1 & d$D_Persian != 1 & d$D_Lezgian == 1),]))
-all_turkic_not_in_Lezgi <-  as.data.frame(t(d[which(d$Turk_total>0 & d$D_Russian != 1 & d$D_Arabic != 1 & d$D_Persian != 1 & d$D_Lezgian != 1),]))
+all_turkic_in_Lezgi <-  as.data.frame(t(d[which(d$Turk_total>0 & d$D_Russian  %in% c(0,NA,"NA") & d$D_Arabic  %in% c(0,NA,"NA") & d$D_Persian  %in% c(0,NA,"NA") & d$D_Lezgian == 1),]))
+all_turkic_not_in_Lezgi <-  as.data.frame(t(d[which(d$Turk_total>0 & d$D_Russian  %in% c(0,NA,"NA") & d$D_Arabic  %in% c(0,NA,"NA") & d$D_Persian  %in% c(0,NA,"NA") & d$D_Lezgian  %in% c(0,NA,"NA")),]))
 
 all_turkic_in_Lezgi$Speaker <- rownames(all_turkic_in_Lezgi)
 all_turkic_in_Lezgi <- left_join(Districts, all_turkic_in_Lezgi, by= c("Speaker"))
@@ -708,8 +708,8 @@ p2 <- ggplot(data = all_turkic_lezgi_mediation_counts, aes(x = InLezgi, y = Perc
     theme(legend.position = "bottom", axis.text.x = element_text(angle = -30))
 ggplotly(p2)
 
-all_turkic_in_avar <-  as.data.frame(t(d[which(d$Turk_total>0 & d$D_Russian != 1 & d$D_Arabic != 1 & d$D_Persian != 1 & d$D_Avar == 1),]))
-all_turkic_not_in_avar <-  as.data.frame(t(d[which(d$Turk_total>0 & d$D_Russian != 1 & d$D_Arabic != 1 & d$D_Persian != 1 & d$D_Avar != 1),]))
+all_turkic_in_avar <-  as.data.frame(t(d[which(d$Turk_total>0 & d$D_Russian  %in% c(0,NA,"NA") & d$D_Arabic  %in% c(0,NA,"NA") & d$D_Persian  %in% c(0,NA,"NA") & d$D_Avar == 1),]))
+all_turkic_not_in_avar <-  as.data.frame(t(d[which(d$Turk_total>0 & d$D_Russian  %in% c(0,NA,"NA") & d$D_Arabic  %in% c(0,NA,"NA") & d$D_Persian  %in% c(0,NA,"NA") & d$D_Avar  %in% c(0,NA,"NA")),]))
 
 all_turkic_in_avar$Speaker <- rownames(all_turkic_in_avar)
 all_turkic_in_avar <- left_join(Districts, all_turkic_in_avar, by= c("Speaker"))
@@ -762,24 +762,24 @@ ggplotly(p3)
 ```
 
 ```{r, echo=FALSE, message=FALSE, warning=FALSE, fig.width = 9, fig.height= 7}
-#all_turkic_all_regions <-  as.data.frame(t(d[which(d$Turk_total>0 & d$D_Russian != 1 & d$D_Arabic != 1 & d$D_Persian != 1),]))
+#all_turkic_all_regions <-  as.data.frame(t(d[which(d$Turk_total>0 & d$D_Russian  %in% c(0,NA,"NA") & d$D_Arabic  %in% c(0,NA,"NA") & d$D_Persian  %in% c(0,NA,"NA")),]))
 #all_turkic_all_regions$Speaker <- rownames(all_turkic_all_regions)
 #all_turkic_all_regions <- left_join(Districts, all_turkic_all_regions, by= c("Speaker"))
 #all_turkic_all_regions <- gather(all_turkic_all_regions,Lexeme,Present, the_ant_5:the_year_2,factor_key=TRUE)
 #head(all_turkic_all_regions)
 
-#avar_all_regions <-  as.data.frame(t(d[which(d$D_Avar>0 & d$D_Russian != 1 & d$D_Arabic != 1 & d$D_Persian != 1 & d$Turk_total == 0),]))
+#avar_all_regions <-  as.data.frame(t(d[which(d$D_Avar>0 & d$D_Russian  %in% c(0,NA,"NA") & d$D_Arabic  %in% c(0,NA,"NA") & d$D_Persian  %in% c(0,NA,"NA") & d$Turk_total == 0),]))
 #avar_all_regions$Speaker <- rownames(avar_all_regions)
 #avar_all_regions <- left_join(Districts, avar_all_regions, by= c("Speaker"))
 #avar_all_regions <- gather(avar_all_regions,Lexeme,Present, the_ant_20:the_year_11,factor_key=TRUE)
 #avar_all_regions <- avar_all_regions[-which(avar_all_regions$Lexeme %in% avar_cognates$Lexeme.x),]
 
-#georgian_all_regions <-  as.data.frame(t(d[which(d$D_Georgian>0 & d$D_Russian != 1 & d$D_Arabic != 1 & d$D_Persian != 1 & d$Turk_total == 0),]))
+#georgian_all_regions <-  as.data.frame(t(d[which(d$D_Georgian>0 & d$D_Russian  %in% c(0,NA,"NA") & d$D_Arabic  %in% c(0,NA,"NA") & d$D_Persian  %in% c(0,NA,"NA") & d$Turk_total == 0),]))
 #georgian_all_regions$Speaker <- rownames(georgian_all_regions)
 #georgian_all_regions <- left_join(Districts, georgian_all_regions, by= c("Speaker"))
 #georgian_all_regions <- gather(georgian_all_regions,Lexeme,Present, the_ant_1:the_year_5,factor_key=TRUE)
 
-#chechen_all_regions <-  as.data.frame(t(d[which(d$D_Chechen>0 & d$D_Russian != 1 & d$D_Arabic != 1 & d$D_Persian != 1 & d$Turk_total == 0),]))
+#chechen_all_regions <-  as.data.frame(t(d[which(d$D_Chechen>0 & d$D_Russian  %in% c(0,NA,"NA") & d$D_Arabic  %in% c(0,NA,"NA") & d$D_Persian  %in% c(0,NA,"NA") & d$Turk_total == 0),]))
 #chechen_all_regions$Speaker <- rownames(chechen_all_regions)
 #chechen_all_regions <- left_join(Districts, chechen_all_regions, by= c("Speaker"))
 #chechen_all_regions <- gather(chechen_all_regions,Lexeme,Present, the_ant_9:the_worm_28,factor_key=TRUE)
@@ -841,7 +841,7 @@ upset(all_turkic_lgs,
 
 ##Mediation of Standard Azerbaijani Influence 
 ```{r}
-dict_turkic <-  as.data.frame(t(d[which(d$D_Azerbaijani>0 & d$D_Russian != 1 & d$D_Arabic != 1 & d$D_Persian != 1),]))
+dict_turkic <-  as.data.frame(t(d[which(d$D_Azerbaijani>0 & d$D_Russian  %in% c(0,NA,"NA") & d$D_Arabic  %in% c(0,NA,"NA") & d$D_Persian  %in% c(0,NA,"NA")),]))
 dict_turkic$Speaker <- rownames(dict_turkic)
 dict_turkic <- left_join(Districts, dict_turkic, by= c("Speaker"))
 #head(all_turkic)
@@ -892,10 +892,10 @@ upset(all_turkic_lgs,
 #Mediation of Turkic Influence via Major Languages
 ```{r, echo=FALSE, message=FALSE, warning=FALSE, fig.width = 9, fig.height= 7}
 
-all_turkic_in_both_Lezgi <-  as.data.frame(t(d[which(d$Turk_total>0 & d$D_Russian != 1 & d$D_Arabic != 1 & d$D_Persian != 1 & d$D_Lezgian == 1  & d$Khlut_total > 0),]))
-all_turkic_not_in_Lezgi_but_in_Khlut <-  as.data.frame(t(d[which(d$Turk_total>0 & d$D_Russian != 1 & d$D_Arabic != 1 & d$D_Persian != 1 & d$D_Lezgian != 1 & d$Khlut_total > 0),]))
-all_turkic_in_Lezgi_but_not_in_Khlut <-  as.data.frame(t(d[which(d$Turk_total>0 & d$D_Russian != 1 & d$D_Arabic != 1 & d$D_Persian != 1 & d$D_Lezgian == 1 & d$Khlut_total == 0),]))
-all_turkic_not_in_Lezgi_and_not_in_Khlut <-  as.data.frame(t(d[which(d$Turk_total>0 & d$D_Russian != 1 & d$D_Arabic != 1 & d$D_Persian != 1 & d$D_Lezgian != 1 & d$Khlut_total == 0),]))
+all_turkic_in_both_Lezgi <-  as.data.frame(t(d[which(d$Turk_total>0 & d$D_Russian  %in% c(0,NA,"NA") & d$D_Arabic  %in% c(0,NA,"NA") & d$D_Persian  %in% c(0,NA,"NA") & d$D_Lezgian == 1  & d$Khlut_total > 0),]))
+all_turkic_not_in_Lezgi_but_in_Khlut <-  as.data.frame(t(d[which(d$Turk_total>0 & d$D_Russian  %in% c(0,NA,"NA") & d$D_Arabic  %in% c(0,NA,"NA") & d$D_Persian  %in% c(0,NA,"NA") & d$D_Lezgian  %in% c(0,NA,"NA") & d$Khlut_total > 0),]))
+all_turkic_in_Lezgi_but_not_in_Khlut <-  as.data.frame(t(d[which(d$Turk_total>0 & d$D_Russian  %in% c(0,NA,"NA") & d$D_Arabic  %in% c(0,NA,"NA") & d$D_Persian  %in% c(0,NA,"NA") & d$D_Lezgian == 1 & d$Khlut_total == 0),]))
+all_turkic_not_in_Lezgi_and_not_in_Khlut <-  as.data.frame(t(d[which(d$Turk_total>0 & d$D_Russian  %in% c(0,NA,"NA") & d$D_Arabic  %in% c(0,NA,"NA") & d$D_Persian  %in% c(0,NA,"NA") & d$D_Lezgian  %in% c(0,NA,"NA") & d$Khlut_total == 0),]))
 
 
 
@@ -976,13 +976,13 @@ p_mediation_1 <- ggplot(data = all_turkic_lezgi_mediation_counts[which(all_turki
     ylim(-5,105)
 ggplotly(p_mediation_1)
 
-all_turkic_in_avar_and_in_chechen <-  as.data.frame(t(d[which(d$Turk_total>0 & d$D_Russian != 1 & d$D_Arabic != 1 & d$D_Persian != 1 & d$D_Avar == 1 & d$D_Chechen == 1),]))
+all_turkic_in_avar_and_in_chechen <-  as.data.frame(t(d[which(d$Turk_total>0 & d$D_Russian  %in% c(0,NA,"NA") & d$D_Arabic  %in% c(0,NA,"NA") & d$D_Persian  %in% c(0,NA,"NA") & d$D_Avar == 1 & d$D_Chechen == 1),]))
 
-all_turkic_not_in_avar_and_in_chechen <-  as.data.frame(t(d[which(d$Turk_total>0 & d$D_Russian != 1 & d$D_Arabic != 1 & d$D_Persian != 1 & d$D_Avar != 1 & d$D_Chechen == 1),]))
+all_turkic_not_in_avar_and_in_chechen <-  as.data.frame(t(d[which(d$Turk_total>0 & d$D_Russian  %in% c(0,NA,"NA") & d$D_Arabic  %in% c(0,NA,"NA") & d$D_Persian  %in% c(0,NA,"NA") & d$D_Avar  %in% c(0,NA,"NA") & d$D_Chechen == 1),]))
 
-all_turkic_in_avar_and_not_in_chechen <-  as.data.frame(t(d[which(d$Turk_total>0 & d$D_Russian != 1 & d$D_Arabic != 1 & d$D_Persian != 1 & d$D_Avar == 1 & d$D_Chechen != 1),]))
+all_turkic_in_avar_and_not_in_chechen <-  as.data.frame(t(d[which(d$Turk_total>0 & d$D_Russian  %in% c(0,NA,"NA") & d$D_Arabic  %in% c(0,NA,"NA") & d$D_Persian  %in% c(0,NA,"NA") & d$D_Avar == 1 & d$D_Chechen  %in% c(0,NA,"NA")),]))
 
-all_turkic_not_in_avar_and_not_in_chechen <-  as.data.frame(t(d[which(d$Turk_total>0 & d$D_Russian != 1 & d$D_Arabic != 1 & d$D_Persian != 1 & d$D_Avar != 1 & d$D_Chechen != 1),]))
+all_turkic_not_in_avar_and_not_in_chechen <-  as.data.frame(t(d[which(d$Turk_total>0 & d$D_Russian  %in% c(0,NA,"NA") & d$D_Arabic  %in% c(0,NA,"NA") & d$D_Persian  %in% c(0,NA,"NA") & d$D_Avar  %in% c(0,NA,"NA") & d$D_Chechen  %in% c(0,NA,"NA")),]))
 
 
 
@@ -1064,13 +1064,13 @@ p_mediation_2 <- ggplot(data = all_turkic_AC_mediation_counts[which(all_turkic_A
     ylim(-5,105)
 ggplotly(p_mediation_2)
 
-all_turkic_in_avar_and_in_georgian <-  as.data.frame(t(d[which(d$Turk_total>0 & d$D_Russian != 1 & d$D_Arabic != 1 & d$D_Persian != 1 & d$D_Avar == 1 & d$D_Georgian == 1),]))
+all_turkic_in_avar_and_in_georgian <-  as.data.frame(t(d[which(d$Turk_total>0 & d$D_Russian  %in% c(0,NA,"NA") & d$D_Arabic  %in% c(0,NA,"NA") & d$D_Persian  %in% c(0,NA,"NA") & d$D_Avar == 1 & d$D_Georgian == 1),]))
 
-all_turkic_not_in_avar_and_in_georgian <-  as.data.frame(t(d[which(d$Turk_total>0 & d$D_Russian != 1 & d$D_Arabic != 1 & d$D_Persian != 1 & d$D_Avar != 1 & d$D_Georgian == 1),]))
+all_turkic_not_in_avar_and_in_georgian <-  as.data.frame(t(d[which(d$Turk_total>0 & d$D_Russian  %in% c(0,NA,"NA") & d$D_Arabic  %in% c(0,NA,"NA") & d$D_Persian  %in% c(0,NA,"NA") & d$D_Avar  %in% c(0,NA,"NA") & d$D_Georgian == 1),]))
 
-all_turkic_in_avar_and_not_in_georgian <-  as.data.frame(t(d[which(d$Turk_total>0 & d$D_Russian != 1 & d$D_Arabic != 1 & d$D_Persian != 1 & d$D_Avar == 1 & d$D_Georgian != 1),]))
+all_turkic_in_avar_and_not_in_georgian <-  as.data.frame(t(d[which(d$Turk_total>0 & d$D_Russian  %in% c(0,NA,"NA") & d$D_Arabic  %in% c(0,NA,"NA") & d$D_Persian  %in% c(0,NA,"NA") & d$D_Avar == 1 & d$D_Georgian %in% c(0,NA,"NA")),]))
 
-all_turkic_not_in_avar_and_not_in_georgian <-  as.data.frame(t(d[which(d$Turk_total>0 & d$D_Russian != 1 & d$D_Arabic != 1 & d$D_Persian != 1 & d$D_Avar != 1 & d$D_Georgian != 1),]))
+all_turkic_not_in_avar_and_not_in_georgian <-  as.data.frame(t(d[which(d$Turk_total>0 & d$D_Russian  %in% c(0,NA,"NA") & d$D_Arabic  %in% c(0,NA,"NA") & d$D_Persian  %in% c(0,NA,"NA") & d$D_Avar  %in% c(0,NA,"NA") & d$D_Georgian  %in% c(0,NA,"NA")),]))
 
 
 
