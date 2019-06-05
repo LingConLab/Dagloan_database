@@ -1176,5 +1176,3 @@ grid.arrange(p_mediation_1, p_mediation_2, p_mediation_3, nrow = 1)
 
 # References
 
-This web-page was created using the following R packages:
-
