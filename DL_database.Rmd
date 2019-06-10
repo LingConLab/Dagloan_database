@@ -1207,7 +1207,7 @@ grid.arrange(p_mediation_1, p_mediation_2, p_mediation_3, nrow = 1)
 
 #R-shiny version of the page
 
-This page also exists as an R-Shiny application, which features greater interactivity. The R-Shiny application has been created by Ernest Shklyar and Vitaliy Balashov. The R-Shiny code currently only works as a desktop application (requires the R software and several additional packages), which can be downloaded from their [GitHub page](https://github.com/Avbey/dagloans-shiny). The Shiny version of the web-page will substitute the HTML version as soon as possible.
+This page also exists as an R-Shiny application, which features greater interactivity. The R-Shiny application has been created by Ernest Shklyar and Vitaliy Balashov. The R-Shiny code currently  works as a desktop application (requires the R software and several additional packages), which can be downloaded from their [GitHub page](https://github.com/Avbey/dagloans-shiny). The Shiny version of the web-page will substitute the HTML version as soon as possible. The code is also deployed at https://ilchec.shinyapps.io/dagloans-shiny/ and can be accessed with a web-browser. Note that the version of the R-Shiny app may be slightly beyond the HTML page and contain flaws and mistakes that have been corrected on the HTML page (we are working on keeping the apps as similar as possible, but our resources are limited).
 
 
 #Acknowledgements
