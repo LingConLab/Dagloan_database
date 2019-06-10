@@ -250,6 +250,8 @@ map.feature(lang.gltc(pepper$Glottocode),
 
 ##Sources of lexical influence
 
+The four plots presented here show lexical influence from Turkic, Avar, Georgian and Chechen. The data are split by districts on X axis. Y axis shows the percentage of the loans found in the elicited samples. Dots represent elicitations (color shows the village), with a horizontal line showing the median value per district.
+
 ```{r, echo=FALSE, message=FALSE, warning=FALSE, fig.width = 9, fig.height= 7}
 words_src <- read.csv("words_01042019.tsv", header = TRUE, sep = "\t", na.strings = "NA", row.names = NULL)
 #write_tsv(as.data.frame(levels(as.factor(words$Concept))), "wordlist.tsv", na = "NA")
@@ -458,7 +460,7 @@ dist_count <- function(data) {
 ```
 
 ##Cluster Dendrogram of Foreign Influence
-This tree is built as follows. 0 distance is given only to two matching non-empty cells, otherwise the distance is 1. The NA's are not counted.
+The dendrogram presented here show how the word lists collected from diffferent speakers group according to the sets of loanwords of different origin. This tree is built as follows. 0 distance is given only to two matching non-empty cells, otherwise the distance is 1. The NA's are not counted.
 
 ```{r, echo=FALSE, message=FALSE, warning=FALSE, fig.width = 9, fig.height= 7}
 library(dendextend)
@@ -519,7 +521,8 @@ result %>% pvrect(alpha=0.95)
 
 
 ##Cluster Dendrogram of Foreign Influence (Strict Distances)
-This tree is built as follows. 0 distance is given only to two matching non-empty cells, otherwise the distance is 1. This leads to the huge distances even if speakers are similar. The NA's are counted.
+The dendrogram presented here show how the word lists collected from diffferent speakers group according to the sets of loanwords of different origin. This tree is built as follows. 0 distance is given only to two matching non-empty cells, otherwise the distance is 1. This leads to the huge distances even if speakers are similar. The NA's are counted. This dendrogram is different from the previous one in that the penalties for matches between speakers are higher.
+
 ```{r, echo=FALSE, message=FALSE, warning=FALSE, fig.width = 9, fig.height= 7}
 library(dendextend)
 library(pvclust)
@@ -578,6 +581,10 @@ result %>% pvrect(alpha=0.95)
 ```
 
 ##Mediation of Turkic influence (Speakers)
+
+The four plots presented here show how lexical influence from Turkic is mediated by the local major languages (Lezgian and Avar) across Daghestan. The data are split by districts on X axis. Y axis shows the percentage of the loans found in the elicited samples. Dots represent elicitations (color shows the village), with a horizontal line showing the median value per district. The plot indicates that Avar mediation may be high in the north but not present in the south, while Lezgian mediation in not probable in both regions.
+
+
 ```{r, echo=FALSE, message=FALSE, warning=FALSE, fig.width = 9, fig.height= 7}
 all_turkic_in_Lezgi <-  as.data.frame(t(d[which(d$Turk_total>0 & d$D_Russian  %in% c(0,NA,"NA") & d$D_Arabic  %in% c(0,NA,"NA") & d$D_Persian  %in% c(0,NA,"NA") & d$D_Lezgian == 1),]))
 all_turkic_not_in_Lezgi <-  as.data.frame(t(d[which(d$Turk_total>0 & d$D_Russian  %in% c(0,NA,"NA") & d$D_Arabic  %in% c(0,NA,"NA") & d$D_Persian  %in% c(0,NA,"NA") & d$D_Lezgian  %in% c(0,NA,"NA")),]))
@@ -667,6 +674,9 @@ ggplotly(p3)
 ```
 
 ##Mediation of Turkic influence (Villages)
+
+The four plots presented here show how lexical influence from Turkic is mediated by the local major languages (Lezgian and Avar) across Daghestan. The data are split by districts on X axis. Y axis shows the percentage of the loans found in the elicited samples. Dots represent unions of all elicitations per village (color shows the village, too), with a horizontal line showing the median value per district. The plot indicates that Avar mediation may be high in the north but not present in the south, while Lezgian mediation in not probable in both regions.
+
 ```{r, echo=FALSE, message=FALSE, warning=FALSE, fig.width = 9, fig.height= 7}
 all_turkic_in_Lezgi <-  as.data.frame(t(d[which(d$Turk_total>0 & d$D_Russian  %in% c(0,NA,"NA") & d$D_Arabic  %in% c(0,NA,"NA") & d$D_Persian  %in% c(0,NA,"NA") & d$D_Lezgian == 1),]))
 all_turkic_not_in_Lezgi <-  as.data.frame(t(d[which(d$Turk_total>0 & d$D_Russian  %in% c(0,NA,"NA") & d$D_Arabic  %in% c(0,NA,"NA") & d$D_Persian  %in% c(0,NA,"NA") & d$D_Lezgian  %in% c(0,NA,"NA")),]))
@@ -805,6 +815,9 @@ ggplotly(p3)
 ```
 
 ##Mediation of Total Turkic Influence 
+
+The plot presented here illustrates the intersections between the sets of Turkic loans between villages (plot 1) and regions (plot 2).
+
 ```{r, echo=FALSE, message=FALSE, warning=FALSE, fig.width = 9, fig.height= 7}
 all_turkic_wide <- spread(all_turkic, Lexeme, Present)
 all_turkic_wide <- all_turkic_wide[all_turkic_wide$District %in% c("Rutul"),]
@@ -849,6 +862,9 @@ upset(all_turkic_lgs,
 ```
 
 ##Mediation of Standard Azerbaijani Influence 
+
+The plot presented here illustrates the intersections between the sets of loans from Standard Azerbaijani between villages (plot 1) and regions (plot 2).
+
 ```{r}
 dict_turkic <-  as.data.frame(t(d[which(d$D_Azerbaijani>0 & d$D_Russian  %in% c(0,NA,"NA") & d$D_Arabic  %in% c(0,NA,"NA") & d$D_Persian  %in% c(0,NA,"NA")),]))
 dict_turkic$Speaker <- rownames(dict_turkic)
@@ -898,7 +914,21 @@ upset(all_turkic_lgs,
 
 ```
 
+```{r}
+
+```
+
 #Mediation of Turkic Influence via Major Languages
+
+The four plots presented here show how lexical influence from Turkic is mediated by the Lezgian and the Khlut (Akhty) dialect of Lezgian across Daghestan. The data presented here are mostly relevant for the Rutul region, but are still comparable across Daghestan. The data are split by districts on X axis. Y axis shows the percentage of the loans found in the elicited samples. Dots represent elicitations (color shows the village, too), with a horizontal line showing the median value per district. The plot indicates that Avar mediation may be high in the north but not present in the south, while Lezgian mediation in not probable in both regions.
+
+The second set of plots represent the same data for the Chechen and Avar mediation. These data are relevant for the Botlikh region, but are still comparable across Daghestan.
+
+The third set of plots represent the same data for the Georgian and Avar mediation. These data are relevant for the Tsunta region, but are still comparable across Daghestan.
+
+
+
+
 ```{r, echo=FALSE, message=FALSE, warning=FALSE, fig.width = 9, fig.height= 7}
 
 all_turkic_in_both_Lezgi <-  as.data.frame(t(d[which(d$Turk_total>0 & d$D_Russian  %in% c(0,NA,"NA") & d$D_Arabic  %in% c(0,NA,"NA") & d$D_Persian  %in% c(0,NA,"NA") & d$D_Lezgian == 1  & d$Khlut_total > 0),]))
@@ -1054,7 +1084,7 @@ all_turkic_AC_mediation_counts <- group_by(all_turkic_AC_mediation_counts, Villa
 p2 <- ggplot(data = all_turkic_AC_mediation_counts, aes(x = InAC, y = Percent)) + 
     geom_jitter(aes(color = Village), position = position_jitter(width = 0.3, height = 0.1)) +
     stat_summary(fun.y = "median", geom = "point", pch = 3, group = 1, size = 5)+
-    labs(title = "Lezgian Mediation of Turkic Influence", x = "", y = "% of Loanwords")+
+    labs(title = "Avar and Chechen  Mediation of Turkic Influence", x = "", y = "% of Loanwords")+
     theme_bw()+
     facet_wrap(. ~ factor(District, levels = c("Rutul", "Tsunta", "Botlikh", "Akhvakh")), nrow = 1)+
     theme(legend.position = "bottom")+
@@ -1142,7 +1172,7 @@ all_turkic_AG_mediation_counts <- all_turkic_AG_mediation_counts[-which(all_turk
 p2 <- ggplot(data = all_turkic_AG_mediation_counts, aes(x = InAG, y = Percent)) + 
     geom_jitter(aes(color = Village), position = position_jitter(width = 0.3, height = 0.1)) +
     stat_summary(fun.y = "median", geom = "point", pch = 3, group = 1, size = 5)+
-    labs(title = "Lezgian Mediation of Turkic Influence", x = "", y = "% of Loanwords")+
+    labs(title = "Avar and Georgian Mediation of Turkic Influence", x = "", y = "% of Loanwords")+
     theme_bw()+
     facet_wrap(. ~ factor(District, levels = c("Rutul", "Tsunta", "Botlikh", "Akhvakh")), nrow = 1)+
     theme(legend.position = "bottom")+
@@ -1172,10 +1202,10 @@ grid.arrange(p_mediation_1, p_mediation_2, p_mediation_3, nrow = 1)
 ```
 
 #Acknowledgements
-The creators of the project owe a debt of gratitude to the students of HSE university Arseniy Averin, Faina
+The creators of the project owe a debt of gratitude to the students of the HSE university Arseniy Averin, Faina
 Daniel, Lilia Terekhina for the field work, Aleksandra Martynova, Anastasia Safonova, Anna Vishenkova, Anastasia
-Chasovskikh for annotating the dictionary data, to Zarina Kerimova for the transcription of elicitations,
-Russian State University for Humanities; to Sejdul from Darvag, Said from Kina, Azim from Khiv and Abdurizag from Tpig for their hospitality and Az and help during the field trips.
+Chasovskikh for annotating the dictionary data, to Zarina Kerimova from the Russian State University for Humanities for the transcription of elicitations,
+; to Sejdul from Darvag, Said from Kina, Azim from Khiv and Abdurizag from Tpig for their hospitality and help during the field trips. 
 
 # References
 
