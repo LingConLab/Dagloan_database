@@ -920,11 +920,13 @@ upset(all_turkic_lgs,
 
 #Mediation of Turkic Influence via Major Languages
 
-The four plots presented here show how lexical influence from Turkic is mediated by the Lezgian and the Khlut (Akhty) dialect of Lezgian across Daghestan. The data presented here are mostly relevant for the Rutul region, but are still comparable across Daghestan. The data are split by districts on X axis. Y axis shows the percentage of the loans found in the elicited samples. Dots represent elicitations (color shows the village, too), with a horizontal line showing the median value per district. The plot indicates that Avar mediation may be high in the north but not present in the south, while Lezgian mediation in not probable in both regions.
+The first two plots (the first set) presented here in the  show how lexical influence from Turkic is mediated by the Lezgian and the Khlut (Akhty) dialect of Lezgian across Daghestan. The data presented here are mostly relevant for the Rutul region, but are still comparable across Daghestan. The data are split by districts on X axis. Y axis shows the percentage of the loans found in the elicited samples. Dots represent elicitations (color shows the village, too), with a horizontal line showing the median value per district. The plot indicates that Avar mediation may be high in the north but not present in the south, while Lezgian mediation in not probable in both regions.
 
 The second set of plots represent the same data for the Chechen and Avar mediation. These data are relevant for the Botlikh region, but are still comparable across Daghestan.
 
 The third set of plots represent the same data for the Georgian and Avar mediation. These data are relevant for the Tsunta region, but are still comparable across Daghestan.
+
+The last plot set is a combination of the first three made for convenience. 
 
 
 
@@ -1045,7 +1047,7 @@ all_turkic_not_in_avar_and_not_in_chechen <- left_join(Districts, all_turkic_not
 all_turkic_in_avar_and_in_chechen <- gather(all_turkic_in_avar_and_in_chechen,Lexeme,Present, the_bottle_5:the_wine_3,factor_key=TRUE)
 
 all_turkic_not_in_avar_and_in_chechen <- gather(all_turkic_not_in_avar_and_in_chechen,Lexeme,Present, the_beeswax_9:the_voice_8,factor_key=TRUE)
-head(all_turkic_not_in_avar_and_in_chechen)
+#head(all_turkic_not_in_avar_and_in_chechen)
 
 all_turkic_in_avar_and_not_in_chechen <- gather(all_turkic_in_avar_and_not_in_chechen,Lexeme,Present, the_belt_15:the_worm_31,factor_key=TRUE)
 
