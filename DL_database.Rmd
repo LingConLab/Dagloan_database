@@ -461,7 +461,7 @@ dist_count <- function(data) {
 }
 ```
 
-##Cluster Dendrogram of Foreign Influence
+##Cluster dendrogram of foreign influence
 The dendrogram presented here show how the word lists collected from diffferent speakers group according to the sets of loanwords of different origin. This tree is built as follows. 0 distance is given only to two matching non-empty cells, otherwise the distance is 1. The NA's are not counted.
 
 ```{r, echo=FALSE, message=FALSE, warning=FALSE, fig.width = 9, fig.height= 7}
@@ -522,7 +522,7 @@ result %>% pvrect(alpha=0.95)
 ```
 
 
-##Cluster Dendrogram of Foreign Influence (Strict Distances)
+##Cluster dendrogram of foreign influence (strict distances)
 The dendrogram presented here show how the word lists collected from diffferent speakers group according to the sets of loanwords of different origin. This tree is built as follows. 0 distance is given only to two matching non-empty cells, otherwise the distance is 1. This leads to the huge distances even if speakers are similar. The NA's are counted. This dendrogram is different from the previous one in that the penalties for matches between speakers are higher.
 
 ```{r, echo=FALSE, message=FALSE, warning=FALSE, fig.width = 9, fig.height= 7}
@@ -582,7 +582,7 @@ result %>% pvrect(alpha=0.95)
 
 ```
 
-##Mediation of Turkic influence (Speakers)
+##Mediation of Turkic influence (speakers)
 
 The four plots presented here show how lexical influence from Turkic is mediated by the local major languages (Lezgian and Avar) across Daghestan. The data are split by districts on X axis. Y axis shows the percentage of the loans found in the elicited samples. Dots represent elicitations (color shows the village), with a horizontal line showing the median value per district. The plot indicates that Avar mediation may be high in the north but not present in the south, while Lezgian mediation in not probable in both regions.
 
@@ -675,7 +675,7 @@ p3 <- ggplot(data = all_turkic_avar_mediation_counts, aes(x = InAvar, y = Percen
 ggplotly(p3)
 ```
 
-##Mediation of Turkic influence (Villages)
+##Mediation of Turkic influence (villages)
 
 The four plots presented here show how lexical influence from Turkic is mediated by the local major languages (Lezgian and Avar) across Daghestan. The data are split by districts on X axis. Y axis shows the percentage of the loans found in the elicited samples. Dots represent unions of all elicitations per village (color shows the village, too), with a horizontal line showing the median value per district. The plot indicates that Avar mediation may be high in the north but not present in the south, while Lezgian mediation in not probable in both regions.
 
@@ -816,7 +816,7 @@ ggplotly(p3)
 
 ```
 
-##Mediation of Total Turkic Influence 
+##Mediation of total Turkic influence 
 
 The plot presented here illustrates the intersections between the sets of Turkic loans between villages (plot 1) and regions (plot 2).
 
@@ -863,7 +863,7 @@ upset(all_turkic_lgs,
 
 ```
 
-##Mediation of Standard Azerbaijani Influence 
+##Mediation of Standard Azerbaijani influence 
 
 The plot presented here illustrates the intersections between the sets of loans from Standard Azerbaijani between villages (plot 1) and regions (plot 2).
 
@@ -920,7 +920,7 @@ upset(all_turkic_lgs,
 
 ```
 
-#Mediation of Turkic Influence via Major Languages
+#Mediation of Turkic influence via major languages
 
 The first two plots (the first set) presented here in the  show how lexical influence from Turkic is mediated by the Lezgian and the Khlut (Akhty) dialect of Lezgian across Daghestan. The data presented here are mostly relevant for the Rutul region, but are still comparable across Daghestan. The data are split by districts on X axis. Y axis shows the percentage of the loans found in the elicited samples. Dots represent elicitations (color shows the village, too), with a horizontal line showing the median value per district. The plot indicates that Avar mediation may be high in the north but not present in the south, while Lezgian mediation in not probable in both regions.
 
@@ -1205,11 +1205,16 @@ library(gridExtra)
 grid.arrange(p_mediation_1, p_mediation_2, p_mediation_3, nrow = 1)
 ```
 
+#R-shiny version of the page
+
+This page also exists as an R-Shiny application, which features greater interactivity. The R-Shiny application has been created by Ernest Shklyar and Vitaliy Balashov. The R-Shiny code currently only works as a desktop application (requires the R software and several additional packages), which can be downloaded from their [GitHub page](https://github.com/Avbey/dagloans-shiny). The Shiny version of the web-page will substitute the HTML version as soon as possible.
+
+
 #Acknowledgements
 The creators of the project owe a debt of gratitude to the students of the HSE university Arseniy Averin, Faina
 Daniel, Lilia Terekhina for the field work, Aleksandra Martynova, Anastasia Safonova, Anna Vishenkova, Anastasia
 Chasovskikh for annotating the dictionary data, to Zarina Kerimova from the Russian State University for Humanities for the transcription of elicitations,
-; to Sejdul from Darvag, Said from Kina, Azim from Khiv and Abdurizag from Tpig for their hospitality and help during the field trips. 
+; to Sejdul from Darvag, Said from Kina, Azim from Khiv and Abdurizag from Tpig for their hospitality and help during the field trips; and to Ernest Shklyar and Vitaliy Balashov for creating the R-Shiny version of this web-page. 
 
 # References
 
