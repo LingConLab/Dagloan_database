@@ -31,7 +31,7 @@ knitr::opts_knit$set(global.device = TRUE)
 
 *Authors: Ilya Chechuro, Michael Daniel, and Samira Verhees.*
 
-The DagLoans database contains results of elicitation of a list of 146 lexical meanings across languages of Daghestan. Data collection was aimed at assessing the amount of lexical transfer between these languages. The database includes lists elicited from 125 speakers of minority language and 21 lists based on dictionaries of East Caucasian languages. In addition to the data from East Caucasian languages, it also includes data from other languages relevant for the study of language contact in the area, including Persian, Arabic, Azerbaijani, Georgian and Russian.    
+The DagLoans database contains results of elicitation of a list of 146 lexical meanings across languages of Daghestan. Data collection was aimed at assessing the amount of lexical transfer between these languages. The database includes lists elicited from 125 speakers of minority languages and 21 lists based on dictionaries (15 of them of East Caucasian languages). In addition to the data from East Caucasian languages, it also includes data from other languages relevant for the study of language contact in the area, including Persian, Arabic, Azerbaijani, Georgian and Russian (6 dictionaries).    
 
 The general objective of the DagLoans project is the study of lexical borrowing in the languages of Daghestan on the level of granularity that is sensitive to the difference between village varieties. For this purpose, we developed a method for obtaining comparable lexical data through eliciting a relatively short (146 concepts) wordlist that serves as a litmus paper, a quick field probe for the amount of lexical transfer. Using a fixed list allows discovering quantitative correlates of sociolinguistic differences between areas, such as the spread of a certain lingua franca or the presence and degree of contact with particular languages. In combination with the sociolinguistic data on multilingualism in Daghestan, our data shows that the conditions and the degree of language contact for each village vary and correlate with bilingualism rates as reported in our another project, Atlas of Multilingualism in Daghestan.   
  
@@ -105,7 +105,9 @@ Chechuro I., Daniel M., Dobrushina N., and Verhees S. 2019. Daghestanian loans d
 
 For now, the table shows source **Concepts** and target **Words**. Each target word is grouped in a similarity **Set** - a set of words that have the same meaning and look similar. In the future, data will be added on borrowing sources. Metadata includes the name of the **Village** where the word was recorded, the administrative **District** it is part of, the **Language** spoken there, and the **List ID**: these ID's correspond to a particular speaker or in some cases a written source like a dictionary. Data is accessible at: [Github/LingConLab/DagloanDatabase](https://github.com/LingConLab/DagloanDatabase).
 <br>
-The dataset in the dummy format is available [here](https://github.com/LingConLab/Dagloan_database/blob/master/Convert/words_28032019_dummy.tsv). 
+The dataset in the one-hot format is available [here](https://github.com/LingConLab/Dagloan_database/blob/master/Convert/words_28032019_dummy.tsv).
+
+The table below can be sorted and filtered, the resulting subset can be downloaded by pressing on the "CSV" button.
 <br>
 
 ```{r, echo=FALSE, message=FALSE, warning=FALSE}
