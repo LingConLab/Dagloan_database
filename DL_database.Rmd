@@ -135,6 +135,7 @@ database %>% datatable(class = 'cell-border stripe',
           #options = list(pageLength = 100),
           extensions = 'Buttons', 
           options = list(
+            order = list(2, 'asc'),
             autoWidth = TRUE,
             columnDefs = list(list(width = '50px', targets = c(1, 5))),
             pageLength = 10,
