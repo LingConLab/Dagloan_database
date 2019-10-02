@@ -12,9 +12,9 @@ stringr
 forcats
 DT
 lingtypology
+googlesheets
 plotly
 dendextend
 pvclust
 UpSetR
 gridExtra
-knitcitations

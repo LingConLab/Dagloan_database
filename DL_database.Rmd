@@ -31,7 +31,7 @@ knitr::opts_knit$set(global.device = TRUE)
 
 *Authors: Ilya Chechuro, Michael Daniel, and Samira Verhees.*
 
-The DagLoans database contains results of elicitation of a list of 146 lexical meanings across languages of Daghestan. Data collection was aimed at assessing the amount of lexical transfer between these languages. The database includes lists elicited from 125 speakers of minority languages and 21 lists based on dictionaries (15 of them of East Caucasian languages). In addition to the data from East Caucasian languages, it also includes data from other languages relevant for the study of language contact in the area, including Persian, Arabic, Azerbaijani, Georgian and Russian (6 dictionaries).    
+The DagLoans database contains results of elicitation of a list of 164 lexical meanings across languages of Daghestan. Data collection was aimed at assessing the amount of lexical transfer between these languages. The database includes lists elicited from 125 speakers of minority languages and 21 lists based on dictionaries (15 of them of East Caucasian languages). In addition to the data from East Caucasian languages, it also includes data from other languages relevant for the study of language contact in the area, including Persian, Arabic, Azerbaijani, Georgian and Russian (6 dictionaries).    
 
 The general objective of the DagLoans project is the study of lexical borrowing in the languages of Daghestan on the level of granularity that is sensitive to the difference between village varieties. For this purpose, we developed a method for obtaining comparable lexical data through eliciting a relatively short (146 concepts) wordlist that serves as a litmus paper, a quick field probe for the amount of lexical transfer. Using a fixed list allows discovering quantitative correlates of sociolinguistic differences between areas, such as the spread of a certain lingua franca or the presence and degree of contact with particular languages. In combination with the sociolinguistic data on multilingualism in Daghestan, our data shows that the conditions and the degree of language contact for each village vary and correlate with bilingualism rates as reported in our another project, Atlas of Multilingualism in Daghestan.   
  
@@ -47,7 +47,7 @@ The DagLoans database has been compiled by Ilia Chechuro and Samira Verhees. The
 library(tidyverse)
 library(DT)
 library(lingtypology)
-#library(fansi)
+library(googlesheets)
 
 
 # loading data - mind the date in the csv filename!
@@ -68,7 +68,11 @@ words_meta <- merge(words, meta, by = 'List ID')
 words_meta$Set <- paste(words_meta$`Concept nr.`, "-", words_meta$Stem)
 
 # select some variables for the datatable (= database interface)
-
+options(httr_oob_default=TRUE) 
+db <- gs_title("DagLoansDB")
+gs_ws_ls(db)
+words_meta <- gs_read(ss=db, ws = "DLoans")
+words_meta <- as.data.frame(words_meta)
 database <- words_meta %>% select(`Concept nr.`, Concept, Word, `Standardized Transcription`, Set, Village, Language, Family, Group, District, `List ID`, Birthyear, Gender)
 
 
@@ -96,7 +100,7 @@ all <- rbind(target_words, languages)
 all
 
 ```
-##How to cite this project
+## How to cite this project
 If you use data from the database in your research, please cite as follows:
 
 Chechuro I., Daniel M., Dobrushina N., and Verhees S. 2019. Daghestanian loans database. Linguistic Convergence Laboratory, HSE. (Available online at https://lingconlab.github.io/Dagloan_database/DL_database.html, [![DOI](https://zenodo.org/badge/164257298.svg)](https://zenodo.org/badge/latestdoi/164257298), accessed on `r format(Sys.time(), '%B %d, %Y')`.)
@@ -250,7 +254,7 @@ map.feature(lang.gltc(pepper$Glottocode),
 
 ```
 
-##Sources of lexical influence
+## Sources of lexical influence
 
 The four plots presented here show lexical influence from Turkic, Avar, Georgian and Chechen. The data are split by districts on X axis. Y axis shows the percentage of the loans found in the elicited samples. Dots represent elicitations (color shows the village), with a horizontal line showing the median value per district.
 
@@ -261,7 +265,7 @@ words_src <- read.csv("words_01042019.tsv", header = TRUE, sep = "\t", na.string
 library(tidyverse)
 library(ggplot2)
 
-d <- read.csv("convert/words_01042019_dummy.tsv", header = TRUE, sep = "\t", na.strings = "NA", row.names = NULL)
+d <- read.csv("Convert/words_01042019_dummy.tsv", header = TRUE, sep = "\t", na.strings = "NA", row.names = NULL)
 #head(d)
 row.names(d) <- d[,1]
 #d_long <- gather(d, Lexeme, Present, the_ant_1:the_year_12, factor_key=TRUE)
@@ -461,13 +465,14 @@ dist_count <- function(data) {
 }
 ```
 
-##Cluster dendrogram of foreign influence
+## Cluster dendrogram of foreign influence
+
 The dendrogram presented here show how the word lists collected from diffferent speakers group according to the sets of loanwords of different origin. This tree is built as follows. 0 distance is given only to two matching non-empty cells, otherwise the distance is 1. The NA's are not counted.
 
 ```{r, echo=FALSE, message=FALSE, warning=FALSE, fig.width = 9, fig.height= 7}
 library(dendextend)
 library(pvclust)
-dist_no_dict <- read_tsv("convert/all_loans_dist.tsv")
+dist_no_dict <- read_tsv("Convert/all_loans_dist.tsv")
 row.names(dist_no_dict) <- dist_no_dict$Speaker
 dist_no_dict <- dist_no_dict[,-which(grepl("D_",colnames(dist_no_dict)))]
 row.names(dist_no_dict) <- dist_no_dict$Speaker
@@ -522,13 +527,13 @@ result %>% pvrect(alpha=0.95)
 ```
 
 
-##Cluster dendrogram of foreign influence (strict distances)
+## Cluster dendrogram of foreign influence (strict distances)
 The dendrogram presented here show how the word lists collected from diffferent speakers group according to the sets of loanwords of different origin. This tree is built as follows. 0 distance is given only to two matching non-empty cells, otherwise the distance is 1. This leads to the huge distances even if speakers are similar. The NA's are counted. This dendrogram is different from the previous one in that the penalties for matches between speakers are higher.
 
 ```{r, echo=FALSE, message=FALSE, warning=FALSE, fig.width = 9, fig.height= 7}
 library(dendextend)
 library(pvclust)
-dist_no_dict <- read_tsv("convert/all_loans_dist_strict.tsv")
+dist_no_dict <- read_tsv("Convert/all_loans_dist_strict.tsv")
 row.names(dist_no_dict) <- dist_no_dict$Speaker
 dist_no_dict <- dist_no_dict[,-which(grepl("D_",colnames(dist_no_dict)))]
 row.names(dist_no_dict) <- dist_no_dict$Speaker
@@ -582,7 +587,7 @@ result %>% pvrect(alpha=0.95)
 
 ```
 
-##Mediation of Turkic influence (speakers)
+## Mediation of Turkic influence (speakers)
 
 The four plots presented here show how lexical influence from Turkic is mediated by the local major languages (Lezgian and Avar) across Daghestan. The data are split by districts on X axis. Y axis shows the percentage of the loans found in the elicited samples. Dots represent elicitations (color shows the village), with a horizontal line showing the median value per district. The plot indicates that Avar mediation may be high in the north but not present in the south, while Lezgian mediation in not probable in both regions.
 
@@ -675,7 +680,7 @@ p3 <- ggplot(data = all_turkic_avar_mediation_counts, aes(x = InAvar, y = Percen
 ggplotly(p3)
 ```
 
-##Mediation of Turkic influence (villages)
+## Mediation of Turkic influence (villages)
 
 The four plots presented here show how lexical influence from Turkic is mediated by the local major languages (Lezgian and Avar) across Daghestan. The data are split by districts on X axis. Y axis shows the percentage of the loans found in the elicited samples. Dots represent unions of all elicitations per village (color shows the village, too), with a horizontal line showing the median value per district. The plot indicates that Avar mediation may be high in the north but not present in the south, while Lezgian mediation in not probable in both regions.
 
@@ -816,7 +821,7 @@ ggplotly(p3)
 
 ```
 
-##Mediation of total Turkic influence 
+## Mediation of total Turkic influence 
 
 The plot presented here illustrates the intersections between the sets of Turkic loans between villages (plot 1) and regions (plot 2).
 
@@ -863,7 +868,7 @@ upset(all_turkic_lgs,
 
 ```
 
-##Mediation of Standard Azerbaijani influence 
+## Mediation of Standard Azerbaijani influence 
 
 The plot presented here illustrates the intersections between the sets of loans from Standard Azerbaijani between villages (plot 1) and regions (plot 2).
 
